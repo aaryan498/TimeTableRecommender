@@ -15,7 +15,7 @@ jobs:
 
       - name: Setup SSH for EC2
         uses: webfactory/ssh-agent@v0.7.0
-        with:
+        with: 
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
       - name: Copy deploy key and deploy to EC2
