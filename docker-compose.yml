@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   finalscheduler:
     build: ./FinalScheduler
@@ -14,6 +16,13 @@ services:
     volumes:
       - ./FinalScheduler:/app
     command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   node-backend:
     build: ./node-backend
@@ -29,7 +38,15 @@ services:
       - final-network
     volumes:
       - ./node-backend:/app
-    command: node src/index.js
+      - /app/node_modules       
+    command: npm start            
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   mongodb:
     image: mongo:6
@@ -44,6 +61,12 @@ services:
       - mongo_data:/data/db
     networks:
       - final-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   redis:
     image: redis:7
@@ -53,6 +76,12 @@ services:
       - "6379:6379"
     networks:
       - final-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
 volumes:
   mongo_data:
