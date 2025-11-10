@@ -23,7 +23,7 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          echo "$DEPLOY_KEY" > deploy_key.pem
+          echo "$DEPLOY_KEY" > deploy_key.pem 
           chmod 600 deploy_key.pem
           scp -o StrictHostKeyChecking=no deploy_key.pem ubuntu@$EC2_HOST:/home/ubuntu/.ssh/deploy_key.pem
           rm -f deploy_key.pem
