@@ -1,4 +1,4 @@
-name: Deploy Synchron on EC2
+name: Deploy Synchron-Backend on EC2
 
 on:
   push:
@@ -38,23 +38,23 @@ jobs:
             git config --global user.name "EC2 Deployer"
             git config --global user.email "ec2-deploy@synchron.com"
 
-            #  Trust GitHub SSH host (fixes Host key verification failed)
+            # Trust GitHub SSH host (avoid Host key verification issues)
             mkdir -p ~/.ssh
             ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-            if [ ! -d "Synchron" ]; then
+            if [ ! -d "Synchron-Backend" ]; then
               echo " Cloning repo for the first time..."
               git clone git@github.com:ayushsingh212/Synchron-Backend.git
+              cd Synchron-Backend
             else
               echo " Repo exists, pulling latest changes..."
-              cd Synchron
+              cd Synchron-Backend
               git pull origin master
             fi
 
-            cd /home/ubuntu/Synchron
             echo " Rebuilding Docker containers..."
             docker-compose down
             docker-compose up -d --build
 
-            echo " Deployment completed successfully!"
+            echo "  Deployment completed successfully!"
           EOF
