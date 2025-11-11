@@ -6,12 +6,12 @@ import { FacultyTimetable } from "../models/facultyTimetable.model.js";
 import path from "path";
 import fs from "fs"
 import { SectionTimetable } from "../models/sectionTimetable.model.js";
-const FLASK_URL = process.env.NODE_URL;
 import FormData from "form-data";
 import { OrganisationData } from "../models/organisationData.model.js";
 
 import { nanoid } from "nanoid"; 
 
+const {FLASK_URL} = process.env
 
 export const getTheDynamicResult = asyncHandler(async (req, res) => {
 

@@ -9,10 +9,10 @@ import { spawn } from "child_process";
 const app = express();
 
 // ===== CORS CONFIG =====
-const FRONTEND_URL = "http://localhost:5173";
+const {FRONTEND_URL} = process.env;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: [FRONTEND_URL,"http://localhost:5173"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
