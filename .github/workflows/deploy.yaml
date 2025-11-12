@@ -15,7 +15,7 @@ jobs:
 
       - name: Setup SSH for EC2
         uses: webfactory/ssh-agent@v0.7.0
-        with: 
+        with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
       - name: Copy deploy key and deploy to EC2
@@ -23,7 +23,7 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          echo "$DEPLOY_KEY" > deploy_key.pem 
+          echo "$DEPLOY_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
           scp -o StrictHostKeyChecking=no deploy_key.pem ubuntu@$EC2_HOST:/home/ubuntu/.ssh/deploy_key.pem
           rm -f deploy_key.pem
@@ -38,7 +38,6 @@ jobs:
             git config --global user.name "EC2 Deployer"
             git config --global user.email "ec2-deploy@synchron.com"
 
-            # Trust GitHub SSH host (avoid Host key verification issues)
             mkdir -p ~/.ssh
             ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
@@ -47,14 +46,17 @@ jobs:
               git clone git@github.com:ayushsingh212/Synchron-Backend.git
               cd Synchron-Backend
             else
-              echo " Repo exists, pulling latest changes..."
+              echo " Pulling latest code..."
               cd Synchron-Backend
               git pull origin master
             fi
 
-            echo " Rebuilding Docker containers..."
-            sudo docker compose down
+            echo " Cleaning up old Docker resources..."
+            sudo docker compose down --volumes --remove-orphans
+            sudo docker system prune -af --volumes
+
+            echo " Rebuilding and starting containers..."
             sudo docker compose up -d --build
 
-            echo "  Deployment completed successfully!"
+            echo " Deployment completed successfully!"
           EOF
