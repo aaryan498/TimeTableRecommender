@@ -357,7 +357,7 @@ export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
 
       try {
         const apiResp = await axios.get(
-          `http://127.0.0.1:5000/api/timetables/sections`,
+          `${FLASK_URL}/api/timetables/sections`,
           { withCredentials: true }
         );
 

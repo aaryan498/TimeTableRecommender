@@ -31,7 +31,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // ===== ROUTES =====
-app.use("/api", allRouter);
+app.use("/api/v1", allRouter);
 
 // ===== ERROR HANDLER =====
 app.use((err, req, res, next) => {
