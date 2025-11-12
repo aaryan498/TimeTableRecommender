@@ -107,7 +107,12 @@ export const getInfoPdf = async (req, res) => {
  */
 export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
-  const organisationId = req.organisation?._id || "68c3a7676a6f31d27472a90d";
+  const organisationId = req.organisation?._id 
+
+  if(!organisationId)
+  {
+    throw new ApiError(400,"Login First")
+  }
   //  const data = req.body;
 
   const organisationData = await OrganisationData.findOne({ organisationId });
