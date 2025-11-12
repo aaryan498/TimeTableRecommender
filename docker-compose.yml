@@ -17,7 +17,12 @@ services:
       - ./FinalScheduler:/app
     command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
     restart: always
-
+    deploy:
+      resources:
+        limits:
+          memory: 300M  
+        reservations:
+          memory: 200M
 
   node-backend:
     build: ./node-backend
@@ -36,6 +41,13 @@ services:
       - /app/node_modules       
     command: npm start            
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+        reservations:
+          memory: 250M
+
   mongodb:
     image: mongo:6
     container_name: finalscheduler-mongo
@@ -49,12 +61,19 @@ services:
       - mongo_data:/data/db
     networks:
       - final-network
+    command: ["mongod", "--wiredTigerCacheSizeGB", "0.25"]
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   redis:
     image: redis:7
@@ -70,6 +89,12 @@ services:
       timeout: 10s
       retries: 3
       start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 150M
+        reservations:
+          memory: 100M
 
 volumes:
   mongo_data:
