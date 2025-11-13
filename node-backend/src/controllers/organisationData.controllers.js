@@ -10,6 +10,8 @@ export const saveTimetable = async (req, res) => {
      
     const organisationId = req.organisation._id ;
      
+   console.log("Here is the data coming",req.body)
+
     // console.log("Here is the req body",req.body)
     
     // Use organisation+semester+section as unique combination (you can change based on your needs)
@@ -18,7 +20,7 @@ export const saveTimetable = async (req, res) => {
       { $set: {organisationId,...req.body} }, // update fields
       { new: true, upsert: true } // create if not exists
     );
-   
+   console.log("Here is the saved document",timetable)
   // Also empty the faculty and section timetables stored previously
 
     const sectionsDeleted = await SectionTimetable.deleteMany({organisationId});
