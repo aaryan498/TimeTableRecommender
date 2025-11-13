@@ -26,15 +26,13 @@ const verifyJWT = asyncHandler(async (req, res, next) => {
     throw new ApiError(401, "Access token is invalid or expired");
   }
 
-  // Find Organisation
+ 
   const organisation = await Organisation.findById(decoded?._id).select("-password -refreshToken");
   if (!Organisation) {
     throw new ApiError(404, "Organisation not found for this token");
   }
 
-  // Attach Organisation to request
   req.organisation = organisation;
-  // console.log("here is the organisation",organisation)
   next();
 });
 

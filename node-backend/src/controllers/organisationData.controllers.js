@@ -4,46 +4,56 @@ import { SectionTimetable } from "../models/sectionTimetable.model.js";
 
 
 // Save new timetable
-
 export const saveTimetable = async (req, res) => {
   try {
-     
-    const organisationId = req.organisation._id ;
-     
-   console.log("Here is the data coming",req.body)
+    const organisationId = req.organisation?._id;
+    if (!organisationId) {
+      return res.status(400).json({ message: "Organisation not found in request" });
+    }
 
-    // console.log("Here is the req body",req.body)
-    
-    // Use organisation+semester+section as unique combination (you can change based on your needs)
+    console.log("Incoming timetable data:", req.body);
+
     const timetable = await OrganisationData.findOneAndUpdate(
-      { organisationId }, 
-      { $set: {organisationId,...req.body} }, // update fields
-      { new: true, upsert: true } // create if not exists
+      { organisationId },
+      { $set: { organisationId, ...req.body } },
+      { new: true, upsert: true }
     );
-   console.log("Here is the saved document",timetable)
-  // Also empty the faculty and section timetables stored previously
 
-    const sectionsDeleted = await SectionTimetable.deleteMany({organisationId});
-    const facultyDeleted = await FacultyTimetable.deleteMany({organisationId})
- 
+    if (!timetable) {
+      throw new Error("Failed to save or update timetable");
+    }
 
-    console.log("Pre Saved timetables are empty now")
+    console.log("✅ Timetable document saved/updated:", timetable._id);
 
+    // ✅ Delete previous section and faculty timetables in parallel
+    const [sectionsDeleted, facultyDeleted] = await Promise.all([
+      SectionTimetable.deleteMany({ organisationId }),
+      FacultyTimetable.deleteMany({ organisationId }),
+    ]);
 
+    console.log(
+      `🧹 Cleared old timetables — Sections: ${sectionsDeleted.deletedCount}, Faculty: ${facultyDeleted.deletedCount}`
+    );
 
-
+    // ✅ Respond success
     res.status(201).json({
       message: "Timetable saved/updated successfully",
       timetable,
+      deleted: {
+        sections: sectionsDeleted.deletedCount,
+        faculty: facultyDeleted.deletedCount,
+      },
     });
+
   } catch (error) {
-    console.error(error);
+    console.error("❌ Error saving timetable:", error);
     res.status(500).json({
       message: "Error saving timetable",
-      error,
+      error: error.message || error,
     });
   }
 };
+
 
 // Get latest timetable
 export const getLatestTimetable = async (req, res) => {
