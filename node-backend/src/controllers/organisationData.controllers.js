@@ -7,52 +7,58 @@ import { SectionTimetable } from "../models/sectionTimetable.model.js";
 export const saveTimetable = async (req, res) => {
   try {
     const organisationId = req.organisation?._id;
-    if (!organisationId) {
-      return res.status(400).json({ message: "Organisation not found in request" });
-    }
+    if (!organisationId)
+      return res.status(401).json({ message: "Login first" });
 
     console.log("Incoming timetable data:", req.body);
 
+    
+    const {
+      college_info,
+      time_slots,
+      departments,
+      subjects,
+      labs,
+      faculty,
+      rooms,
+      constraints,
+      special_requirements,
+      genetic_algorithm_params
+    } = req.body;
+
+    const updateData = {
+      organisationId,
+      college_info,
+      time_slots,
+      departments,
+      subjects,
+      labs,
+      faculty,
+      rooms,
+      constraints,
+      special_requirements,
+      genetic_algorithm_params
+    };
+
     const timetable = await OrganisationData.findOneAndUpdate(
       { organisationId },
-      { $set: { organisationId, ...req.body } },
+      { $set: updateData },
       { new: true, upsert: true }
     );
 
-    if (!timetable) {
-      throw new Error("Failed to save or update timetable");
-    }
-
-    console.log("✅ Timetable document saved/updated:", timetable._id);
-
-    // ✅ Delete previous section and faculty timetables in parallel
-    const [sectionsDeleted, facultyDeleted] = await Promise.all([
-      SectionTimetable.deleteMany({ organisationId }),
-      FacultyTimetable.deleteMany({ organisationId }),
-    ]);
-
-    console.log(
-      `🧹 Cleared old timetables — Sections: ${sectionsDeleted.deletedCount}, Faculty: ${facultyDeleted.deletedCount}`
-    );
-
-    // ✅ Respond success
     res.status(201).json({
       message: "Timetable saved/updated successfully",
       timetable,
-      deleted: {
-        sections: sectionsDeleted.deletedCount,
-        faculty: facultyDeleted.deletedCount,
-      },
     });
-
   } catch (error) {
-    console.error("❌ Error saving timetable:", error);
+    console.error("Error saving timetable:", error);
     res.status(500).json({
       message: "Error saving timetable",
       error: error.message || error,
     });
   }
 };
+
 
 
 // Get latest timetable
