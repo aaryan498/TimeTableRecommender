@@ -64,6 +64,36 @@ export const saveTimetable = async (req, res) => {
 };
 
 
+export const getPreviousSavedData = async (req, res) => {
+  try {
+    const organisationId = req.organisation?._id;
+    if (!organisationId) {
+      return res.status(401).json({ message: "Login first" });
+    }
+
+    const previousData = await OrganisationData.findOne({ organisationId });
+
+    if (!previousData) {
+      return res.status(404).json({
+        message: "No previously saved timetable found",
+      });
+    }
+
+    const { organisationId: _orgId, ...responseData } = previousData.toObject();
+
+    res.status(200).json({
+      message: "Previous timetable data fetched successfully",
+      data: responseData,
+    });
+  } catch (error) {
+    console.error("Error fetching previous timetable:", error);
+    res.status(500).json({
+      message: "Error fetching previous timetable",
+      error: error.message || error,
+    });
+  }
+};
+
 
 // Get latest timetable
 export const getLatestTimetable = async (req, res) => {
