@@ -117,6 +117,11 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
   const organisationData = await OrganisationData.findOne({ organisationId });
 
+
+  console.log("Here is the organisation data that is started ",organisationData)
+
+
+
   if (!organisationData) {
     return res.status(404).json({
       success: false,
