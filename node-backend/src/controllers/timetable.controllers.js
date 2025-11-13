@@ -125,6 +125,7 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
       data: null
     });
   }
+  console.log("Here is that Organisation Data",organisationData)
 
   const transformedData = {
     college_info: {
@@ -304,9 +305,6 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
       }
     }
   };
-
-
-
 
   const response = await axios.post(`${FLASK_URL}/api/generate`, transformedData, {
     withCredentials: true
