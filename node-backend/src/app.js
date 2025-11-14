@@ -3,7 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import allRouter from "./routes/index.js";
 import { noEmojiMiddleware } from "./middlewares/noEmoji.middleware.js";
-
+import ApiError from "./utils/apiError.js";
 import { ZodError } from "zod";
 
 const app = express();
