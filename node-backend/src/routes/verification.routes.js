@@ -5,7 +5,7 @@ import { sendOTP } from "../controllers/verification.controller.js";
 const router = Router();
 
 
-router.post("/getOtp",sendOTP);
+router.post("/getOtp/:purpose",sendOTP);
 
 
 

@@ -9,7 +9,7 @@ const router = Router();
 
 
 router.post("/register",upload.single("avatar"),registerOrganisation);
-router.post("/verifyEmail",verifyOrganisationEmail);
+router.post("/verifyEmail/:organisationEmail",verifyOrganisationEmail);
 router.post("/login",loginOrganisation);
 
 

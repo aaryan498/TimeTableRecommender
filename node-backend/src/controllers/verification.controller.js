@@ -28,7 +28,10 @@ export const verifyOtp = async (organisationEmail, otp, purpose) => {
 export const sendOTP = asyncHandler(async (req, res) => {
   const organisationEmail = req.body?.organisationEmail || req.user?.organisationEmail;
   const { purpose } = req.params;
-
+   if(!purpose)
+   {
+    throw new ApiError(400,"Purpose is not defined")
+   }
   if (!organisationEmail) {
     throw new ApiError(400, "organisationEmail is required");
   }
