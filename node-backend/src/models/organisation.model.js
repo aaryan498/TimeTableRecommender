@@ -21,6 +21,11 @@ const organisationSchema = new Schema(
       required: true,
       maxLength:50
     },
+    isEmailVerified:{
+      type:Boolean,
+      required:true,
+      default:false
+    },
     organisationContactNumber: {
       type: String,
       unique: true,
@@ -31,6 +36,7 @@ const organisationSchema = new Schema(
       type: String,
       trim: true,
       required: true,
+      select:false
     },
     avatar: {
       type: String,

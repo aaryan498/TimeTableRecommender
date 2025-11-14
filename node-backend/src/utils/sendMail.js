@@ -16,13 +16,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = (email,subject,data)=>{transporter.sendMail({
+const sendEmail = (email,subject,data,purpose)=>{transporter.sendMail({
  from:`"TimeTableScheduler.com" ${""}`,
  to:email,
  subject:subject,
  html:` 
     <h1>TimeTableScheduler.com</h1>
-    <h2>Your OTP for verification :<h2>
+    <h2>Your OTP for ${purpose} :<h2>
  
     <h3>    ${data}     </h3>`
 

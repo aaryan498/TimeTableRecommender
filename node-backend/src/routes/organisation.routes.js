@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { changePassword, deleteOrganisation, getAllOrganisation, getCurrentOrganisation, getOrganisationFullDetails, loginOrganisation, logoutOrganisation, refreshAccessToken, registerOrganisation, updateAvatar, updateProfile } from "../controllers/organisation.controllers.js";
+import { changePassword, deleteOrganisation, getAllOrganisation, getCurrentOrganisation, getOrganisationFullDetails, loginOrganisation, logoutOrganisation, refreshAccessToken, registerOrganisation, updateAvatar, updateProfile, verifyOrganisationEmail } from "../controllers/organisation.controllers.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { getPreviousSavedData } from "../controllers/organisationData.controllers.js";
@@ -9,6 +9,7 @@ const router = Router();
 
 
 router.post("/register",upload.single("avatar"),registerOrganisation);
+router.post("/verifyEmail",verifyOrganisationEmail);
 router.post("/login",loginOrganisation);
 
 

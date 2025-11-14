@@ -13,6 +13,7 @@ import { Department } from "../models/department.model.js";
 import { Course } from "../models/course.model.js";
 import { Timetable } from "../models/timetable.model.js";
 import { TimetableRequest } from "../models/timetableRequest.model.js";
+import { sendEmail } from "../utils/sendMail.js";
 
 /**
  * @desc Get full organisation details with all related data
@@ -47,7 +48,7 @@ export const getOrganisationFullDetails = async (req, res) => {
           .populate("facultyId", "facultyName email"),
       ]);
 
-    // 3. Send combined response
+  
     res.json({
       organisation,
       faculties,
@@ -66,9 +67,6 @@ export const getOrganisationFullDetails = async (req, res) => {
 };
 
 
-/**
- * Utility to generate and save access & refresh tokens
- */
 const generateAccessAndRefreshToken = async (organisationId) => {
   const organisation = await Organisation.findById(organisationId);
   if (!organisation) throw new ApiError(404, "Organisation not found");
@@ -82,11 +80,8 @@ const generateAccessAndRefreshToken = async (organisationId) => {
   return { refreshToken, accessToken };
 };
 
-/**
- * REGISTER ORGANISATION
- */
+
 const registerOrganisation = asyncHandler(async (req, res) => {
-  console.log("I have been hitted")
   const { organisationName, organisationEmail, password, organisationContactNumber } = req.body;
 
   if (!organisationName || !organisationEmail || !password || !organisationContactNumber) {
@@ -96,15 +91,20 @@ const registerOrganisation = asyncHandler(async (req, res) => {
   const existingOrganisation = await Organisation.findOne({
     $or: [{ organisationEmail }, { organisationContactNumber }],
   });
-  if (existingOrganisation) {
+  if (existingOrganisation && existingOrganisation.isEmailVerified==="true") {
     throw new ApiError(409, "Organisation with this email or contact number already exists");
   }
+  if(existingOrganisation && existingOrganisation.isEmailVerified !==true)
+  {
+    await Organisation.deleteOne({organisationEmail})
+  }
 
-  const avatarLocalPath = req.file.path;
+  const avatarLocalPath = req?.file?.path;
   if (!avatarLocalPath) throw new ApiError(400, "Avatar file is required");
 
   const avatar = await uploadOnCloudinary(avatarLocalPath);
   if (!avatar) throw new ApiError(400, "Failed to upload avatar");
+   
 
   const organisation = await Organisation.create({
     organisationName,
@@ -114,14 +114,44 @@ const registerOrganisation = asyncHandler(async (req, res) => {
     avatar: avatar.url,
   });
 
-  const safeOrganisation = await Organisation.findById(organisation._id).select("-password -refreshToken");
 
+
+const {refreshToken,...safeOrganisation} = organisation
+
+  
   return res.status(201).json(new ApiResponse(201, safeOrganisation, "Organisation registered successfully"));
 });
 
-/**
- * LOGIN ORGANISATION
- */
+const verifyOrganisationEmail = asyncHandler(async(req,res)=>{
+ 
+  const {organisationEmail} = req.params;
+const {otp} = req.body;
+
+ 
+
+const isOtpCorrect =  verifyOtp(organisationEmail,otp,"register")
+
+
+if(!isOtpCorrect)
+{
+  throw new ApiError(400,"Otp incorrect")
+}
+
+const org = Organisation.findOne({organisationEmail})
+
+org.isEmailVerified = true;
+
+
+org.save()
+
+
+return res.status(204).json(
+  new ApiResponse(204,{},"Email verified successfully")
+)
+
+
+
+})
 const loginOrganisation = asyncHandler(async (req, res) => {
   const { otp, organisationEmailOrorganisationContactNumber, password, organisationEmail } = req.body;
   
@@ -132,7 +162,7 @@ const loginOrganisation = asyncHandler(async (req, res) => {
 
   if (otp) {
     if (!organisationEmail) throw new ApiError(400, "Organisation email is required for OTP verification");
-    organisation = await Organisation.findOne({ organisationEmail });
+    organisation = await Organisation.findOne({ organisationEmail,isEmailVerified:true });
     if (!organisation) throw new ApiError(404, "Organisation not found");
 
     const otpVerified = await verifyOtp(organisationEmail, otp);
@@ -148,6 +178,7 @@ const loginOrganisation = asyncHandler(async (req, res) => {
     } else {
       query.organisationEmail = organisationEmailOrorganisationContactNumber.trim().toLowerCase();
     }
+    query.isEmailVerified = true;
 
     organisation = await Organisation.findOne(query).select("+password");
     if (!organisation) throw new ApiError(404, "Organisation not found");
@@ -166,9 +197,7 @@ const loginOrganisation = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, safeOrganisation, "Login successful"));
 });
 
-/**
- * LOGOUT
- */
+
 const logoutOrganisation = asyncHandler(async (req, res) => {
   const organisationId = req.organisation?._id;
   await Organisation.findByIdAndUpdate(organisationId, { refreshToken: undefined });
@@ -344,5 +373,6 @@ export {
   updateProfile,
   changePassword,
   updateAvatar,
-  deleteOrganisation
+  deleteOrganisation,
+  verifyOrganisationEmail
 };
