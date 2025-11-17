@@ -2,6 +2,7 @@ import axios from "axios";
 import { SectionTimetable } from "../models/sectionTimetable.model.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiResponse from "../utils/apiResponse.js";
+import ApiError from "../utils/apiError.js";
 
 
 export const downloadAllSectionTimetables = async (req, res) => {
