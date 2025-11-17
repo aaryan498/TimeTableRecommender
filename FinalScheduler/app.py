@@ -2,6 +2,7 @@ from fastapi import FastAPI, File, UploadFile, BackgroundTasks, HTTPException, F
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from contextlib import asynccontextmanager
 from typing import Optional, Dict, Any, List
 import json
 import logging
@@ -22,13 +23,39 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup logic here
+    if USE_CEREBRAS:
+        print("Using Cerebras Inference")
+    elif llm_extractor:
+        print("Using Gemini API")
+    else:
+        print("WARNING: No LLM extraction available!")
+        print("   Please set CEREBRAS_API_KEY or GEMINI_API_KEY")
+        print("   in your environment variables.")
+
+    if USE_CEREBRAS:
+        print("\nCerebras Ultra-Fast Extraction Ready!")
+    elif llm_extractor:
+        print("\nLLM extraction is ready")
+    else:
+        print("\nLLM extraction disabled")
+
+    print("\nAPI Documentation available at:")
+    print("Swagger UI: http://localhost:8000/docs")
+    print("ReDoc: http://localhost:8000/redoc")
+    print("="*60 + "\n")
+    yield
+
 # Initialize FastAPI app
 app = FastAPI(
     title="Smart Timetable Generator API",
     description="Ultra-fast timetable generation with Cerebras/Gemini LLM",
     version="3.0",
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
+    lifespan=lifespan
 )
 
 # CORS Configuration
@@ -86,15 +113,13 @@ try:
     if CEREBRAS_API_KEY:
         llm_extractor = TimetableExtractor(CEREBRAS_API_KEY)
         USE_CEREBRAS = True
-        logger.info("🚀 Using Cerebras for ultra-fast extraction")
-        print("🚀 Cerebras LLM extractor initialized successfully")
-        print("⚡ Ultra-fast token generation enabled (10x faster)")
+        logger.info("Using Cerebras for ultra-fast extraction")
     else:
-        logger.warning("⚠️ Cerebras API key not available")
+        logger.warning("Cerebras API key not available")
 except ImportError:
-    logger.info("📝 Cerebras extractor not available, trying Gemini")
+    logger.info("Cerebras extractor not available, trying Gemini")
 except Exception as e:
-    logger.warning(f"⚠️ Cerebras initialization failed: {e}")
+    logger.warning(f"Cerebras initialization failed: {e}")
 
 # Fallback to Gemini if Cerebras not available
 if not llm_extractor:
@@ -104,10 +129,10 @@ if not llm_extractor:
         
         if GEMINI_API_KEY:
             llm_extractor = TimetableExtractor(GEMINI_API_KEY)
-            logger.info("✅ Gemini LLM extractor initialized successfully")
-            print("✅ Using Gemini LLM extraction as fallback")
+            logger.info("Gemini LLM extractor initialized successfully")
+            print("Using Gemini LLM extraction as fallback")
         else:
-            logger.warning("❌ Gemini API key not available - LLM extraction disabled")
+            logger.warning("Gemini API key not available - LLM extraction disabled")
     except Exception as e:
         logger.error(f"Failed to initialize Gemini extractor: {e}")
         llm_extractor = None
@@ -122,14 +147,6 @@ except ImportError as e:
 # =============================================================================
 # GLOBAL STATE MANAGEMENT
 # =============================================================================
-
-# Store the latest timetable generation results
-timetable_results = {
-    "status": "not_started",
-    "timestamp": None,
-    "data": None,
-    "parsed_config": None
-}
 
 # Store dynamic update results
 latest_dynamic_update = {
@@ -150,98 +167,19 @@ def allowed_file(filename: str) -> bool:
 
 async def generate_timetables_async(config_data: Optional[Dict] = None):
     """
-    Generate timetables in background
-    Args:
-        config_data (dict): Configuration to use, or None to use default
+    Generate timetables in background (DEPRECATED)
+    This function is no longer used as all generation is now synchronous
     """
-    global timetable_results
-    try:
-        # Update status to in progress
-        timetable_results["status"] = "in_progress"
-        timetable_results["timestamp"] = datetime.now().isoformat()
-        
-        # Use provided config or load from file
-        if config_data:
-            config = config_data
-            logger.info("Using provided configuration for generation")
-        else:
-            try:
-                with open('corrected_timetable_config.json', 'r') as f:
-                    config = json.load(f)
-                logger.info("Using default configuration file")
-            except FileNotFoundError:
-                timetable_results["status"] = "failed"
-                timetable_results["error"] = "Default config file not found!"
-                return
-        
-        # Initialize timetable data and genetic algorithm
-        logger.info("Initializing timetable generation...")
-        data = TimetableData(config_dict=config)
-        ga = GeneticAlgorithm(data)
-        
-        # Generate population and evolve
-        ga.initialize_population()
-        ga.evolve()
-        
-        # Get the best solution
-        best_solution = ga.get_best_solution()
-        if not best_solution:
-            timetable_results["status"] = "failed"
-            timetable_results["error"] = "No valid solution found!"
-            logger.error("Failed to find valid timetable solution")
-            return
-        
-        # Export results in all formats
-        logger.info("Exporting timetable results...")
-        exporter = TimetableExporter(best_solution, data)
-        
-        # Store all generated data
-        timetable_results["data"] = {
-            "sections": exporter.get_section_wise_data(),
-            "faculty": exporter.get_faculty_wise_data(),
-            "detailed": exporter.get_detailed_data(),
-            "statistics": exporter.get_statistics()
-        }
-        
-        # Mark as completed
-        timetable_results["status"] = "completed"
-        timetable_results["timestamp"] = datetime.now().isoformat()
-        logger.info("Timetable generation completed successfully")
-        
-    except Exception as e:
-        timetable_results["status"] = "failed"
-        timetable_results["error"] = str(e)
-        logger.error(f"Timetable generation failed: {str(e)}")
+    logger.info("Background generation function deprecated - no longer supported")
 
-async def apply_dynamic_updates_async(events_data: Dict, use_existing_timetable: bool = True):
-    """Apply dynamic updates in background"""
-    global latest_dynamic_update, timetable_results
+async def apply_dynamic_updates_async(events_data: Dict, base_timetable: Dict, config_source: Dict):
+    """Apply dynamic updates in background with provided timetable and config"""
+    global latest_dynamic_update
     try:
         latest_dynamic_update["status"] = "in_progress"
         latest_dynamic_update["timestamp"] = datetime.now().isoformat()
         latest_dynamic_update["events"] = events_data
-        
-        # Determine which timetable to use as base
-        if use_existing_timetable and timetable_results.get("data"):
-            base_timetable = timetable_results["data"]
-            config_source = timetable_results.get("parsed_config")
-        else:
-            latest_dynamic_update["status"] = "failed"
-            latest_dynamic_update["error"] = "No base timetable available. Generate timetable first."
-            return
-        
-        # Save current timetable as original for comparison
         latest_dynamic_update["original_timetable"] = base_timetable
-        
-        # Use parsed config or default
-        if not config_source:
-            try:
-                with open('corrected_timetable_config.json', 'r') as f:
-                    config_source = json.load(f)
-            except FileNotFoundError:
-                latest_dynamic_update["status"] = "failed"
-                latest_dynamic_update["error"] = "Config file not found!"
-                return
         
         # Save config temporarily for dynamic updater
         temp_config_path = tempfile.mktemp(suffix='.json')
@@ -344,8 +282,7 @@ async def parse_timetable(
         end_time = datetime.now()
         extraction_time = (end_time - start_time).total_seconds()
         
-        # Store parsed config for later use
-        timetable_results["parsed_config"] = result
+        # Note: config no longer cached globally
         
         success_message = f"Timetable parsed successfully using {extraction_method}"
         if USE_CEREBRAS:
@@ -379,26 +316,17 @@ async def parse_timetable(
 
 @app.post("/api/generate")
 async def generate_timetable(
-    background_tasks: BackgroundTasks,
     request: Optional[Dict[str, Any]] = Body(None)
 ):
     """
-    Generate timetable using configuration
+    Generate timetable using configuration and return results directly
     
     Options:
     1. Use JSON configuration from request body
-    2. Use previously parsed configuration (if available)
-    3. Use default configuration file
+    2. Use default configuration file
+    
+    Returns the generated timetable data directly without caching
     """
-    global timetable_results
-    
-    # Check if generation is already running
-    if timetable_results["status"] == "in_progress":
-        return {
-            "status": "already_running",
-            "message": "Timetable generation is already in progress"
-        }
-    
     try:
         config_data = None
         
@@ -406,56 +334,66 @@ async def generate_timetable(
         if request:
             config_data = request
             logger.info("Using configuration from request body")
-        elif timetable_results.get("parsed_config"):
-            config_data = timetable_results["parsed_config"]
-            logger.info("Using previously parsed configuration")
+        else:
+            raise HTTPException(
+                status_code=400,
+                detail="Config file not found! Please provide configuration in request body."
+            )
         
-        # Start generation in background
-        background_tasks.add_task(generate_timetables_async, config_data)
-        
-        return {
-            "status": "started",
-            "message": "Timetable generation started successfully"
-        }
-        
+        # Generate timetables synchronously
+        try:
+            genetic_algo = GeneticAlgorithm(config_data)
+            solution = genetic_algo.solve()
+            
+            if not solution:
+                raise HTTPException(
+                    status_code=400,
+                    detail="No valid solution found!"
+                )
+            
+            # Export to JSON format
+            exporter = TimetableExporter(solution, config_data)
+            timetable_data = {
+                "sections": exporter.export_section_timetables(),
+                "faculty": exporter.export_faculty_timetables(),
+                "detailed": exporter.export_detailed_timetable(),
+                "statistics": exporter.export_statistics()
+            }
+            
+            logger.info("Timetable generation completed successfully")
+            
+            # Return data directly without caching
+            return {
+                "status": "completed",
+                "timestamp": datetime.now().isoformat(),
+                "data": timetable_data
+            }
+            
+        except Exception as e:
+            logger.error(f"Timetable generation failed: {str(e)}")
+            raise HTTPException(
+                status_code=500,
+                detail=f"Generation failed: {str(e)}"
+            )
+    
     except Exception as e:
-        logger.error(f"Failed to start timetable generation: {str(e)}")
+        logger.error(f"Failed to generate timetable: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to start generation: {str(e)}"
+            detail=f"Failed to generate timetable: {str(e)}"
         )
 
 @app.post("/api/generate-from-parsed")
-async def generate_from_parsed(background_tasks: BackgroundTasks):
+async def generate_from_parsed():
     """
-    Generate timetable using the most recently parsed configuration
+    DEPRECATED: Generate timetable using cached parsed configuration
+    This endpoint no longer works as configs are not cached globally
+    Use /api/generate instead with configuration in request body
     """
-    global timetable_results
-    
-    # Check if generation is already running
-    if timetable_results["status"] == "in_progress":
-        return {
-            "status": "already_running",
-            "message": "Generation is already in progress"
-        }
-    
-    # Check if parsed config is available
-    if not timetable_results.get("parsed_config"):
-        raise HTTPException(
-            status_code=400,
-            detail="No parsed configuration available. Please parse a timetable file first."
-        )
-    
-    # Start generation using parsed config
-    background_tasks.add_task(
-        generate_timetables_async,
-        timetable_results["parsed_config"]
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Please use /api/generate with configuration in request body."
     )
-    
-    return {
-        "status": "started",
-        "message": "Timetable generation started using parsed configuration"
-    }
 
 # =============================================================================
 # STATUS & RESULTS ENDPOINTS
@@ -463,27 +401,22 @@ async def generate_from_parsed(background_tasks: BackgroundTasks):
 
 @app.get("/api/status")
 async def get_status():
-    """Get current timetable generation status"""
+    """Get current system status"""
     return {
-        "status": timetable_results["status"],
-        "timestamp": timetable_results.get("timestamp"),
-        "error": timetable_results.get("error"),
-        "has_parsed_config": timetable_results.get("parsed_config") is not None,
-        "has_results": timetable_results.get("data") is not None,
-        "llm_backend": "Cerebras" if USE_CEREBRAS else "Gemini"
+        "status": "ready",
+        "timestamp": datetime.now().isoformat(),
+        "llm_backend": "Cerebras" if USE_CEREBRAS else "Gemini",
+        "caching_mode": "No global caching - each user gets isolated per-request results",
+        "note": "Use /api/generate to generate timetables. Results are returned directly without caching."
     }
 
 @app.get("/api/results")
 async def get_all_results():
-    """Get all timetable generation results"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No completed timetables available")
-    
-    return {
-        "status": "success",
-        "timestamp": timetable_results["timestamp"],
-        "data": timetable_results["data"]
-    }
+    """DEPRECATED: Results endpoint"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Use /api/generate to get results directly."
+    )
 
 # =============================================================================
 # SECTION TIMETABLE ENDPOINTS
@@ -491,23 +424,19 @@ async def get_all_results():
 
 @app.get("/api/timetables/sections")
 async def get_all_sections():
-    """Get all section timetables"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    return timetable_results["data"]["sections"]
+    """DEPRECATED: Get all section timetables"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Use /api/generate and access sections from response."
+    )
 
 @app.get("/api/timetables/sections/{section_id}")
 async def get_single_section(section_id: str):
-    """Get specific section timetable"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    section_data = timetable_results["data"]["sections"].get(section_id)
-    if not section_data:
-        raise HTTPException(status_code=404, detail=f"Section '{section_id}' not found")
-    
-    return section_data
+    """DEPRECATED: Get specific section timetable"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Use /api/generate and access sections from response."
+    )
 
 # =============================================================================
 # FACULTY TIMETABLE ENDPOINTS
@@ -515,43 +444,19 @@ async def get_single_section(section_id: str):
 
 @app.get("/api/timetables/faculty")
 async def get_all_faculty():
-    """Get all faculty timetables"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    return timetable_results["data"]["faculty"]
+    """DEPRECATED: Get all faculty timetables"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Use /api/generate and access faculty from response."
+    )
 
 @app.get("/api/timetables/faculty/{faculty_id}")
 async def get_single_faculty(faculty_id: str):
-    """Get specific faculty timetable"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    faculty_data = timetable_results["data"]["faculty"].get(faculty_id)
-    if not faculty_data:
-        raise HTTPException(status_code=404, detail=f"Faculty '{faculty_id}' not found")
-    
-    return faculty_data
-
-# =============================================================================
-# DETAILED & STATISTICS ENDPOINTS
-# =============================================================================
-
-@app.get("/api/timetables/detailed")
-async def get_detailed_timetable():
-    """Get detailed timetable data (all entries in list format)"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    return timetable_results["data"]["detailed"]
-
-@app.get("/api/timetables/statistics")
-async def get_statistics():
-    """Get timetable generation statistics"""
-    if timetable_results["status"] != "completed" or not timetable_results["data"]:
-        raise HTTPException(status_code=404, detail="No timetables generated yet")
-    
-    return timetable_results["data"]["statistics"]
+    """DEPRECATED: Get specific faculty timetable"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Use /api/generate and access faculty from response."
+    )
 
 # =============================================================================
 # CONFIGURATION ENDPOINTS
@@ -559,11 +464,11 @@ async def get_statistics():
 
 @app.get("/api/config/parsed")
 async def get_parsed_config():
-    """Get the most recently parsed configuration"""
-    if not timetable_results.get("parsed_config"):
-        raise HTTPException(status_code=404, detail="No parsed configuration available")
-    
-    return timetable_results["parsed_config"]
+    """DEPRECATED: Get the most recently parsed configuration"""
+    raise HTTPException(
+        status_code=410,
+        detail="This endpoint is deprecated. Configurations are no longer cached globally. Parse the timetable to get configuration."
+    )
 
 @app.post("/api/config/validate")
 async def validate_config(config: Dict[str, Any] = Body(...)):
@@ -702,7 +607,7 @@ async def apply_dynamic_update(
             )
         
         # Check if base timetable exists
-        if use_existing and timetable_results.get("status") != "completed":
+        if use_existing and latest_dynamic_update.get("data") is None:
             raise HTTPException(
                 status_code=400,
                 detail="No base timetable available. Please generate a timetable first."
@@ -785,60 +690,17 @@ async def health_check():
         'llm_configured': llm_extractor is not None,
         'cerebras_available': USE_CEREBRAS,
         'gemini_api_available': os.getenv('GEMINI_API_KEY') is not None,
-        'generation_status': timetable_results["status"],
-        'dynamic_update_status': latest_dynamic_update["status"],
+        'caching_mode': 'No global caching - per-request isolation',
         'features': {
             'ultra_fast_extraction': USE_CEREBRAS,
             'llm_extraction': llm_extractor is not None,
             'genetic_algorithm': True,
             'dynamic_updates': True,
-            'multi_format_support': True
+            'multi_format_support': True,
+            'per_request_isolation': True
         }
     }
 
-# =============================================================================
-# APPLICATION STARTUP
-# =============================================================================
-
-@app.on_event("startup")
-async def startup_event():
-    """Run on application startup"""
-    print("\n" + "="*60)
-    print("🚀 SMART TIMETABLE GENERATOR API v3.0 (FastAPI)")
-    print("="*60)
-    
-    if USE_CEREBRAS:
-        print("⚡ ULTRA-FAST MODE: Using Cerebras Inference")
-        print("   • 10x faster token generation")
-        print("   • Sub-10 second extractions")
-        print("   • 400+ tokens/second")
-    elif llm_extractor:
-        print("📝 STANDARD MODE: Using Gemini API")
-        print("   • Standard extraction speed")
-        print("   • 30-60 second extractions")
-    else:
-        print("⚠️  WARNING: No LLM extraction available!")
-        print("   Please set CEREBRAS_API_KEY or GEMINI_API_KEY")
-        print("   in your environment variables.")
-    
-    print("\n🌟 Features Available:")
-    print("   • PDF/Excel timetable parsing")
-    print("   • Genetic algorithm optimization")
-    print("   • Dynamic event updates")
-    print("   • Multi-format support")
-    print("   • Async/Await for faster response")
-    
-    if USE_CEREBRAS:
-        print("\n🚀 Cerebras Ultra-Fast Extraction Ready!")
-    elif llm_extractor:
-        print("\n✅ LLM extraction is ready")
-    else:
-        print("\n❌ LLM extraction disabled")
-    
-    print("\n📚 API Documentation available at:")
-    print("   • Swagger UI: http://localhost:8000/docs")
-    print("   • ReDoc: http://localhost:8000/redoc")
-    print("="*60 + "\n")
 
 # =============================================================================
 # RUN THE APPLICATION
