@@ -332,9 +332,7 @@ export const checkGenerationStatus = asyncHandler(async (req, res) => {
   return res.json(new ApiResponse(200, response.data, "Status fetched"));
 });
 
-/**
- * Get all section-wise timetables
- */
+
 export const getSectionTimeTables = asyncHandler(async (req, res) => {
 
   // console.log("Section route hitted")
@@ -584,15 +582,14 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
   console.log("I have been hit - getFacultyTimeTables");
 
   try {
-    const organisationId = req.organisation?._id || "68cae992925c4ed15cf71249";
+    const organisationId = req.organisation?._id
 
-    // Check if data exists in the database FOR THIS ORGANIZATION
     let docs = await FacultyTimetable.find({ organisationId }).lean();
 
     if (!docs || docs.length === 0) {
       console.log("No local data found, fetching from Flask API");
 
-      // Fetch data from Flask API
+ 
       const response = await axios.get(`${FLASK_URL}/api/timetables/faculty`);
 
       if (!response || !response.data) {
@@ -602,13 +599,13 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
       const apiResponse = response.data;
       console.log(`Fetched ${Object.keys(apiResponse).length} faculty timetables from API`);
 
-      // Save each faculty timetable to the database WITH ORGANIZATION ID
+   
       const facultyIds = Object.keys(apiResponse);
 
       for (const key of facultyIds) {
         const facultyData = apiResponse[key];
 
-        // Generate unique ID for DB instead of using facultyData.faculty_id
+     
 
         const generateFacultyId = () => {
   return `F${nanoid(5).toUpperCase()}`;
@@ -622,7 +619,7 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
           },
           {
             ...facultyData,
-            faculty_id: dbFacultyId,  // save generated ID
+            faculty_id: dbFacultyId,  
             organisationId
           },
           { upsert: true, new: true, setDefaultsOnInsert: true }
@@ -630,12 +627,11 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
       }
 
 
-      console.log("Data fetched from API and saved to database");
 
-      // Fetch the updated data from database
+    
       docs = await FacultyTimetable.find({ organisationId }).lean();
 
-      // Convert to the format frontend expects (faculty_id as keys)
+   
       const formattedData = {};
       docs.forEach(doc => {
         const { _id, __v, createdAt, updatedAt, organisationId: orgId, ...cleanDoc } = doc;
@@ -648,7 +644,6 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
       );
     }
 
-    // If data exists in the database, convert to expected format and return it
     console.log("Returning data from database for the faculty TimeTable");
 
     const formattedData = {};
@@ -684,13 +679,13 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
 export const updateFacultyTimetable = asyncHandler(async (req, res) => {
   console.log("I have been hit - updateFacultyTimetable");
 
-  //  console.log("Here is the incoming res",req.body)
 
-  const { faculty_id } = req.body.section;
-  const updateData = req.body.section;
+
+  const { faculty_id } = req.body;
+  const updateData = req.body;
 
   try {
-    // Validate faculty_id
+  
     if (!faculty_id) {
       throw new ApiError(400, "Faculty ID is required");
     }
