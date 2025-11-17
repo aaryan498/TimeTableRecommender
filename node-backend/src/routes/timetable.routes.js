@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getInfoPdf, getSectionTimeTables, getSectionTimeTablesDb, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
+import { checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getInfoPdf, getSectionTimeTablesDb, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
 import {   generateAndDownloadAllFacultyTimetables } from "../controllers/facultyTimetable.controllers.js";
 import {  replaceSectionTimetable } from "../controllers/sectionTimetable.controllers.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -13,8 +13,7 @@ router.use(verifyJWT)
 
 router.post("/generate",startTimeTableCreation);
 router.get("/status",checkGenerationStatus);
-router.get("/sections",getSectionTimeTables);  // in use
-router.get("/sectionsDb",getSectionTimeTablesDb)
+router.get("/sections",getSectionTimeTablesDb)
 router.get("/sections/:section_id",getSingleSectionTimeTable);
 router.get("/faculty",getFacultyTimeTables);  
 router.post("/upload-pdf",upload.single("file"),getInfoPdf);
