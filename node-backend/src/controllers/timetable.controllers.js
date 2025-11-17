@@ -9,9 +9,9 @@ import { SectionTimetable } from "../models/sectionTimetable.model.js";
 import FormData from "form-data";
 import { OrganisationData } from "../models/organisationData.model.js";
 
-import { nanoid } from "nanoid"; 
+import { nanoid } from "nanoid";
 
-const {FLASK_URL} = process.env
+const { FLASK_URL } = process.env
 
 export const getTheDynamicResult = asyncHandler(async (req, res) => {
 
@@ -24,22 +24,22 @@ export const getTheDynamicResult = asyncHandler(async (req, res) => {
 
 
 })
- let c =1;
+let c = 1;
 export const generateByGivingData = asyncHandler(async (req, res) => {
 
-  console.log("I am working manual data",c);
+  console.log("I am working manual data", c);
   c++;
 
 
   const parsed_config = req.body;
-  
-    // console.log( "I am the coming parsed config",  parsed_config)
+
+  // console.log( "I am the coming parsed config",  parsed_config)
 
 
   if (!parsed_config) {
     throw new ApiError(404, "Please provide the input for the generation")
   }
- 
+
 
   // const sendingTheData = await axios.post(`http://localhost:8080/api/timetable/sendData`,parsed_config,{
   //   withCredentials:true
@@ -107,19 +107,13 @@ export const getInfoPdf = async (req, res) => {
  */
 export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
-  const organisationId = req.organisation?._id 
+  const organisationId = req.organisation?._id
 
-  if(!organisationId)
-  {
-    throw new ApiError(400,"Login First")
+  if (!organisationId) {
+    throw new ApiError(400, "Login First")
   }
-  //  const data = req.body;
-
+ 
   const organisationData = await OrganisationData.findOne({ organisationId });
-
-
-  console.log("Here is the organisation data that is started ",organisationData)
-
 
 
   if (!organisationData) {
@@ -130,7 +124,6 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
       data: null
     });
   }
-  console.log("Here is that Organisation Data",organisationData)
 
   const transformedData = {
     college_info: {
@@ -316,85 +309,41 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
   });
   if (!response || !response.data) throw new ApiError(500, "Failed to start generation");
 
-  return res.json(new ApiResponse(200, transformedData, "Timetable generation started"));
-});
-
-/**
- * Check generation status from Flask
- */
+  const apiResponse = response.data.faculty;
+  console.log(`Fetched ${Object.keys(apiResponse).length} faculty timetables from API`);
 
 
+  const facultyIds = Object.keys(apiResponse);
 
-export const checkGenerationStatus = asyncHandler(async (req, res) => {
-  const response = await axios.get(`${FLASK_URL}/api/status`);
-  if (!response || !response.data) throw new ApiError(500, "Failed to fetch status");
-
-  return res.json(new ApiResponse(200, response.data, "Status fetched"));
-});
+  for (const key of facultyIds) {
+    const facultyData = apiResponse[key];
 
 
-export const getSectionTimeTables = asyncHandler(async (req, res) => {
 
-  // console.log("Section route hitted")
+    const generateFacultyId = () => {
+      return `F${nanoid(5).toUpperCase()}`;
+    };
+    const dbFacultyId = generateFacultyId();
 
-  const response = await axios.get(`${FLASK_URL}/api/timetables/sections`, {
-    withCredentials: true
-  });
-  // console.log("I am the data"+response.data)
-  if (!response) {
-
-    throw new ApiError(400, "No section timetables found");
+    await FacultyTimetable.findOneAndUpdate(
+      {
+        faculty_id: dbFacultyId,
+        organisationId
+      },
+      {
+        ...facultyData,
+        faculty_id: dbFacultyId,
+        organisationId
+      },
+      { upsert: true, new: true, setDefaultsOnInsert: true }
+    );
   }
-
-  console.log("I am here passed flask")
-  return res.status(200).json(new ApiResponse(200, response.data, "Section timetables fetched"));
-});
-export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
-  try {
-    const organisationId = req.organisation?._id;
-
-    // Fetch timetables for this organisation
-    let docs = await SectionTimetable.find({ organisationId })
-      .select("-organisationId")
-      .lean();
-
-    if (!docs || docs.length === 0) {
-      console.log("No timetables in DB. Fetching from Flask API...");
-
-      try {
-        const apiResp = await axios.get(
-          `${FLASK_URL}/api/timetables/sections`,
-          { withCredentials: true }
-        );
-
-        console.log("API response received");
-
-        const responseData = apiResp?.data;
-
-        console.log("I am the incoming res from flask",apiResp)
-
-        if (
-          !responseData ||
-          (typeof responseData === "object" &&
-            Object.keys(responseData).length === 0)
-        ) {
-          return res
-            .status(404)
-            .json(new ApiResponse(404, null, "No timetables found from API"));
-        }
-
-        const sectionsObj = responseData.data || responseData;
-
-        if (!sectionsObj || Object.keys(sectionsObj).length === 0) {
-          return res
-            .status(404)
-            .json(new ApiResponse(404, null, "No timetable data available"));
-        }
-
+     
+  const sectionsObj = response.data.sections
         const sectionsArr = Object.values(sectionsObj);
 
         try {
-          // Bulk upsert with compound filter {section_id, organisationId}
+        
           const ops = sectionsArr.map((sec) => ({
             updateOne: {
               filter: {
@@ -417,30 +366,45 @@ export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
           }));
 
           await SectionTimetable.bulkWrite(ops, { ordered: false });
-
-          // Fetch saved docs
-          docs = await SectionTimetable.find({ organisationId }).lean();
-
-          console.log(`Saved ${docs.length} timetables to database`);
-        } catch (dbError) {
-          console.error("Database save error:", dbError);
-          return res.status(200).json(
-            new ApiResponse(
-              200,
-              sectionsObj,
-              "Section timetables fetched from API (DB save failed)"
-            )
-          );
         }
-      } catch (apiError) {
-        console.error("API fetch error:", apiError);
-        return res
-          .status(503)
-          .json(new ApiResponse(503, null, "Timetable API is unavailable"));
-      }
-    }
+        catch(err){
+          console.log("Unable to save the section timetable",err);
+          throw new ApiError(500,"Error while saving data! Try again later")
+        }
 
-    // Format for frontend (use section_id as keys)
+
+
+
+  return res.json(new ApiResponse(200, transformedData, "Timetable generated and saved successfully"));
+});
+
+
+
+
+
+export const checkGenerationStatus = asyncHandler(async (req, res) => {
+  const response = await axios.get(`${FLASK_URL}/api/status`);
+  if (!response || !response.data) throw new ApiError(500, "Failed to fetch status");
+
+  return res.json(new ApiResponse(200, response.data, "Status fetched"));
+});
+
+
+
+export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
+  try {
+    const organisationId = req.organisation?._id;
+
+ 
+    let docs = await SectionTimetable.find({ organisationId })
+      .select("-organisationId")
+      .lean();
+
+if(!docs || docs.length===0)
+{
+  throw new ApiError(400,"No timetable found for sections")
+}
+
     const timetableData = {};
     docs.forEach((doc) => {
       const { _id, __v, createdAt, updatedAt, ...cleanDoc } = doc;
@@ -457,7 +421,7 @@ export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
       .json(new ApiResponse(500, null, "Internal server error"));
   }
 });
-  
+
 
 
 //   try {
@@ -575,105 +539,25 @@ export const getSingleSectionTimeTable = asyncHandler(async (req, res) => {
   return res.json(new ApiResponse(200, response, `Section ${section_id} timetable fetched`));
 });
 
-/**
- * Get all faculty-wise timetables
- */
+
 export const getFacultyTimeTables = asyncHandler(async (req, res) => {
-  console.log("I have been hit - getFacultyTimeTables");
-
-  try {
     const organisationId = req.organisation?._id
-
     let docs = await FacultyTimetable.find({ organisationId }).lean();
 
     if (!docs || docs.length === 0) {
-      console.log("No local data found, fetching from Flask API");
-
- 
-      const response = await axios.get(`${FLASK_URL}/api/timetables/faculty`); 
-
-      if (!response || !response.data) {
-        throw new ApiError(404, "No faculty timetables found from API");
-      }
-
-      const apiResponse = response.data;
-      console.log(`Fetched ${Object.keys(apiResponse).length} faculty timetables from API`);
-
-   
-      const facultyIds = Object.keys(apiResponse);
-
-      for (const key of facultyIds) {
-        const facultyData = apiResponse[key];
-
-     
-
-        const generateFacultyId = () => {
-  return `F${nanoid(5).toUpperCase()}`;
-};
-        const dbFacultyId = generateFacultyId();
-
-        await FacultyTimetable.findOneAndUpdate(
-          {
-            faculty_id: dbFacultyId,
-            organisationId
-          },
-          {
-            ...facultyData,
-            faculty_id: dbFacultyId,  
-            organisationId
-          },
-          { upsert: true, new: true, setDefaultsOnInsert: true }
-        );
-      }
-
-
-
-    
-      docs = await FacultyTimetable.find({ organisationId }).lean();
-
-   
-      const formattedData = {};
-      docs.forEach(doc => {
-        const { _id, __v, createdAt, updatedAt, organisationId: orgId, ...cleanDoc } = doc;
-        formattedData[doc.faculty_id] = cleanDoc;
-      });
-
-      // Return the formatted data
-      return res.status(200).json(
-        new ApiResponse(200, formattedData, "Faculty timetables fetched from API and saved to database")
-      );
+      throw new ApiError(400, "No timetables found");
     }
-
-    console.log("Returning data from database for the faculty TimeTable");
-
     const formattedData = {};
     docs.forEach(doc => {
       const { _id, __v, createdAt, updatedAt, organisationId: orgId, ...cleanDoc } = doc;
       formattedData[doc.faculty_id] = cleanDoc;
     });
-
     return res.status(200).json(
-      new ApiResponse(200, formattedData, "Faculty timetables fetched from database")
+      new ApiResponse(200, formattedData, "Faculty timetables fetched successfully")
     );
-
-  } catch (error) {
-    console.error("Error in getFacultyTimeTables:", error);
-
-    // Handle specific error types
-    if (error instanceof ApiError) {
-      throw error;
-    } else if (error.response) {
-      // Axios error with response
-      throw new ApiError(error.response.status, error.response.data.message || "Failed to fetch from Flask API");
-    } else if (error.request) {
-      // Axios error without response
-      throw new ApiError(503, "Flask API is not responding");
-    } else {
-      // Other errors
-      throw new ApiError(500, "Internal server error while fetching faculty timetables");
-    }
   }
-});
+  
+);
 
 
 export const updateFacultyTimetable = asyncHandler(async (req, res) => {
@@ -685,7 +569,7 @@ export const updateFacultyTimetable = asyncHandler(async (req, res) => {
   const updateData = req.body;
 
   try {
-  
+
     if (!faculty_id) {
       throw new ApiError(400, "Faculty ID is required");
     }
