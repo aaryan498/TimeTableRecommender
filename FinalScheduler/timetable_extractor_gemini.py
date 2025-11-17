@@ -10,8 +10,6 @@ import time
 
 # PDF Processing Libraries
 import pdfplumber
-import PyPDF2
-from pypdf import PdfReader
 import fitz  # PyMuPDF
 
 # Excel Processing Libraries
@@ -445,7 +443,7 @@ REMEMBER: Output ONLY the JSON structure with extracted data. No explanations, n
                     if brace_count == 0:
                         try:
                             result = json.loads(json_content[:i+1])
-                            logger.info("✅ Extracted first complete JSON object")
+                            logger.info("Extracted first complete JSON object")
                             return result
                         except:
                             continue
@@ -556,7 +554,7 @@ REMEMBER: Output ONLY the JSON structure with extracted data. No explanations, n
                 # Generate with Cerebras (ultra-fast!)
                 response_text, latency = self._generate_with_cerebras(full_prompt)
                 
-                logger.info(f"🚀 Cerebras API response time: {latency:.2f}s")
+                logger.info(f"Cerebras API response time: {latency:.2f}s")
                 
                 if not response_text:
                     raise Exception("Empty response from Cerebras API")
@@ -567,7 +565,7 @@ REMEMBER: Output ONLY the JSON structure with extracted data. No explanations, n
                 # Enhance with defaults
                 enhanced_data = self.enhance_extracted_data(parsed_data)
                 
-                logger.info(f"✅ Ultra-fast extraction successful on attempt {attempt + 1}")
+                logger.info(f"Ultra-fast extraction successful on attempt {attempt + 1}")
                 return enhanced_data
             
             except Exception as e:
@@ -605,17 +603,17 @@ REMEMBER: Output ONLY the JSON structure with extracted data. No explanations, n
             # Determine file type and extract text
             if filename.lower().endswith('.pdf'):
                 document_text = self.extract_text_from_pdf(file_content)
-                logger.info("✅ PDF text extraction completed")
+                logger.info("PDF text extraction completed")
             elif filename.lower().endswith(('.xlsx', '.xls', '.xlsm')):
                 document_text = self.extract_text_from_excel(file_content, filename)
-                logger.info("✅ Excel text extraction completed")
+                logger.info("Excel text extraction completed")
             else:
                 raise Exception(f"Unsupported file format: {filename}")
             
             if not document_text.strip():
                 raise Exception("No text content extracted from file")
             
-            logger.info(f"📄 Extracted {len(document_text)} characters of text")
+            logger.info(f"Extracted {len(document_text)} characters of text")
             
             # Extract structured data using ultra-fast Cerebras
             structured_data = self.extract_from_text(document_text)
@@ -637,15 +635,15 @@ REMEMBER: Output ONLY the JSON structure with extracted data. No explanations, n
             }
             
             total_time = time.time() - total_start
-            logger.info(f"🎉 ULTRA-FAST Cerebras extraction completed in {total_time:.2f}s")
-            logger.info(f"📊 Extracted: {len(structured_data.get('subjects', []))} subjects, "
+            logger.info(f"ULTRA-FAST Cerebras extraction completed in {total_time:.2f}s")
+            logger.info(f"Extracted: {len(structured_data.get('subjects', []))} subjects, "
                        f"{len(structured_data.get('faculty', []))} faculty, "
                        f"{len(structured_data.get('departments', []))} departments")
             
             return structured_data
         
         except Exception as e:
-            logger.error(f"❌ Cerebras extraction failed: {str(e)}")
+            logger.error(f"Cerebras extraction failed: {str(e)}")
             logger.error(traceback.format_exc())
             raise Exception(f"Timetable extraction failed: {str(e)}")
 

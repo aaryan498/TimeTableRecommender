@@ -343,7 +343,9 @@ async def generate_timetable(
         # Generate timetables synchronously
         try:
             genetic_algo = GeneticAlgorithm(config_data)
-            solution = genetic_algo.solve()
+            genetic_algo.initialize_population()
+            genetic_algo.evolve()
+            solution = genetic_algo.get_best_solution()
             
             if not solution:
                 raise HTTPException(
