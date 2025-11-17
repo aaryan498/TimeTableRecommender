@@ -44,9 +44,13 @@ const validate = (schema, data) => {
 export const resetOrganisationData = asyncHandler(async(req,res)=>{
 
   const organisationId = req.organisation._id;
+    
+await Promise.all([
+  OrganisationData.deleteOne({ organisationId }),
+  SectionTimetable.deleteMany({ organisationId }),
+  FacultyTimetable.deleteMany({ organisationId })
+]);
 
-
-  await OrganisationData.findByIdAndDelete(organisationId)
 
 return res.status(200).json(
   new ApiResponse(204,{},"Organisation Data has been reset successfully")
