@@ -48,7 +48,7 @@ export const resetOrganisationData = asyncHandler(async(req,res)=>{
 
   await OrganisationData.findByIdAndDelete(organisationId)
 
-return req.status(204).json(
+return res.status(204).json(
   new ApiResponse(204,{},"Organisation Data has been reset successfully")
 )
 
