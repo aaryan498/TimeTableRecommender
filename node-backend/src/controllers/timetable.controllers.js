@@ -411,7 +411,10 @@ export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
   try {
     const organisationId = req.organisation?._id;
 
- 
+   if(!organisationId)
+   {
+    throw new ApiError(400,"Login first")
+   }
     let docs = await SectionTimetable.find({ organisationId })
       .select("-organisationId")
       .lean();
@@ -420,21 +423,22 @@ if(!docs || docs.length===0)
 {
   throw new ApiError(400,"No timetable found for sections")
 }
+console.log(docs)
 
-    const timetableData = {};
-    docs.forEach((doc) => {
-      const { _id, __v, createdAt, updatedAt, ...cleanDoc } = doc;
-      timetableData[doc.section_id] = cleanDoc;
-    });
+    // const timetableData = {};
+    // docs.forEach((doc) => {
+    //   const { _id, __v, createdAt, updatedAt, ...cleanDoc } = doc;
+    //   timetableData[doc.section_id] = cleanDoc;
+    // });
 
     return res.status(200).json(
-      new ApiResponse(200, timetableData, "Section timetables fetched successfully")
+      new ApiResponse(200, {docs}, "Section timetables fetched successfully")
     );
   } catch (error) {
     console.error("Unexpected error in getSectionTimeTables:", error);
     return res
       .status(500)
-      .json(new ApiResponse(500, null, "Internal server error"));
+      .json(new ApiError(500,  "Internal server error"));
   }
 });
 
@@ -468,6 +472,26 @@ export const getFacultyTimeTables = asyncHandler(async (req, res) => {
   }
   
 );
+
+const getAllGeneratedSectionTimeTables = asyncHandler(async(req,res)=>{
+
+const organisationId = req.organisation_id;
+
+
+const sectionTimeTables = await SectionTimetable.find({organisationId});
+
+
+if(sectionTimeTables.length===0)
+{
+  throw new ApiError(400,"No section TimTables yet")
+}
+ 
+
+return res.status(200).json(
+  new ApiResponse(200,sectionTimeTables,"Section TimeTable fetched successfully")
+)
+
+})
 
 
 export const updateFacultyTimetable = asyncHandler(async (req, res) => {
