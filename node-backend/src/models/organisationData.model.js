@@ -5,6 +5,18 @@ const organisationData = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: "Organisation"
   },
+  course:{
+    type:String,
+    lowercase:true,
+    trim:true,
+    required:true
+  },
+year:{
+      type:String,
+      required:true,
+      trim:true,
+      lowercase:true
+    },
 
   college_info: {
     name: { type: String, required: true, minlength: 2, maxlength: 100 },

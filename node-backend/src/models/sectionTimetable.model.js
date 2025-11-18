@@ -7,6 +7,18 @@ const SectionTimetableSchema = new Schema(
       ref: "Organisation",
       required: true,
     },
+      course:{
+    type:String,
+    lowercase:true,
+    trim:true,
+    required:true
+  },
+  year:{
+      type:String,
+      required:true,
+      trim:true,
+      lowercase:true
+    },
     section_id: { type: String, required: true },  // no `unique: true` here
     section_name: { type: String },
     semester: { type: Number },
@@ -21,11 +33,11 @@ const SectionTimetableSchema = new Schema(
   { timestamps: true }
 );
 
-// ✅ Ensure uniqueness only within an organisation
 SectionTimetableSchema.index(
-  { section_id: 1, organisationId: 1 },
+  { section_id: 1, organisationId: 1, course: 1, year: 1 },
   { unique: true }
 );
+
 
 export const SectionTimetable = mongoose.model(
   "SectionTimetable",

@@ -5,6 +5,7 @@ import { SectionTimetable } from "../models/sectionTimetable.model.js";
 import { Timetable } from "../models/timetable.model.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiResponse from "../utils/apiResponse.js";
+import ApiError from "../utils/apiError.js";
 
 // No-emoji validator
 const noEmoji = (s) => {
@@ -61,13 +62,23 @@ export const saveTimetable = async (req, res) => {
   try {
     const organisationId = req.organisation?._id;
     if (!organisationId) return res.status(401).json({ message: "Login first" });
+   const {course,year} = req.query;
+   
+   if(!course || course.trim()==="" || !year || year.trim()==="") 
+   {
+   throw new ApiError(400,"Year and Course are not specified");
+   }
 
     const body = validate(saveTimetableSchema, req.body);
 
-    const updateData = { organisationId, ...body };
+    const updateData = { organisationId, year:year.toLowerCase(),course:course.toLowerCase(),...body };
 
     const timetable = await OrganisationData.findOneAndUpdate(
-      { organisationId },
+      { organisationId,
+        course,
+        year
+
+       },
       { $set: updateData },
       { new: true, upsert: true }
     );

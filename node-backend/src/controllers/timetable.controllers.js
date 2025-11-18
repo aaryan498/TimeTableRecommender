@@ -13,6 +13,8 @@ import { nanoid } from "nanoid";
 
 const { FLASK_URL } = process.env
 
+
+
 export const getTheDynamicResult = asyncHandler(async (req, res) => {
 
 
@@ -108,12 +110,18 @@ export const getInfoPdf = async (req, res) => {
 export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
   const organisationId = req.organisation?._id
-
+   const {course,year} = req.query;
   if (!organisationId) {
     throw new ApiError(400, "Login First")
   }
+  if(!course || !year)
+  {
+    throw new ApiError(400,"Course or year is not specified")
+  }
  
-  const organisationData = await OrganisationData.findOne({ organisationId });
+  const organisationData = await OrganisationData.findOne({  organisationId,
+        course,
+        year});
 
 
   if (!organisationData) {
@@ -329,7 +337,9 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
     await FacultyTimetable.findOneAndUpdate(
       {
         faculty_id: dbFacultyId,
-        organisationId
+        organisationId,
+        course:course.toLowerCase(),
+        year:year.toLowerCase()
       },
       {
         ...facultyData,
@@ -347,13 +357,18 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
         
           const ops = sectionsArr.map((sec) => ({
             updateOne: {
-              filter: {
-                section_id: sec.section_id,
-                organisationId,
-              },
+          filter: {
+  section_id: sec.section_id,
+  organisationId,
+  course: course.toLowerCase(),
+  year: year.toLowerCase()
+},
+
               update: {
                 $set: {
                   organisationId,
+                  course:course.toLowerCase(),
+                  year:year.toLowerCase(),
                   section_id: sec.section_id,
                   section_name: sec.section_name,
                   semester: sec.semester,
@@ -425,113 +440,7 @@ if(!docs || docs.length===0)
 
 
 
-//   try {
-//     let docs = await SectionTimetable.find().lean();
 
-//     // If no timetables in DB, fetch from Flask API
-//     if (!docs || docs.length === 0) {
-//       console.log("No timetables in DB. Fetching from API...");
-
-//       const FLASK_URL = process.env.FLASK_URL || "http://127.0.0.1:5000";
-
-//       try {
-//         const apiResp = await axios.get(`${FLASK_URL}/api/timetables/sections`, {
-//           timeout: 30000,
-//           headers: {
-//             'Content-Type': 'application/json'
-//           }
-//         });
-
-//         console.log("Here is the data")
-
-//         // Extract the data property that frontend expects
-//         const responseData = apiResp?.data;
-
-//         if (!responseData || (typeof responseData === 'object' && Object.keys(responseData).length === 0)) {
-//           return res.status(404).json(
-//             new ApiResponse(404, null, "No timetables found from API")
-//           );
-//         }
-
-//         // Check if the response has the expected structure with data property
-//         const sectionsObj = responseData.data || responseData;
-
-//         if (!sectionsObj || Object.keys(sectionsObj).length === 0) {
-//           return res.status(404).json(
-//             new ApiResponse(404, null, "No timetable data available")
-//           );
-//         }
-
-//         const sectionsArr = Object.values(sectionsObj);
-
-//         // Save to DB
-//         try {
-//           const ops = sectionsArr.map((sec) => ({
-//             updateOne: {
-//               filter: { section_id: sec.section_id },
-//               update: {
-//                 $set: {
-//                   section_name: sec.section_name,
-//                   semester: sec.semester,
-//                   specialization: sec.specialization || "",
-//                   periods: sec.periods || {},
-//                   timetable: sec.timetable || {},
-//                   lastUpdated: new Date()
-//                 },
-//               },
-//               upsert: true,
-//             },
-//           }));
-
-//           await SectionTimetable.bulkWrite(ops, { ordered: false });
-
-//           // Fetch the newly saved data
-//           docs = await SectionTimetable.find().lean();
-
-//         } catch (dbError) {
-//           console.error("Database save error:", dbError);
-//           // Return API data even if DB save fails to maintain frontend compatibility
-//           return res.status(200).json(
-//             new ApiResponse(200, responseData.data.data.data, "Section timetables fetched from API")
-//           );
-//         }
-
-//       } catch (apiError) {
-//         console.error("API fetch error:", apiError);
-//         return res.status(503).json(
-//           new ApiResponse(503, null, "Timetable API is unavailable")
-//         );
-//       }
-//     }
-
-//     // Convert to the exact format frontend expects (matching Flask API response)
-//     const timetableData = {};
-//     docs.forEach(doc => {
-//       // Remove MongoDB _id and __v fields
-//       const { _id, __v, ...cleanDoc } = doc;
-
-//       // Use section_id as key or create one if not exists
-//       const key = doc.section_id || `${doc.section_name}_${doc.semester}`;
-//       timetableData[key] = cleanDoc;
-//     });
-
-//     // Return in the exact format that frontend expects
-//     return res.status(200).json(
-//       new ApiResponse(200,  timetableData , "Section timetables fetched successfully")
-//     );
-
-//   } catch (error) {
-//     console.error("Unexpected error in getSectionTimeTables:", error);
-//     return res.status(500).json(
-//       new ApiResponse(500, null, "Internal server error")
-//     );
-//   }
-// });
-
-
-/**
- * Get single section timetable by ID
- */
 export const getSingleSectionTimeTable = asyncHandler(async (req, res) => {
   const { section_id } = req.params;
   const response = await axios.get(`${FLASK_URL}/api/timetables/sections/${section_id}`);
