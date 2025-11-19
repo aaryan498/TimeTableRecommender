@@ -625,3 +625,59 @@ export const getFacultyTimeTablesForSpecific = asyncHandler(async (req, res) => 
     )
   );
 });
+export const getSectionTimeTablesForSpecific = asyncHandler(async (req, res) => {
+  const organisationId = req.organisation?._id;
+  const { course, year, semester } = req.query;
+
+  console.log("Section params received:", course, year, semester);
+
+  if (!organisationId) {
+    throw new ApiError(401, "Login first");
+  }
+
+  if (!course || !year || !semester) {
+    throw new ApiError(400, "Course, year, and semester are required");
+  }
+
+  const docs = await SectionTimetable.find({
+    organisationId,
+    course: course.toLowerCase().trim(),
+    year: year.toLowerCase().trim(),
+    semester: semester.toLowerCase().trim()
+  }).lean();
+
+  console.log("Section docs fetched:", docs);
+
+  if (!docs || docs.length === 0) {
+    throw new ApiError(404, "No section timetables found");
+  }
+
+  const result = {};
+
+  docs.forEach(doc => {
+    const {
+      _id,
+      __v,
+      createdAt,
+      updatedAt,
+      organisationId: org,
+      ...cleanDoc
+    } = doc;
+
+    // store using section_id as key
+    result[doc.section_id] = cleanDoc;
+  });
+
+  return res.status(200).json(
+    new ApiResponse(
+      200,
+      {
+        course: course.toLowerCase(),
+        year: year.toLowerCase(),
+        semester: semester.toLowerCase(),
+        sections: result
+      },
+      "Section timetables fetched successfully"
+    )
+  );
+});

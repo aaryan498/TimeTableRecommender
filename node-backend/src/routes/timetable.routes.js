@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getFacultyTimetablesByGroup, getFacultyTimeTablesForSpecific, getInfoPdf, getSectionTimetablesByGroup, getSectionTimeTablesDb, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
+import { checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getFacultyTimetablesByGroup, getFacultyTimeTablesForSpecific, getInfoPdf, getSectionTimetablesByGroup, getSectionTimeTablesDb, getSectionTimeTablesForSpecific, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
 import {   generateAndDownloadAllFacultyTimetables } from "../controllers/facultyTimetable.controllers.js";
 import {   updateSectionTimetable } from "../controllers/sectionTimetable.controllers.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -50,3 +50,4 @@ export default router;
 router.get("/sectionsTimeTables/group",getSectionTimetablesByGroup);
 router.get("/faculty/group",getFacultyTimetablesByGroup);
 router.get("/facultyTimeTable/getSpecific",getFacultyTimeTablesForSpecific);
+router.get("/sectionTimeTable/getSpecific",getSectionTimeTablesForSpecific);
