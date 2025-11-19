@@ -183,6 +183,9 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
     genetic_algorithm_params: organisationData.genetic_algorithm_params || {},
   };
 
+
+  console.log("Here is the going to send to model")
+
   const response = await axios.post(`${FLASK_URL}/api/generate`, transformedData, {
     withCredentials: true,
   });
@@ -248,7 +251,7 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
   await SectionTimetable.bulkWrite(ops, { ordered: false });
 
   return res.json(
-    new ApiResponse(200, transformedData, "Timetable generated and saved successfully")
+    new ApiResponse(200, {transformedData,response}, "Timetable generated and saved successfully")
   );
 });
 
