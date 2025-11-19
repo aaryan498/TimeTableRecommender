@@ -139,49 +139,185 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
     });
   }
 
-  const transformedData = {
+const transformedData = {
     college_info: {
       name: organisationData.college_info?.name || "",
       session: organisationData.college_info?.session || "",
       effective_date: organisationData.college_info?.effective_date
-        ? new Date(organisationData.college_info.effective_date)
-            .toISOString()
-            .split("T")[0]
-        : "",
+        ? new Date(organisationData.college_info.effective_date).toISOString().split('T')[0]
+        : ""
     },
     time_slots: {
-      periods: (organisationData.time_slots?.periods || []).map((p) => ({
-        id: p.id,
-        start_time: p.start_time,
-        end_time: p.end_time,
+      periods: (organisationData.time_slots?.periods || []).map(period => ({
+        id: period.id,
+        start_time: period.start_time,
+        end_time: period.end_time
       })),
       working_days: organisationData.time_slots?.working_days || [],
       break_periods: organisationData.time_slots?.break_periods || [],
       lunch_period: organisationData.time_slots?.lunch_period || null,
-      mentorship_period: organisationData.time_slots?.mentorship_period || null,
+      mentorship_period: organisationData.time_slots?.mentorship_period || null
     },
-    departments: (organisationData.departments || []).map((dept) => ({
+    departments: (organisationData.departments || []).map(dept => ({
       dept_id: dept.dept_id,
       name: dept.name,
-      sections: (dept.sections || []).map((sec) => ({
-        section_id: sec.section_id,
-        name: sec.name,
-        semester: sec.semester,
-        year: sec.year,
-        room: sec.room,
-        student_count: sec.student_count,
-        coordinator: sec.coordinator,
-        specialization: sec.specialization || "",
-      })),
+      sections: (dept.sections || []).map(section => ({
+        section_id: section.section_id,
+        name: section.name,
+        semester: typeof section.semester === 'string' ? parseInt(section.semester) || section.semester : section.semester,
+        year: typeof section.year === 'string' ? parseInt(section.year) || section.year : section.year,
+        room: section.room,
+        student_count: section.student_count,
+        coordinator: section.coordinator,
+        specialization: section.specialization || ""
+      }))
     })),
-    subjects: organisationData.subjects || [],
-    labs: organisationData.labs || [],
-    faculty: organisationData.faculty || [],
-    rooms: organisationData.rooms || [],
-    constraints: organisationData.constraints || {},
-    special_requirements: organisationData.special_requirements || {},
-    genetic_algorithm_params: organisationData.genetic_algorithm_params || {},
+    subjects: (organisationData.subjects || []).map(subject => ({
+      subject_id: subject.subject_id,
+      name: subject.name,
+      type: subject.type,
+      credits: subject.credits,
+      lectures_per_week: subject.lectures_per_week,
+      semester: subject.semester,
+      departments: subject.departments || [],
+      min_classes_per_week: subject.min_classes_per_week,
+      max_classes_per_day: subject.max_classes_per_day,
+      tutorial_sessions: subject.tutorial_sessions || 0,
+      specialization: subject.specialization || "",
+      flexible_timing: subject.flexible_timing || false
+    })),
+    labs: (organisationData.labs || []).map(lab => ({
+      lab_id: lab.lab_id,
+      name: lab.name,
+      type: lab.type,
+      credits: lab.credits,
+      sessions_per_week: lab.sessions_per_week,
+      duration_hours: lab.duration_hours,
+      semester: lab.semester,
+      departments: lab.departments || [],
+      lab_rooms: lab.lab_rooms || [],
+      specialization: lab.specialization || ""
+    })),
+    faculty: (organisationData.faculty || []).map(faculty => ({
+      faculty_id: faculty.faculty_id,
+      name: faculty.name,
+      department: faculty.department,
+      designation: faculty.designation,
+      subjects: faculty.subjects || [],
+      max_hours_per_week: faculty.max_hours_per_week,
+      avg_leaves_per_month: faculty.avg_leaves_per_month,
+      preferred_time_slots: faculty.preferred_time_slots || []
+    })),
+    rooms: (organisationData.rooms || []).map(room => ({
+      room_id: room.room_id,
+      name: room.name,
+      type: room.type,
+      capacity: room.capacity,
+      department: room.department || "",
+      equipment: room.equipment || []
+    })),
+    constraints: {
+      hard_constraints: {
+        no_faculty_clash: organisationData.constraints?.hard_constraints?.no_faculty_clash || true,
+        no_room_clash: organisationData.constraints?.hard_constraints?.no_room_clash || true,
+        no_section_clash: organisationData.constraints?.hard_constraints?.no_section_clash || true,
+        break_periods_fixed: organisationData.constraints?.hard_constraints?.break_periods_fixed || [],
+        lunch_period_fixed: organisationData.constraints?.hard_constraints?.lunch_period_fixed || null,
+        mentorship_period_fixed: organisationData.constraints?.hard_constraints?.mentorship_period_fixed || null,
+        max_classes_per_day_per_section: organisationData.constraints?.hard_constraints?.max_classes_per_day_per_section || 7,
+        min_classes_per_week_per_subject: organisationData.constraints?.hard_constraints?.min_classes_per_week_per_subject || true,
+        lab_duration_consecutive: organisationData.constraints?.hard_constraints?.lab_duration_consecutive || true,
+        faculty_availability: organisationData.constraints?.hard_constraints?.faculty_availability || true,
+        section_room_assignment: organisationData.constraints?.hard_constraints?.section_room_assignment || true
+      },
+      soft_constraints: {
+        balanced_daily_load: {
+          weight: organisationData.constraints?.soft_constraints?.balanced_daily_load?.weight || 0.3,
+          max_deviation: organisationData.constraints?.soft_constraints?.balanced_daily_load?.max_deviation || 2
+        },
+        faculty_preference_slots: {
+          weight: organisationData.constraints?.soft_constraints?.faculty_preference_slots?.weight || 0.2
+        },
+        minimize_faculty_travel: {
+          weight: organisationData.constraints?.soft_constraints?.minimize_faculty_travel?.weight || 0.15
+        },
+        morning_heavy_subjects: {
+          weight: organisationData.constraints?.soft_constraints?.morning_heavy_subjects?.weight || 0.1,
+          subjects: organisationData.constraints?.soft_constraints?.morning_heavy_subjects?.subjects || []
+        },
+        avoid_single_period_gaps: {
+          weight: organisationData.constraints?.soft_constraints?.avoid_single_period_gaps?.weight || 0.15
+        },
+        distribute_subjects_evenly: {
+          weight: organisationData.constraints?.soft_constraints?.distribute_subjects_evenly?.weight || 0.1
+        },
+        minimize_free_periods: {
+          weight: organisationData.constraints?.soft_constraints?.minimize_free_periods?.weight || 0.25
+        }
+      }
+    },
+    special_requirements: {
+      mentorship_break: {
+        period: organisationData.special_requirements?.mentorship_break?.period || null,
+        duration: organisationData.special_requirements?.mentorship_break?.duration || 1,
+        all_sections: organisationData.special_requirements?.mentorship_break?.all_sections || true
+      },
+      library_periods: {
+        sections: organisationData.special_requirements?.library_periods?.sections || [],
+        periods_per_week: organisationData.special_requirements?.library_periods?.periods_per_week || 1,
+        flexible: organisationData.special_requirements?.library_periods?.flexible || true
+      },
+      project_work: {
+        sections: organisationData.special_requirements?.project_work?.sections || [],
+        periods_per_week: organisationData.special_requirements?.project_work?.periods_per_week || 8,
+        flexible_scheduling: organisationData.special_requirements?.project_work?.flexible_scheduling || true
+      },
+      tutorial_classes: {
+        subjects: organisationData.special_requirements?.tutorial_classes?.subjects || [],
+        marked_as: organisationData.special_requirements?.tutorial_classes?.marked_as || "T",
+        duration: organisationData.special_requirements?.tutorial_classes?.duration || 1
+      },
+      open_electives: {
+        cross_department: organisationData.special_requirements?.open_electives?.cross_department || true,
+        faculty_rotation: organisationData.special_requirements?.open_electives?.faculty_rotation || true
+      },
+      minors_honors: {
+        delivery_mode: organisationData.special_requirements?.minors_honors?.delivery_mode || "online",
+        platform: organisationData.special_requirements?.minors_honors?.platform || "Google Meet",
+        sections: organisationData.special_requirements?.minors_honors?.sections || [],
+        periods: organisationData.special_requirements?.minors_honors?.periods || []
+      },
+      lab_batch_division: {
+        max_students_per_batch: organisationData.special_requirements?.lab_batch_division?.max_students_per_batch || 15,
+        batch_naming: organisationData.special_requirements?.lab_batch_division?.batch_naming || ["A", "B", "C", "D"],
+        rotation_labs: organisationData.special_requirements?.lab_batch_division?.rotation_labs || []
+      }
+    },
+    genetic_algorithm_params: {
+      population_size: organisationData.genetic_algorithm_params?.population_size || 50,
+      generations: organisationData.genetic_algorithm_params?.generations || 200,
+      mutation_rate: organisationData.genetic_algorithm_params?.mutation_rate || 0.2,
+      crossover_rate: organisationData.genetic_algorithm_params?.crossover_rate || 0.8,
+      elite_size: organisationData.genetic_algorithm_params?.elite_size || 5,
+      tournament_size: organisationData.genetic_algorithm_params?.tournament_size || 3,
+      early_stopping_patience: organisationData.genetic_algorithm_params?.early_stopping_patience || 5,
+      fitness_weights: {
+        coverage_weight: organisationData.genetic_algorithm_params?.fitness_weights?.coverage_weight || 1000.0,
+        balanced_daily_load_weight: organisationData.genetic_algorithm_params?.fitness_weights?.balanced_daily_load_weight || 50.0,
+        faculty_pref_weight: organisationData.genetic_algorithm_params?.fitness_weights?.faculty_pref_weight || 10.0,
+        consecutive_periods_weight: organisationData.genetic_algorithm_params?.fitness_weights?.consecutive_periods_weight || 30.0,
+        faculty_clash_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.faculty_clash_penalty || 2000.0,
+        room_clash_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.room_clash_penalty || 2000.0,
+        section_clash_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.section_clash_penalty || 2000.0,
+        min_classes_violation_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.min_classes_violation_penalty || 500.0,
+        gap_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.gap_penalty || 100.0,
+        free_period_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.free_period_penalty || 25.0,
+        room_assignment_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.room_assignment_penalty || 1000.0,
+        placement_failed_penalty: organisationData.genetic_algorithm_params?.fitness_weights?.placement_failed_penalty || 300.0
+      }
+    }
   };
+
 
 
   console.log("Here is the going to send to model")
