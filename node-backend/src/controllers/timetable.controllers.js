@@ -250,9 +250,17 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
   await SectionTimetable.bulkWrite(ops, { ordered: false });
 
-  return res.json(
-    new ApiResponse(200, {transformedData,response}, "Timetable generated and saved successfully")
-  );
+return res.json(
+  new ApiResponse(
+    200,
+    {  transformedData,
+      faculty: response.data.data.faculty,
+      sections: response.data.data.sections
+    },
+    "Timetable generated and saved successfully"
+  )
+);
+
 });
 
 
