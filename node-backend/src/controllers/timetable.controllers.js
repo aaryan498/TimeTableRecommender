@@ -574,7 +574,8 @@ export const getSectionTimetablesByGroup = asyncHandler(async (req, res) => {
 export const getFacultyTimeTablesForSpecific = asyncHandler(async (req, res) => {
   const organisationId = req.organisation?._id;
   const { course, year, semester } = req.query;
-
+  
+  console.log("here are the coming things".course,year,semester)
   if (!organisationId) {
     throw new ApiError(401, "Login first");
   }
@@ -589,6 +590,8 @@ export const getFacultyTimeTablesForSpecific = asyncHandler(async (req, res) => 
     year: year.toLowerCase().trim(),
     semester: semester.toLowerCase().trim()
   }).lean();
+
+  console.log("Here is the docs",docs)
 
   if (!docs || docs.length === 0) {
     throw new ApiError(404, "No faculty timetables found");
