@@ -425,16 +425,22 @@ if(!docs || docs.length===0)
 {
   throw new ApiError(400,"No timetable found for sections")
 }
+const {semester,year,course} = docs[0];
 console.log(docs)
 
-    // const timetableData = {};
-    // docs.forEach((doc) => {
-    //   const { _id, __v, createdAt, updatedAt, ...cleanDoc } = doc;
-    //   timetableData[doc.section_id] = cleanDoc;
-    // });
+    const timetableData = {};
+    docs.forEach((doc) => {
+      const { _id, __v, createdAt, updatedAt, ...cleanDoc } = doc;
+      timetableData[doc.section_id] = cleanDoc;
+    });
 
     return res.status(200).json(
-      new ApiResponse(200, {docs}, "Section timetables fetched successfully")
+      new ApiResponse(200, {
+        course,
+        year,
+        semester,
+        timetableData
+      }, "Section timetables fetched successfully")
     );
   } catch (error) {
     console.error("Unexpected error in getSectionTimeTables:", error);
