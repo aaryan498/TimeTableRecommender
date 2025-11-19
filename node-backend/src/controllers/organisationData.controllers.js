@@ -76,7 +76,8 @@ export const saveTimetable = async (req, res) => {
     const timetable = await OrganisationData.findOneAndUpdate(
       { organisationId,
         course,
-        year
+        year,
+        semester
 
        },
       { $set: updateData },

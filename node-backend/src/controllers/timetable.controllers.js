@@ -110,18 +110,19 @@ export const getInfoPdf = async (req, res) => {
 export const startTimeTableCreation = asyncHandler(async (req, res) => {
 
   const organisationId = req.organisation?._id
-   const {course,year,semester} = req.query;
+  const { course, year, semester } = req.query;
   if (!organisationId) {
     throw new ApiError(400, "Login First")
   }
-  if(!course || !year)
-  {
-    throw new ApiError(400,"Course or year is not specified")
+  if (!course || !year) {
+    throw new ApiError(400, "Course or year is not specified")
   }
- 
-  const organisationData = await OrganisationData.findOne({  organisationId,
-        course:course.trim().toLowerCase(),
-        year:year.trim().toLowerCase(),semester:semester.trim().toLowerCase()});
+
+  const organisationData = await OrganisationData.findOne({
+    organisationId,
+    course: course.trim().toLowerCase(),
+    year: year.trim().toLowerCase(), semester: semester.trim().toLowerCase()
+  });
 
 
   if (!organisationData) {
@@ -316,8 +317,8 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
     withCredentials: true
   });
   if (!response || !response.data) throw new ApiError(500, "Failed to start generation");
-  
-  console.log("Here is the response",response);
+
+  console.log("Here is the response", response);
   const apiResponse = response.data.data.faculty;
   console.log(`Fetched ${Object.keys(apiResponse).length} faculty timetables from API`);
 
@@ -338,9 +339,9 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
       {
         faculty_id: dbFacultyId,
         organisationId,
-        course:course.trim().toLowerCase(),
-        year:year.trim().toLowerCase(),
-        semester:semester.trim().toLowerCase()
+        course: course.trim().toLowerCase(),
+        year: year.trim().toLowerCase(),
+        semester: semester.trim().toLowerCase()
       },
       {
         ...facultyData,
@@ -350,45 +351,45 @@ export const startTimeTableCreation = asyncHandler(async (req, res) => {
       { upsert: true, new: true, setDefaultsOnInsert: true }
     );
   }
-     
+
   const sectionsObj = response.data.data.sections
-        const sectionsArr = Object.values(sectionsObj);
+  const sectionsArr = Object.values(sectionsObj);
 
-        try {
-        
-          const ops = sectionsArr.map((sec) => ({
-            updateOne: {
-          filter: {
-  section_id: sec.section_id,
-  organisationId,
-  course: course.toLowerCase(),
-  year: year.toLowerCase()
-},
+  try {
 
-              update: {
-                $set: {
-                  organisationId,
-                  course:course.trim().toLowerCase(),
-                  year:year.trim().toLowerCase(),
-                  semester:semester.trim().toLowerCase(),
-                  section_id: sec.section_id,
-                  section_name: sec.section_name,
-                  semester: sec.semester,
-                  specialization: sec.specialization || "",
-                  periods: sec.periods || {},
-                  timetable: sec.timetable || {},
-                },
-              },
-              upsert: true,
-            },
-          }));
+const ops = sectionsArr.map(sec => ({
+  updateOne: {
+    filter: {
+      section_id: sec.section_id,
+      organisationId,
+      course: course.trim().toLowerCase(),
+      year: year.trim().toLowerCase(),
+      semester: semester.trim().toLowerCase()
+    },
+    update: {
+      $set: {
+        organisationId,
+        course: course.trim().toLowerCase(),
+        year: year.trim().toLowerCase(),
+        semester: semester.trim().toLowerCase(),
+        section_id: sec.section_id,
+        section_name: sec.section_name,
+        specialization: sec.specialization || "",
+        periods: sec.periods || {},
+        timetable: sec.timetable || {}
+      }
+    },
+    upsert: true
+  }
+}));
 
-          await SectionTimetable.bulkWrite(ops, { ordered: false });
-        }
-        catch(err){
-          console.log("Unable to save the section timetable",err);
-          throw new ApiError(500,"Error while saving data! Try again later")
-        }
+
+    await SectionTimetable.bulkWrite(ops, { ordered: false });
+  }
+  catch (err) {
+    console.log("Unable to save the section timetable", err);
+    throw new ApiError(500, "Error while saving data! Try again later")
+  }
 
 
 
@@ -429,7 +430,7 @@ export const getSectionTimeTablesDb = asyncHandler(async (req, res) => {
 
     docs.forEach(doc => {
       const { _id, __v, createdAt, updatedAt, ...clean } = doc;
-      
+
       const { course, year, semester, section_id } = clean;
 
       if (!grouped[course]) grouped[course] = {};
@@ -466,41 +467,40 @@ export const getSingleSectionTimeTable = asyncHandler(async (req, res) => {
 
 
 export const getFacultyTimeTables = asyncHandler(async (req, res) => {
-    const organisationId = req.organisation?._id
-    let docs = await FacultyTimetable.find({ organisationId }).lean();
+  const organisationId = req.organisation?._id
+  let docs = await FacultyTimetable.find({ organisationId }).lean();
 
-    if (!docs || docs.length === 0) {
-      throw new ApiError(400, "No timetables found");
-    }
-    const formattedData = {};
-    docs.forEach(doc => {
-      const { _id, __v, createdAt, updatedAt, organisationId: orgId, ...cleanDoc } = doc;
-      formattedData[doc.faculty_id] = cleanDoc;
-    });
-    return res.status(200).json(
-      new ApiResponse(200, formattedData, "Faculty timetables fetched successfully")
-    );
+  if (!docs || docs.length === 0) {
+    throw new ApiError(400, "No timetables found");
   }
-  
+  const formattedData = {};
+  docs.forEach(doc => {
+    const { _id, __v, createdAt, updatedAt, organisationId: orgId, ...cleanDoc } = doc;
+    formattedData[doc.faculty_id] = cleanDoc;
+  });
+  return res.status(200).json(
+    new ApiResponse(200, formattedData, "Faculty timetables fetched successfully")
+  );
+}
+
 );
 
-const getAllGeneratedSectionTimeTables = asyncHandler(async(req,res)=>{
+const getAllGeneratedSectionTimeTables = asyncHandler(async (req, res) => {
 
-const organisationId = req.organisation_id;
-
-
-const sectionTimeTables = await SectionTimetable.find({organisationId});
+  const organisationId = req.organisation_id;
 
 
-if(sectionTimeTables.length===0)
-{
-  throw new ApiError(400,"No section TimTables yet")
-}
- 
+  const sectionTimeTables = await SectionTimetable.find({ organisationId });
 
-return res.status(200).json(
-  new ApiResponse(200,sectionTimeTables,"Section TimeTable fetched successfully")
-)
+
+  if (sectionTimeTables.length === 0) {
+    throw new ApiError(400, "No section TimTables yet")
+  }
+
+
+  return res.status(200).json(
+    new ApiResponse(200, sectionTimeTables, "Section TimeTable fetched successfully")
+  )
 
 })
 
@@ -532,9 +532,10 @@ export const updateFacultyTimetable = asyncHandler(async (req, res) => {
 
     // Update the faculty timetable
     const updatedFaculty = await FacultyTimetable.findOneAndUpdate(
-      { faculty_id,
+      {
+        faculty_id,
         organisationId
-       },
+      },
       updateData,
       {
         new: true, // Return the updated document
