@@ -85,8 +85,8 @@ export const saveTimetable = async (req, res) => {
     );
 
     await Promise.all([
-      SectionTimetable.deleteMany({ organisationId }),
-      FacultyTimetable.deleteMany({ organisationId }),
+      SectionTimetable.deleteMany({ organisationId,course:course.trim().toLowerCase(),year:year.trim().toLowerCase(),semester:semester.trim().toLowerCase() }),
+      FacultyTimetable.deleteMany({ organisationId,course:course.trim().toLowerCase(),year:year.trim().toLowerCase(),semester:semester.trim().toLowerCase() }),
     ]);
 
     res.status(201).json({ message: "Data saved/updated successfully", timetable });
