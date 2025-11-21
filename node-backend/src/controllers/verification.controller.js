@@ -5,6 +5,7 @@ import ApiResponse from "../utils/apiResponse.js";
 import bcrypt from "bcrypt";
 import { sendEmail } from "../utils/sendMail.js";
 import { Organisation } from "../models/organisation.model.js";
+import jwt from "jsonwebtoken"
 
 const OTP_EXPIRY = 2 * 60; 
 const RATE_LIMIT = 10;    
@@ -118,6 +119,35 @@ export const checkOtp = asyncHandler(async (req, res) => {
   }
 
   const isCorrect = await verifyOtp(organisationEmail, otp, purpose);
+   
+  if(!isCorrect)
+  {
+    throw new ApiError(400,"Otp Incorrect");
+  }
+ if(purpose==="reset-password")
+ {
+    
+  const organisation = await Organisation.findOne({organisationEmail}).lean()
+  
+  if(!organisation)
+  {
+    throw new ApiError(400,"Organisation Not Found! Register first")
+  }
+
+  res.cookie("otpToken", jwt.sign(
+      {
+        _id: this._id,
+        organisationEmail: organisation.organisationEmail,
+        organisationName: organisation.organisationName,
+      },
+      process.env.OTP_TOKEN_SECRET,
+      {
+        expiresIn: process.env.OTP_TOKEN_EXPIRY,
+      }
+    ))
+
+
+ }
 
   return res
     .status(200)

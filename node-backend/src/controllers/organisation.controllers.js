@@ -124,7 +124,6 @@ const registerOrganisation = asyncHandler(async (req, res) => {
   }
 
   if (existingOrganisation && existingOrganisation.isEmailVerified !== true) {
-    // remove any unverified record that might be partial
     await Organisation.deleteOne({ organisationEmail });
   }
 

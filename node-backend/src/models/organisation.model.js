@@ -40,15 +40,7 @@ const organisationSchema = new Schema(
     },
     avatar: {
       type: String,
-    },
-    otp: {
-      type: String,
-      default: null,
-    },
-    otpExpiry: {
-      type: Date,
-      default: null,
-    },
+    }
   },
   { timestamps: true }
 );
@@ -59,12 +51,12 @@ organisationSchema.pre("save", async function (next) {
   next();
 });
 
-// Compare passwords
+
 organisationSchema.methods.isPasswordCorrect = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// JWT: Access Token
+
 organisationSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
