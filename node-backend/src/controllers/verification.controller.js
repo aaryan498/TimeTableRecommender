@@ -111,6 +111,8 @@ export const sendOTP = asyncHandler(async (req, res) => {
 });
 
 
+
+
 export const checkOtp = asyncHandler(async (req, res) => {
   const { organisationEmail, otp, purpose } = req.body;
 
