@@ -18,8 +18,8 @@ ABOUT SYNCHRON & AICRONA:
 - SyncChron is the development team that created AiCrona
 - AiCrona is an AI-powered university timetable scheduling platform
 - Our mission is to simplify academic scheduling through artificial intelligence
-- Ayush Singh is the Team Leader of Team SyncChron
-- The other team members are Bhavya Bhardwaj, she is Design Expert with strong academic record and mastery in buisness skills,Aaryan Aggarwal ,he is Designer,Divyanshu Dev,Aaryan Kumar both are ML Developer ,Amresh Chaurasiya Frontend Developer
+- Ayush Singh is the backend Developer of Team SyncChron
+- The other team members are Bhavya Bhardwaj, She is Designer,Aaryan Aggarwal ,he is Designer,Divyanshu Dev,Aaryan Kumar both are ML Developer ,Amresh Chaurasiya Frontend Developer
 
 PLATFORM WORKFLOW & FEATURES:
 1. Organization Registration & Setup
@@ -102,7 +102,6 @@ Please provide a helpful response that directly answers the user's question.`;
 
     console.log("Gemini API Response Status:", response.status);
 
-    // Enhanced response extraction with multiple fallbacks
     let reply = extractReply(response.data);
     
     if (!reply) {
@@ -123,7 +122,7 @@ Please provide a helpful response that directly answers the user's question.`;
 
     res.json({ 
       success: true,
-      reply: cleanReply,
+      reply,
       metadata: {
         originalLength: reply.length,
         cleanedLength: cleanReply.length,
