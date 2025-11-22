@@ -16,6 +16,6 @@ const router = Router()
 
 
 
-router.get("/chat",chatBot)
+router.post("/chat",chatBot)
 
 export default router;
