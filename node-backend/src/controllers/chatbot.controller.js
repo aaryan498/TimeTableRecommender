@@ -12,54 +12,48 @@ export const chatBot = asyncHandler(async (req, res) => {
   }
 
   try {
-    const prompt =
-      "You are the official AI assistant for Synchron and AiCrona platform.\n\n" +
-      
-      "## ABOUT SYNCHRON & AICRONA\n" +
-      "- Synchron is the development team that created AiCrona\n" +
-      "- AiCrona is an AI-powered university timetable scheduling platform\n" +
-      "- Our mission is to simplify academic scheduling through artificial intelligence\n\n" +
-      
-      "## PLATFORM WORKFLOW & FEATURES\n" +
-      "### 1. Organization Registration & Setup\n" +
-      "- Educational institutions register and create admin accounts\n" +
-      "- Admin accesses the Institution Dashboard after login\n" +
-      "- Secure authentication and role-based access control\n\n" +
-      
-      "### 2. Academic Data Management\n" +
-      "- In Academic Data Tab, admin selects: Course, Year, Semester for timetable generation\n" +
-      "- Admin can add/manage: Courses, Years, Semesters, Subjects, Faculty, Sections\n" +
-      "- Data Taker feature allows manual entry or PDF upload for bulk data\n" +
-      "- System auto-parses PDF content and auto-fills information fields\n" +
-      "- Data validation and duplicate prevention mechanisms\n\n" +
-      
-      "### 3. AI Timetable Generation\n" +
-      "- Admin clicks 'Generate And Save Timetable' for specific course-year-semester\n" +
-      "- AiCrona's AI engine generates 3 optimized timetable variants\n" +
-      "- Optimization considers: Faculty availability, room capacity, subject priorities, time constraints\n" +
-      "- Each variant shows section → faculty → room level details\n\n" +
-      
-      "### 4. Timetable Management\n" +
-      "- Admin reviews and compares all 3 timetable variants\n" +
-      "- Selects and approves the most suitable variant\n" +
-      "- Approved timetable becomes the official schedule\n" +
-      "- All generated timetables accessible in Timetable Manager tab\n" +
-      "- Export capabilities to PDF and other formats\n\n" +
-      
-      "## RESPONSE GUIDELINES\n" +
-      "1. Provide CLEAR, CONCISE, and WELL-FORMATTED responses\n" +
-      "2. Use proper spacing and paragraph breaks for readability\n" +
-      "3. Avoid any markdown formatting, code blocks, or special characters\n" +
-      "4. Ensure responses are in perfect English without duplication or corruption\n" +
-      "5. Be helpful, professional, and solution-oriented\n" +
-      "6. If unsure about specific details, guide users to appropriate platform sections\n" +
-      "7. For technical issues, provide step-by-step troubleshooting guidance\n" +
-      "8. Always maintain a positive and supportive tone\n\n" +
-      
-      "## CURRENT USER QUERY\n" +
-      "User Message: " + message.trim() + "\n\n" +
-      
-      "Please provide a helpful, accurate response that addresses the user's specific question about AiCrona platform features, workflow, or any issues they're experiencing.";
+    const prompt = `You are the official AI assistant for Synchron and AiCrona platform.
+
+ABOUT SYNCHRON & AICRONA:
+- Synchron is the development team that created AiCrona
+- AiCrona is an AI-powered university timetable scheduling platform
+- Our mission is to simplify academic scheduling through artificial intelligence
+
+PLATFORM WORKFLOW & FEATURES:
+1. Organization Registration & Setup
+   - Educational institutions register and create admin accounts
+   - Admin accesses the Institution Dashboard after login
+   - Secure authentication and role-based access control
+
+2. Academic Data Management
+   - In Academic Data Tab, admin selects: Course, Year, Semester for timetable generation
+   - Admin can add/manage: Courses, Years, Semesters, Subjects, Faculty, Sections
+   - Data Taker feature allows manual entry or PDF upload for bulk data
+   - System auto-parses PDF content and auto-fills information fields
+
+3. AI Timetable Generation
+   - Admin clicks 'Generate And Save Timetable' for specific course-year-semester
+   - AiCrona's AI engine generates 3 optimized timetable variants
+   - Optimization considers: Faculty availability, room capacity, subject priorities
+   - Each variant shows section → faculty → room level details
+
+4. Timetable Management
+   - Admin reviews and compares all 3 timetable variants
+   - Selects and approves the most suitable variant
+   - Approved timetable becomes the official schedule
+   - All generated timetables accessible in Timetable Manager tab
+
+RESPONSE REQUIREMENTS:
+- Provide clear, natural English responses without any character duplication
+- Do NOT duplicate characters or add extra spaces between words
+- Use normal spacing and proper punctuation
+- Respond in a conversational but professional tone
+- If you don't know something, admit it and guide the user to contact support
+- Keep responses concise but helpful
+
+USER QUESTION: ${message.trim()}
+
+Please provide a helpful response that directly answers the user's question.`;
 
     const url = process.env.GEMINI_URL;
     
@@ -74,7 +68,6 @@ export const chatBot = asyncHandler(async (req, res) => {
 
     console.log("Sending request to Gemini API...");
     console.log("User Message:", message);
-    console.log("Prompt Length:", prompt.length);
 
     const response = await axios.post(
       url,
@@ -83,68 +76,46 @@ export const chatBot = asyncHandler(async (req, res) => {
           parts: [{ text: prompt }]
         }],
         generationConfig: {
-          temperature: 0.7,
-          topK: 40,
-          topP: 0.95,
+          temperature: 0.3, // Lower temperature for more consistent output
+          topK: 20,
+          topP: 0.8,
           maxOutputTokens: 1024,
-        }
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          }
+        ]
       },
       {
         timeout: 30000,
         headers: {
           'Content-Type': 'application/json',
-        },
-        validateStatus: function (status) {
-          return status < 500; // Resolve only if status code < 500
+          'Accept': 'application/json',
+          'Accept-Charset': 'utf-8'
         }
       }
     );
 
     console.log("Gemini API Response Status:", response.status);
-    console.log("Gemini API Response Headers:", response.headers);
 
-    // Enhanced response validation
-    if (!response.data) {
-      throw new Error("Empty response from Gemini API");
+    // Enhanced response extraction with multiple fallbacks
+    let reply = extractReply(response.data);
+    
+    if (!reply) {
+      throw new Error("Could not extract valid reply from Gemini response");
     }
 
-    let reply;
-    
-    // Multiple response format handling
-    if (response.data.candidates && 
-        response.data.candidates[0] && 
-        response.data.candidates[0].content && 
-        response.data.candidates[0].content.parts && 
-        response.data.candidates[0].content.parts[0] &&
-        response.data.candidates[0].content.parts[0].text) {
-      
-      reply = response.data.candidates[0].content.parts[0].text;
-    
-    } else if (response.data.choices && 
-               response.data.choices[0] && 
-               response.data.choices[0].message && 
-               response.data.choices[0].message.content) {
-      
-      reply = response.data.choices[0].message.content;
-    
-    } else if (response.data.text) {
-      
-      reply = response.data.text;
-    
-    } else {
-      console.error("Unexpected Gemini response format:", JSON.stringify(response.data, null, 2));
-      throw new Error("Unexpected response format from Gemini API");
-    }
+    console.log("Raw Reply from Gemini:", reply);
+    console.log("Reply Length:", reply.length);
 
-    // Comprehensive response cleaning
-    const cleanReply = cleanGeminiResponse(reply);
+    // Aggressive cleaning for the duplication issue
+    const cleanReply = aggressiveCleanResponse(reply);
     
-    console.log("Original Reply Length:", reply.length);
-    console.log("Cleaned Reply Length:", cleanReply.length);
-    console.log("Original Reply Preview:", reply.substring(0, 200));
-    console.log("Cleaned Reply Preview:", cleanReply.substring(0, 200));
+    console.log("After Cleaning:", cleanReply);
 
-    if (!cleanReply || cleanReply.trim().length < 2) {
+    if (!cleanReply || cleanReply.trim().length < 5) {
       throw new Error("Cleaned response is empty or too short");
     }
 
@@ -159,86 +130,114 @@ export const chatBot = asyncHandler(async (req, res) => {
     });
 
   } catch (err) {
-    console.error("ChatBot Error Details:", {
-      name: err.name,
+    console.error("ChatBot Error:", {
       message: err.message,
-      stack: err.stack,
-      response: err.response?.data,
       status: err.response?.status,
-      code: err.code
+      data: err.response?.data
     });
 
-    // User-friendly error messages based on error type
     let userMessage = "I'm experiencing technical difficulties. Please try again in a moment.";
-    let statusCode = 500;
-
+    
     if (err.response?.status === 429) {
       userMessage = "I'm currently processing too many requests. Please wait a moment and try again.";
-      statusCode = 429;
     } else if (err.response?.status === 400) {
       userMessage = "There was an issue with the request. Please check your input and try again.";
-      statusCode = 400;
     } else if (err.code === 'ECONNABORTED') {
       userMessage = "The request took too long to process. Please try again.";
-      statusCode = 408;
-    } else if (err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED') {
-      userMessage = "Service is temporarily unavailable. Please try again later.";
-      statusCode = 503;
     }
 
-    res.status(statusCode).json({ 
+    res.status(500).json({ 
       success: false,
-      reply: userMessage,
-      error: process.env.NODE_ENV === 'development' ? err.message : undefined,
-      timestamp: new Date().toISOString()
+      reply: userMessage
     });
   }
 });
 
-// Enhanced response cleaning function
-function cleanGeminiResponse(text) {
+// Function to extract reply from various Gemini response formats
+function extractReply(data) {
+  if (!data) return null;
+
+  // Try multiple response formats
+  if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+    return data.candidates[0].content.parts[0].text;
+  }
+  
+  if (data.choices?.[0]?.message?.content) {
+    return data.choices[0].message.content;
+  }
+  
+  if (data.text) {
+    return data.text;
+  }
+  
+  if (data.response) {
+    return data.response;
+  }
+
+  // Log unexpected format for debugging
+  console.log("Unexpected response format:", JSON.stringify(data, null, 2));
+  return null;
+}
+
+// Aggressive cleaning function for the character duplication issue
+function aggressiveCleanResponse(text) {
   if (!text || typeof text !== "string") {
     return "I apologize, but I'm having trouble generating a response. Please try again.";
   }
 
   let cleaned = text;
 
-  // Remove undefined strings (case insensitive)
+  // Remove 'undefined' strings
   cleaned = cleaned.replace(/undefined/gi, '');
   
-  // Fix character duplication issues (hheelllloo -> hello)
+  // Fix the specific duplication pattern: "hheelllloo" -> "hello"
+  // This pattern appears to be doubling each character
+  cleaned = cleaned.replace(/([a-zA-Z])\1/g, '$1');
+  
+  // Fix triple or more duplicates
   cleaned = cleaned.replace(/([a-zA-Z])\1+/g, '$1');
   
-  // Fix specific duplication patterns
-  cleaned = cleaned.replace(/(\w)\1\1\1/g, '$1$1'); // aaaa -> aa
-  cleaned = cleaned.replace(/(\w)\1/g, '$1');        // aa -> a
+  // Fix duplicated words with spaces: "hello  hello" -> "hello"
+  cleaned = cleaned.replace(/(\b\w+\b)\s+\1/g, '$1');
   
-  // Remove multiple consecutive spaces
+  // Fix the specific pattern you're seeing: "yy n n cc hh rr oo nn" -> "synchron"
+  // This handles spaces between duplicated characters
+  cleaned = cleaned.replace(/([a-zA-Z])\s+\1/g, '$1');
+  
+  // Remove extra spaces (multiple spaces to single space)
   cleaned = cleaned.replace(/\s+/g, ' ');
   
-  // Remove any special character artifacts
-  cleaned = cleaned.replace(/[�]/g, '');
+  // Remove any remaining special characters or artifacts
+  cleaned = cleaned.replace(/[��]/g, '');
+  cleaned = cleaned.replace(/[^\x20-\x7E\u0900-\u097F]/g, ''); // Keep only printable chars and Devanagari
   
-  // Clean up common AI response artifacts
-  cleaned = cleaned.replace(/�+/g, '');
-  cleaned = cleaned.replace(/\[.*?\]/g, ''); // Remove [something] patterns
-  cleaned = cleaned.replace(/\(.*?\)/g, ' '); // Clean parentheses content with space
+  // Ensure proper sentence structure
+  cleaned = cleaned.replace(/\s+\./g, '.');
+  cleaned = cleaned.replace(/\s+,/g, ',');
+  cleaned = cleaned.replace(/\s+!/g, '!');
+  cleaned = cleaned.replace(/\s+\?/g, '?');
   
-  // Ensure proper sentence spacing
-  cleaned = cleaned.replace(/\.([a-zA-Z])/g, '. $1');
-  
-  // Trim and final cleanup
+  // Trim and capitalize first letter
   cleaned = cleaned.trim();
-  
-  // Capitalize first letter if needed
   if (cleaned.length > 0) {
     cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
   }
 
-  // Final validation
-  if (cleaned.length < 2) {
-    return "I apologize, but I couldn't generate a proper response. Please rephrase your question and try again.";
+  // Final validation - if still corrupted, provide fallback
+  if (isStillCorrupted(cleaned)) {
+    return "I apologize, but I'm experiencing technical issues with my response generation. Please try rephrasing your question or contact support if the problem continues.";
   }
 
   return cleaned;
+}
+
+// Check if text still has the duplication corruption
+function isStillCorrupted(text) {
+  if (!text) return true;
+  
+  // Check for excessive single character repetition
+  const corruptionPattern = /(.)\1\1/; // Three or more of the same character in a row
+  const spacePattern = /([a-zA-Z])\s+([a-zA-Z])\s+([a-zA-Z])/; // Spaces between single chars
+  
+  return corruptionPattern.test(text) || spacePattern.test(text);
 }
