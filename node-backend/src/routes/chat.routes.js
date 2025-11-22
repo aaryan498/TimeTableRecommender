@@ -1,5 +1,5 @@
 import {Router} from "express"
-import chatBot from "../controllers/chatbot.controller"
+import { chatBot } from "../controllers/chatbot.controller";
 
 
 

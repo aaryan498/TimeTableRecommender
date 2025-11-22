@@ -5,7 +5,7 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-const chatBot = asyncHandler(async (req, res) => {
+export const chatBot = asyncHandler(async (req, res) => {
   const { message } = req.body;
 
   try {
@@ -42,4 +42,3 @@ const chatBot = asyncHandler(async (req, res) => {
   }
 });
 
-export default chatBot;
