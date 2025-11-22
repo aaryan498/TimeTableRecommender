@@ -224,9 +224,9 @@ function aggressiveCleanResponse(text) {
   }
 
   // Final validation - if still corrupted, provide fallback
-  if (isStillCorrupted(cleaned)) {
-    return "I apologize, but I'm experiencing technical issues with my response generation. Please try rephrasing your question or contact support if the problem continues.";
-  }
+  // if (isStillCorrupted(cleaned)) {
+  //   return "I apologize, but I'm experiencing technical issues with my response generation. Please try rephrasing your question or contact support if the problem continues.";
+  // }
 
   return cleaned;
 }
