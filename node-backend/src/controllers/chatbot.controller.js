@@ -39,7 +39,7 @@ export const chatBot = asyncHandler(async (req, res) => {
         }]
       }
     );
-
+   
     const reply = response.data.candidates[0].content.parts[0].text;
     res.json({ reply });
   } catch (err) {
