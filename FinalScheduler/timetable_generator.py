@@ -364,8 +364,10 @@ class TimetableData:
         if faculty_id == "NO FACULTY FOUND":
             return True
         faculty = self.faculty.get(faculty_id)
+        # If faculty is not present in the config, treat as available
+        # This avoids blocking assignments when an unknown id appears in events
         if not faculty:
-            return False
+            return True
         unavailable_periods = faculty.get('unavailable_periods', [])
         for unavailable in unavailable_periods:
             if unavailable.get('day') == day and unavailable.get('period') == period:

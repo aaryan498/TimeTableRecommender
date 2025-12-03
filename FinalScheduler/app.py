@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from contextlib import asynccontextmanager
 from typing import Optional, Dict, Any, List
+from copy import deepcopy
 import json
 import logging
 from datetime import datetime
@@ -79,14 +80,10 @@ class GenerateRequest(BaseModel):
     """Request model for timetable generation"""
     config: Optional[Dict[str, Any]] = None
 
-class EventsData(BaseModel):
-    """Model for events data"""
-    events: List[Dict[str, Any]]
-
 class DynamicUpdateRequest(BaseModel):
-    """Request model for dynamic updates"""
-    events: Optional[Dict[str, Any]] = None
-    use_existing_timetable: bool = True
+    """Request model for dynamic updates with events"""
+    events: List[Dict[str, Any]] = []
+    config: Optional[Dict[str, Any]] = None
 
 class StatusResponse(BaseModel):
     """Response model for status endpoint"""
@@ -161,8 +158,7 @@ latest_dynamic_update = {
     "status": "not_started",
     "timestamp": None,
     "data": None,
-    "events": None,
-    "original_timetable": None
+    "events": None
 }
 
 # =============================================================================
@@ -238,66 +234,70 @@ async def generate_timetables_async(config_data: Optional[Dict] = None):
         timetable_results["error"] = str(e)
         logger.error(f"Timetable generation failed: {str(e)}")
 
-async def apply_dynamic_updates_async(events_data: Dict, use_existing_timetable: bool = True):
-    """Apply dynamic updates in background"""
-    global latest_dynamic_update, timetable_results
-    try:
-        latest_dynamic_update["status"] = "in_progress"
-        latest_dynamic_update["timestamp"] = datetime.now().isoformat()
-        latest_dynamic_update["events"] = events_data
+def apply_events_to_config(config: Dict, events: List[Dict]) -> Dict:
+    """
+    Apply event constraints to configuration by marking unavailable resources
+    Returns modified config with unavailable_periods for affected faculty/rooms
+    """
+    modified_config = deepcopy(config)
+    day_mapping = {day: idx for idx, day in enumerate(modified_config.get('time_slots', {}).get('working_days', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']))}
+    
+    for event in events:
+        event_type = event.get('type')
+        start_day = event.get('start_day')
+        end_day = event.get('end_day')
+        timeslots = event.get('timeslots')  # None means all timeslots
         
-        # Determine which timetable to use as base
-        if use_existing_timetable and timetable_results.get("data"):
-            base_timetable = timetable_results["data"]
-            config_source = timetable_results.get("parsed_config")
-        else:
-            latest_dynamic_update["status"] = "failed"
-            latest_dynamic_update["error"] = "No base timetable available. Generate timetable first."
-            return
+        # Get day range
+        start_idx = day_mapping.get(start_day, 0)
+        end_idx = day_mapping.get(end_day, len(day_mapping) - 1)
+        day_range = list(range(start_idx, end_idx + 1))
         
-        # Save current timetable as original for comparison
-        latest_dynamic_update["original_timetable"] = base_timetable
+        if event_type == 'faculty_absence':
+            faculty_id = event.get('faculty_id')
+            if faculty_id:
+                # Find and mark faculty as unavailable
+                for faculty in modified_config.get('faculty', []):
+                    if faculty.get('faculty_id') == faculty_id:
+                        if 'unavailable_periods' not in faculty:
+                            faculty['unavailable_periods'] = []
+                        
+                        if timeslots is None:
+                            # All timeslots unavailable for the day range
+                            periods = modified_config.get('time_slots', {}).get('periods', [])
+                            for day in day_range:
+                                for period in periods:
+                                    period_id = period.get('id')
+                                    faculty['unavailable_periods'].append({'day': day, 'period': period_id})
+                        else:
+                            # Specific timeslots unavailable
+                            for day in day_range:
+                                for period in timeslots:
+                                    faculty['unavailable_periods'].append({'day': day, 'period': period})
         
-        # Use parsed config or default
-        if not config_source:
-            try:
-                with open('corrected_timetable_config.json', 'r') as f:
-                    config_source = json.load(f)
-            except FileNotFoundError:
-                latest_dynamic_update["status"] = "failed"
-                latest_dynamic_update["error"] = "Config file not found!"
-                return
-        
-        # Save config temporarily for dynamic updater
-        temp_config_path = tempfile.mktemp(suffix='.json')
-        with open(temp_config_path, 'w') as f:
-            json.dump(config_source, f, indent=2)
-        
-        try:
-            # Initialize dynamic updater with existing timetable
-            updater = DynamicUpdater(
-                config_path=temp_config_path,
-                existing_timetable=base_timetable
-            )
-            
-            # Apply events
-            updated_result = updater.apply_events(events_data)
-            
-            # Store updated data
-            latest_dynamic_update["data"] = updated_result
-            latest_dynamic_update["status"] = "completed"
-            latest_dynamic_update["timestamp"] = datetime.now().isoformat()
-            logger.info("Dynamic update completed successfully")
-            
-        finally:
-            # Clean up temp file
-            if os.path.exists(temp_config_path):
-                os.unlink(temp_config_path)
-                
-    except Exception as e:
-        latest_dynamic_update["status"] = "failed"
-        latest_dynamic_update["error"] = str(e)
-        logger.error(f"Dynamic update error: {str(e)}")
+        elif event_type == 'room_unavailable':
+            room_id = event.get('room_id')
+            if room_id:
+                # Find and mark room as unavailable
+                for room in modified_config.get('rooms', []):
+                    if room.get('room_id') == room_id:
+                        if 'unavailable_periods' not in room:
+                            room['unavailable_periods'] = []
+                        
+                        if timeslots is None:
+                            # All timeslots unavailable for the day range
+                            periods = modified_config.get('time_slots', {}).get('periods', [])
+                            for day in day_range:
+                                for period in periods:
+                                    period_id = period.get('id')
+                                    room['unavailable_periods'].append({'day': day, 'period': period_id})
+                        else:
+                            # Specific timeslots unavailable
+                            for day in day_range:
+                                for period in timeslots:
+                                    room['unavailable_periods'].append({'day': day, 'period': period})
+    
+    return modified_config
 
 # =============================================================================
 # MAIN ROUTES
@@ -408,12 +408,17 @@ async def generate_timetable(
 ):
     """
     Generate timetable using configuration and return results directly
-
-    Now returns top 3 solutions.
+    
+    Options:
+    1. Use JSON configuration from request body
+    2. Use default configuration file
+    
+    Returns the generated timetable data directly without caching
     """
     try:
         config_data = None
         
+        # Try to get configuration from request
         if request:
             config_data = request
             logger.info("Using configuration from request body")
@@ -423,59 +428,10 @@ async def generate_timetable(
                 detail="Config file not found! Please provide configuration in request body."
             )
         
-        # Auto-extract 'data' field if the request is a wrapped parse response
-        if isinstance(config_data, dict) and 'data' in config_data and 'success' in config_data:
-            logger.info("Detected wrapped parse response; extracting 'data' field")
-            config_data = config_data['data']
-        
+        # Generate timetables synchronously
         try:
-            # ===== SANITY CHECK: verify required classes exist =====
-            logger.info("=== SANITY CHECK: Verifying required classes ===")
-            
-            # Count top-level fields
-            subjects_count = len(config_data.get('subjects') or [])
-            faculty_count = len(config_data.get('faculty') or [])
-            rooms_count = len(config_data.get('rooms') or [])
-            departments_count = len(config_data.get('departments') or [])
-            
-            logger.info(f"Config has: subjects={subjects_count}, faculty={faculty_count}, rooms={rooms_count}, departments={departments_count}")
-            
-            # Validate that required arrays are not empty
-            if subjects_count == 0:
-                logger.error("Config has 0 subjects! Cannot generate timetable.")
-                raise HTTPException(status_code=400, detail="Config must have at least one subject")
-            if faculty_count == 0:
-                logger.error("Config has 0 faculty! Cannot generate timetable.")
-                raise HTTPException(status_code=400, detail="Config must have at least one faculty member")
-            if rooms_count == 0:
-                logger.error("Config has 0 rooms! Cannot generate timetable.")
-                raise HTTPException(status_code=400, detail="Config must have at least one room")
-            if departments_count == 0:
-                logger.error("Config has 0 departments! Cannot generate timetable.")
-                raise HTTPException(status_code=400, detail="Config must have at least one department")
-            
-            # Construct TimetableData and check required classes
+            # Build TimetableData from provided config dict
             data_obj = TimetableData(config_dict=config_data)
-            
-            # Count sections
-            sections_count = len(data_obj.sections)
-            logger.info(f"After TimetableData construction: sections={sections_count}")
-            
-            # Create a temporary chromosome to compute required classes
-            from timetable_generator import TimetableChromosome
-            temp_chrom = TimetableChromosome(data_obj)
-            total_required = sum(len(v) for v in temp_chrom.required_classes_map.values())
-            logger.info(f"Total required classes across all sections: {total_required}")
-            
-            if total_required == 0:
-                logger.error("No required classes found! Check subject-department matching or section configuration.")
-                raise HTTPException(
-                    status_code=400,
-                    detail="No required classes could be computed from the provided config. Check that subjects match section departments."
-                )
-            
-            logger.info("=== SANITY CHECK PASSED ===")
-            # ===== END SANITY CHECK =====
 
             genetic_algo = GeneticAlgorithm(data_obj)
             genetic_algo.initialize_population()
@@ -687,158 +643,112 @@ async def validate_config(config: Dict[str, Any] = Body(...)):
 # DYNAMIC UPDATE ENDPOINTS
 # =============================================================================
 
-@app.post("/api/events/upload")
-async def upload_events(
-    file: Optional[UploadFile] = File(None),
-    events_data: Optional[EventsData] = Body(None)
+# =============================================================================
+# DYNAMIC UPDATE ENDPOINTS - REGENERATE TIMETABLE WITH EVENTS
+# =============================================================================
+
+@app.post("/api/regenerate-with-events")
+async def regenerate_with_events(
+    request: DynamicUpdateRequest = Body(...)
 ):
-    """Upload events JSON file or JSON data"""
-    try:
-        events = None
-        
-        # Check if it's a file upload
-        if file:
-            if not allowed_file(file.filename):
-                raise HTTPException(status_code=400, detail='Invalid file')
-            
-            file_content = await file.read()
-            events = json.loads(file_content.decode('utf-8'))
-        
-        # Check if it's JSON in request body
-        elif events_data:
-            events = events_data.dict()
-        else:
-            raise HTTPException(status_code=400, detail='No events data provided')
-        
-        # Validate events structure
-        if not isinstance(events, dict) or 'events' not in events:
-            raise HTTPException(
-                status_code=400,
-                detail='Invalid events format. Expected {"events": [...]}'
-            )
-        
-        # Store events for later use
-        latest_dynamic_update["events"] = events
-        
-        return {
-            'success': True,
-            'message': f'Events uploaded successfully. Found {len(events.get("events", []))} events.',
-            'events_count': len(events.get('events', []))
-        }
-        
-    except json.JSONDecodeError as e:
-        raise HTTPException(status_code=400, detail=f'Invalid JSON: {str(e)}')
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Events upload error: {str(e)}")
-        raise HTTPException(
-            status_code=500,
-            detail=f'Failed to upload events: {str(e)}'
-        )
-
-@app.post("/api/dynamic-update/apply")
-async def apply_dynamic_update(
-    background_tasks: BackgroundTasks,
-    request: Optional[DynamicUpdateRequest] = Body(None)
-):
-    """Apply dynamic updates to existing timetable"""
-    global latest_dynamic_update
+    """
+    Regenerate timetable with event constraints applied.
     
-    if latest_dynamic_update["status"] == "in_progress":
-        return {
-            "status": "already_running",
-            "message": "Dynamic update is already in progress"
-        }
-    
-    try:
-        # Get events from request or use previously uploaded
-        events_data = None
-        use_existing = True
-        
-        if request:
-            if request.events:
-                events_data = request.events
-            use_existing = request.use_existing_timetable
-        
-        if not events_data and latest_dynamic_update.get("events"):
-            events_data = latest_dynamic_update["events"]
-        
-        if not events_data:
-            raise HTTPException(
-                status_code=400,
-                detail="No events data available. Please upload events first."
-            )
-        
-        # Check if base timetable exists
-        if use_existing and timetable_results.get("status") != "completed":
-            raise HTTPException(
-                status_code=400,
-                detail="No base timetable available. Please generate a timetable first."
-            )
-        
-        # Start dynamic update in background
-        background_tasks.add_task(
-            apply_dynamic_updates_async,
-            events_data,
-            use_existing
-        )
-        
-        return {
-            "status": "started",
-            "message": "Dynamic update started"
-        }
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Apply dynamic update error: {str(e)}")
-        raise HTTPException(
-            status_code=500,
-            detail=f"Failed to start dynamic update: {str(e)}"
-        )
-
-@app.get("/api/dynamic-update/status")
-async def get_dynamic_update_status():
-    """Check the status of the latest dynamic update"""
-    return latest_dynamic_update
-
-@app.get("/api/dynamic-update/results")
-async def get_dynamic_update_results():
-    """Get dynamic update results"""
-    if latest_dynamic_update["status"] != "completed":
-        raise HTTPException(status_code=404, detail="No completed dynamic update available")
-    
-    return {
-        "updated_timetable": latest_dynamic_update["data"],
-        "original_timetable": latest_dynamic_update.get("original_timetable"),
-        "events_applied": latest_dynamic_update.get("events"),
-        "timestamp": latest_dynamic_update.get("timestamp")
+    Events format example:
+    {
+        "events": [
+            {
+                "type": "faculty_absence",
+                "faculty_id": "F001",
+                "start_day": "Monday",
+                "end_day": "Wednesday",
+                "timeslots": null
+            },
+            {
+                "type": "room_unavailable",
+                "room_id": "R001",
+                "start_day": "Tuesday",
+                "end_day": "Tuesday",
+                "timeslots": [2, 3, 4]
+            }
+        ],
+        "config": {...}  #The one given to /api/generate
     }
-
-@app.get("/api/dynamic-update/timetables/sections")
-async def get_updated_section_timetables():
-    """Get updated section timetables"""
-    if latest_dynamic_update["status"] != "completed" or not latest_dynamic_update["data"]:
-        raise HTTPException(status_code=404, detail="No updated timetables available")
     
-    return latest_dynamic_update["data"]["sections"]
+    Returns: Regenerated timetable with constraints applied
+    """
+    try:
+        logger.info(f"Starting synchronous regeneration with {len(request.events)} events")
 
-@app.get("/api/dynamic-update/timetables/faculty")
-async def get_updated_faculty_timetables():
-    """Get updated faculty timetables"""
-    if latest_dynamic_update["status"] != "completed" or not latest_dynamic_update["data"]:
-        raise HTTPException(status_code=404, detail="No updated timetables available")
-    
-    return latest_dynamic_update["data"]["faculty"]
+        # Snapshot base configuration (use provided config or last parsed)
+        base_config = request.config or timetable_results.get("parsed_config")
 
-@app.get("/api/events/current")
-async def get_current_events():
-    """Get currently uploaded events"""
-    if not latest_dynamic_update.get("events"):
-        raise HTTPException(status_code=404, detail="No events uploaded")
-    
-    return latest_dynamic_update["events"]
+        # Work on a deep copy so original parsed_config is not mutated
+        base_config = deepcopy(base_config)
+
+        # Apply events to config
+        logger.info("Applying event constraints to configuration")
+        modified_config = apply_events_to_config(base_config, request.events)
+
+        # Validate modified config
+        subjects_count = len(modified_config.get('subjects') or [])
+        faculty_count = len(modified_config.get('faculty') or [])
+        rooms_count = len(modified_config.get('rooms') or [])
+        departments_count = len(modified_config.get('departments') or [])
+
+        logger.info(f"Modified config: subjects={subjects_count}, faculty={faculty_count}, rooms={rooms_count}, departments={departments_count}")
+
+        if subjects_count == 0 or faculty_count == 0 or rooms_count == 0 or departments_count == 0:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid config: missing required data after applying events"
+            )
+
+        # Generate timetable synchronously
+        data_obj = TimetableData(config_dict=modified_config)
+        genetic_algo = GeneticAlgorithm(data_obj)
+        genetic_algo.initialize_population()
+        genetic_algo.evolve()
+
+        solutions = genetic_algo.get_best_solution()
+        if not solutions:
+            logger.error("No valid solution found with event constraints")
+            raise HTTPException(
+                status_code=400,
+                detail="No valid solution found with event constraints"
+            )
+
+        # Export solutions
+        exported_solutions = []
+        for idx, sol in enumerate(solutions, start=1):
+            exporter = TimetableExporter(sol, data_obj)
+            exported_solutions.append({
+                "rank": idx,
+                "fitness": sol.fitness_score,
+                "constraint_violations": sol.constraint_violations,
+                "sections": exporter.get_section_wise_data(),
+                "faculty": exporter.get_faculty_wise_data(),
+                "detailed": exporter.get_detailed_data(),
+                "statistics": exporter.get_statistics(),
+            })
+
+        logger.info("Timetable regeneration with events completed successfully (synchronous)")
+
+        return {
+            "status": "completed",
+            "timestamp": datetime.now().isoformat(),
+            "events_applied": len(request.events),
+            "solutions": exported_solutions
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Regeneration error: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to regenerate timetable: {str(e)}"
+        )
 
 # =============================================================================
 # SYSTEM ENDPOINTS
