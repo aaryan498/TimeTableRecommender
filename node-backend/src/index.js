@@ -1,12 +1,10 @@
-import https from "https";
-import fs from "fs";
+
 import dotenv from "dotenv";
 import app from "./app.js";
 import { connectDB } from "./dB/db.connect.js";
 
 
-import path from "path";
-import { fileURLToPath } from "url";
+
 
 dotenv.config({
 });

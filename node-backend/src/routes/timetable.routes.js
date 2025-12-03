@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getFacultyTimetablesByGroup, getFacultyTimeTablesForSpecific, getInfoPdf, getSectionTimetablesByGroup, getSectionTimeTablesDb, getSectionTimeTablesForSpecific, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
+import { approveGeneratedSolution, checkGenerationStatus, generateByGivingData, getDetailedTimeTable, getFacultyTimeTables       , getFacultyTimetablesByGroup, getFacultyTimeTablesForSpecific, getGeneratedSolutionById, getGeneratedSolutions, getInfoPdf, getSectionTimetablesByGroup, getSectionTimeTablesDb, getSectionTimeTablesForSpecific, getSingleFacultyTimeTable, getSingleSectionTimeTable, startTimeTableCreation, updateFacultyTimetable } from "../controllers/timetable.controllers.js";
 import {   generateAndDownloadAllFacultyTimetables } from "../controllers/facultyTimetable.controllers.js";
 import {   updateSectionTimetable } from "../controllers/sectionTimetable.controllers.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -45,9 +45,17 @@ router.post("/saveData",saveTimetable)   // i th use
 
 
 router.post("/sendData",generateByGivingData)
-export default router;
+
 
 router.get("/sectionsTimeTables/group",getSectionTimetablesByGroup);
 router.get("/faculty/group",getFacultyTimetablesByGroup);
 router.get("/facultyTimeTable/getSpecific",getFacultyTimeTablesForSpecific);
 router.get("/sectionTimeTable/getSpecific",getSectionTimeTablesForSpecific);
+
+
+router.get("/solutions",getGeneratedSolutions);
+router.get("/solutions/:id",getGeneratedSolutionById);
+router.post("/solutions/approve",approveGeneratedSolution)
+
+
+export default router;

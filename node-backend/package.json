@@ -8,6 +8,7 @@
     "start": "node -r dotenv/config --experimental-json-modules src/index.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@upstash/redis": "^1.35.3",
     "axios": "^1.11.0",
     "bcrypt": "^6.0.0",
