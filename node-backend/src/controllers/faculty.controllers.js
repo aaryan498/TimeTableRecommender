@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { Timetable } from "../models/timetable.model.js";
 import { TimetableRequest } from "../models/timetableRequest.model.js"; 
 import crypto from "crypto";
-
+import OrganisationData from "./organisationData.controllers.js"
 import {sendEmail} from "../utils/sendMail.js"; // utility function to send email
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/apiError.js";
@@ -294,3 +294,25 @@ export const resetPassword = async (req, res) => {
     res.status(500).json({ message: "Error resetting password", error: err.message });
   }
 };
+export const getFacultyForCourse = asyncHandler(async (req, res) => {
+  const { organisationId } = req.params;
+  const { course, year, semester } = req.query;
+
+  const data = await OrganisationData.findOne({ organisationId });
+  if (!data) throw new ApiError(404, "Organisation data not found");
+
+  const matchedFaculty = data.faculty.filter(f => {
+    if (!f.subjects) return false;
+
+    return f.subjects.some(sub =>
+      sub.course === course &&
+      sub.year === year &&
+      sub.semester === semester
+    );
+  });
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, matchedFaculty, "Faculty fetched successfully"));
+});
+

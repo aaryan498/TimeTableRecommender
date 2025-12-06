@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createFaculty, deleteFaculty, forgotPassword, getAllFaculty, getFacultyProfile, loginFaculty, requestTimetableUpdate, resetPassword } from "../controllers/faculty.controllers.js";
+import { createFaculty, deleteFaculty, forgotPassword, getAllFaculty, getFacultyForCourse, getFacultyProfile, loginFaculty, requestTimetableUpdate, resetPassword } from "../controllers/faculty.controllers.js";
 
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -17,5 +17,12 @@ router.post("/forgotPassword",forgotPassword);
 router.post("/resetPassword",resetPassword);
 
 // router.get("/saveFacultyTimeTables",saveFacultyTimetables)
+
+
+
+
+router.get("/getFacultyByCourse/:organisationId",getFacultyForCourse)
+
+
 
 export default router;

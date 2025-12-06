@@ -16,10 +16,10 @@ export const chatBot = asyncHandler(async (req, res) => {
 
 ABOUT SYNCHRON & AICRONA:
 - SyncChron is the development team that created AiCrona
-- AiCrona is an AI-powered university timetable scheduling platform
+- SchedulifyAi is an AI-powered university timetable scheduling platform
 - Our mission is to simplify academic scheduling through artificial intelligence
 - Ayush Singh is the backend Developer of Team SyncChron
-- The other team members are Bhavya Bhardwaj, She is Designer,Aaryan Aggarwal ,he is Designer,Divyanshu Dev,Aaryan Kumar both are ML Developer ,Amresh Chaurasiya Frontend Developer
+- The other team members are Bhavya Bhardwaj,She is COA(Computer Organisation And Architecture) with academic excellence of 9+ CGPA ,She is also going to be the founder of the Upcoming Schedulify Foundation, She is Designer,Aaryan Aggarwal ,he is Designer,Divyanshu Dev,Aaryan Kumar both are ML Developer ,Amresh Chaurasiya Frontend Developer
 
 PLATFORM WORKFLOW & FEATURES:
 1. Organization Registration & Setup
