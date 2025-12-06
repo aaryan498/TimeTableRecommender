@@ -3,17 +3,15 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/apiError.js";
 import { Organisation } from "../models/organisation.model.js";
 
-
 const verifyJWT = asyncHandler(async (req, res, next) => {
   let token = null;
-   console.log("verifyJWT has been hitted")
-  if (req.cookies?.accessToken) { 
+  console.log("verifyJWT has been hitted");
+  if (req.cookies?.accessToken) {
     token = req.cookies.accessToken;
-  }
-  else if (req.headers.authorization?.startsWith("Bearer ")) {
+  } else if (req.headers.authorization?.startsWith("Bearer ")) {
     token = req.headers.authorization.split(" ")[1];
   }
-  
+
   if (!token) {
     throw new ApiError(401, "Access token missing or invalid");
   }
@@ -26,8 +24,9 @@ const verifyJWT = asyncHandler(async (req, res, next) => {
     throw new ApiError(401, "Access token is invalid or expired");
   }
 
- 
-  const organisation = await Organisation.findById(decoded?._id).select("-password -refreshToken");
+  const organisation = await Organisation.findById(decoded?._id).select(
+    "-password -refreshToken"
+  );
   if (!organisation) {
     throw new ApiError(404, "Organisation not found for this token");
   }
@@ -37,11 +36,10 @@ const verifyJWT = asyncHandler(async (req, res, next) => {
 });
 
 export { verifyJWT };
- export const options = {
+export const options = {
   httpOnly: true,
   secure: true,
   sameSite: "none",
 
-  maxAge: 7 * 24 * 60 * 60 * 1000
-}
-
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+};
