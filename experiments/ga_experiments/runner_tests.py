@@ -219,7 +219,7 @@ class TestRowCreation(unittest.TestCase):
         
         self.assertEqual(row['process_exit_status'], 'timeout')
         self.assertEqual(row['runtime_seconds'], 300.0)
-        self.assertIn('timeout', row['notes'].lower())
+        self.assertIn('timed out', row['notes'].lower())
 
 
 class TestSchemaValidation(unittest.TestCase):
