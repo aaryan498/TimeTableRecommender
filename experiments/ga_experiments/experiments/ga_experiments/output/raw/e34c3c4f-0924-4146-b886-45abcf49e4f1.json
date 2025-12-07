@@ -1,0 +1,7862 @@
+{
+  "run_id": "e34c3c4f-0924-4146-b886-45abcf49e4f1",
+  "config": {
+    "college_info": {
+      "name": "AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD",
+      "session": "2025-26",
+      "effective_date": "2025-09-08"
+    },
+    "time_slots": {
+      "periods": [
+        {
+          "id": 1,
+          "start_time": "08:30",
+          "end_time": "09:20"
+        },
+        {
+          "id": 2,
+          "start_time": "09:20",
+          "end_time": "10:10"
+        },
+        {
+          "id": 3,
+          "start_time": "10:10",
+          "end_time": "11:00"
+        },
+        {
+          "id": 4,
+          "start_time": "11:00",
+          "end_time": "11:50"
+        },
+        {
+          "id": 5,
+          "start_time": "11:50",
+          "end_time": "12:40"
+        },
+        {
+          "id": 6,
+          "start_time": "12:40",
+          "end_time": "13:30"
+        },
+        {
+          "id": 7,
+          "start_time": "13:30",
+          "end_time": "14:20"
+        },
+        {
+          "id": 8,
+          "start_time": "14:20",
+          "end_time": "15:10"
+        },
+        {
+          "id": 9,
+          "start_time": "15:10",
+          "end_time": "16:00"
+        }
+      ],
+      "working_days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "break_periods": [
+        3,
+        6
+      ],
+      "lunch_period": 6,
+      "mentorship_period": 3
+    },
+    "departments": [
+      {
+        "dept_id": "CSE",
+        "name": "Computer Science & Engineering",
+        "sections": [
+          {
+            "section_id": "CSE_DS_1_III",
+            "name": "CSE(DS-1)",
+            "semester": 3,
+            "year": 2,
+            "room": "CL-8",
+            "student_count": 60,
+            "coordinator": "Dr. Yogendra Prajapati",
+            "specialization": "DS"
+          },
+          {
+            "section_id": "CSE_DS_2_III",
+            "name": "CSE(DS-2)",
+            "semester": 3,
+            "year": 2,
+            "room": "CL-09",
+            "student_count": 58,
+            "coordinator": "Mr. Manoj Kumar",
+            "specialization": "DS"
+          },
+          {
+            "section_id": "CSE_AIML_1_III",
+            "name": "CSE(AIML-1)",
+            "semester": 3,
+            "year": 2,
+            "room": "CL-10",
+            "student_count": 62,
+            "coordinator": "Ms. Dhanshri Parihar",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_AIML_2_III",
+            "name": "CSE(AIML-2)",
+            "semester": 3,
+            "year": 2,
+            "room": "CL-11",
+            "student_count": 59,
+            "coordinator": "Ms. Aastha Sharma",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_AIML_1_V",
+            "name": "CSE AIML-1",
+            "semester": 5,
+            "year": 3,
+            "room": "CL-07",
+            "student_count": 55,
+            "coordinator": "Ms. Ritika Dhyani",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_AIML_2_V",
+            "name": "CSE AIML-2",
+            "semester": 5,
+            "year": 3,
+            "room": "CL-06",
+            "student_count": 53,
+            "coordinator": "Ms. Juli Yadav",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_DS_1_V",
+            "name": "CSE DS-1",
+            "semester": 5,
+            "year": 3,
+            "room": "CL-5",
+            "student_count": 58,
+            "coordinator": "Mr. Amit Goel",
+            "specialization": "DS"
+          },
+          {
+            "section_id": "CSE_DS_2_V",
+            "name": "CSE DS-2",
+            "semester": 5,
+            "year": 3,
+            "room": "CL-04",
+            "student_count": 56,
+            "coordinator": "Mr. Vivek Agarwal",
+            "specialization": "DS"
+          },
+          {
+            "section_id": "CSE_AIML_1_VII",
+            "name": "CSE AIML-1",
+            "semester": 7,
+            "year": 4,
+            "room": "CL-03",
+            "student_count": 52,
+            "coordinator": "Dr. Jaishree Jain",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_AIML_2_VII",
+            "name": "CSE AIML-2",
+            "semester": 7,
+            "year": 4,
+            "room": "CL-02",
+            "student_count": 48,
+            "coordinator": "Mr. Narendra Kumar",
+            "specialization": "AIML"
+          },
+          {
+            "section_id": "CSE_DS_1_VII",
+            "name": "CSE DS-1",
+            "semester": 7,
+            "year": 4,
+            "room": "CL-1",
+            "student_count": 45,
+            "coordinator": "Mr. Mradul Jain",
+            "specialization": "DS"
+          },
+          {
+            "section_id": "CSE_DS_2_VII",
+            "name": "CSE DS-2",
+            "semester": 7,
+            "year": 4,
+            "room": "CL-01",
+            "student_count": 47,
+            "coordinator": "Dr. Neha Singh",
+            "specialization": "DS"
+          }
+        ]
+      },
+      {
+        "dept_id": "ECE",
+        "name": "Electronics & Communication Engineering",
+        "sections": [
+          {
+            "section_id": "ECE_1_III",
+            "name": "ECE-1",
+            "semester": 3,
+            "year": 2,
+            "room": "EC-101",
+            "student_count": 65,
+            "coordinator": "Dr. Rajesh Sharma",
+            "specialization": ""
+          },
+          {
+            "section_id": "ECE_2_III",
+            "name": "ECE-2",
+            "semester": 3,
+            "year": 2,
+            "room": "EC-102",
+            "student_count": 63,
+            "coordinator": "Dr. Priya Singh",
+            "specialization": ""
+          },
+          {
+            "section_id": "ECE_1_V",
+            "name": "ECE-1",
+            "semester": 5,
+            "year": 3,
+            "room": "EC-201",
+            "student_count": 58,
+            "coordinator": "Dr. Amit Kumar",
+            "specialization": ""
+          },
+          {
+            "section_id": "ECE_2_V",
+            "name": "ECE-2",
+            "semester": 5,
+            "year": 3,
+            "room": "EC-202",
+            "student_count": 60,
+            "coordinator": "Ms. Kavita Verma",
+            "specialization": ""
+          }
+        ]
+      },
+      {
+        "dept_id": "ME",
+        "name": "Mechanical Engineering",
+        "sections": [
+          {
+            "section_id": "ME_1_III",
+            "name": "ME-1",
+            "semester": 3,
+            "year": 2,
+            "room": "ME-101",
+            "student_count": 70,
+            "coordinator": "Dr. Suresh Gupta",
+            "specialization": ""
+          },
+          {
+            "section_id": "ME_2_III",
+            "name": "ME-2",
+            "semester": 3,
+            "year": 2,
+            "room": "ME-102",
+            "student_count": 68,
+            "coordinator": "Prof. Rakesh Jain",
+            "specialization": ""
+          },
+          {
+            "section_id": "ME_1_V",
+            "name": "ME-1",
+            "semester": 5,
+            "year": 3,
+            "room": "ME-201",
+            "student_count": 62,
+            "coordinator": "Dr. Anjali Sharma",
+            "specialization": ""
+          }
+        ]
+      },
+      {
+        "dept_id": "CE",
+        "name": "Civil Engineering",
+        "sections": [
+          {
+            "section_id": "CE_1_III",
+            "name": "CE-1",
+            "semester": 3,
+            "year": 2,
+            "room": "CE-101",
+            "student_count": 72,
+            "coordinator": "Dr. Vikash Singh",
+            "specialization": ""
+          }
+        ]
+      }
+    ],
+    "subjects": [
+      {
+        "subject_id": "BCS301",
+        "name": "Data Structure",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCS302",
+        "name": "Computer Organisation and Architecture",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCS303",
+        "name": "Discrete Structure and Theory of Logic",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BAS301",
+        "name": "Technical Communication",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 3,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCC301",
+        "name": "Computer System Security",
+        "type": "Theory",
+        "credits": 2,
+        "lectures_per_week": 3,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 2,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BOE3X",
+        "name": "Open Elective",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 3,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCS501",
+        "name": "Database Management System",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 6,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCAI501",
+        "name": "Artificial Intelligence",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 6,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "AIML",
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1
+      },
+      {
+        "subject_id": "BCDS501",
+        "name": "Introduction to DataAnalytics and Visualization",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 6,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "DS",
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1
+      },
+      {
+        "subject_id": "BCS503",
+        "name": "Design and Analysis of Algorithm",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 6,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "tutorial_sessions": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCS052",
+        "name": "Data Analytics",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCAM051",
+        "name": "Cloud Computing",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCDS051",
+        "name": "Business Intelligence and Analytics",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "DS",
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1
+      },
+      {
+        "subject_id": "BCS058",
+        "name": "Data Warehousing and Data Mining",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "DS",
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1
+      },
+      {
+        "subject_id": "BNC501",
+        "name": "Constitution of India",
+        "type": "Theory",
+        "credits": 2,
+        "lectures_per_week": 3,
+        "semester": 5,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 2,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BAI701",
+        "name": "Deep Learning",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 7,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BAI070",
+        "name": "Principles of Generative AI",
+        "type": "Theory",
+        "credits": 4,
+        "lectures_per_week": 4,
+        "semester": 7,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "OE_VII",
+        "name": "Open Elective II",
+        "type": "Theory",
+        "credits": 3,
+        "lectures_per_week": 3,
+        "semester": 7,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 3,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BEC301",
+        "name": "Electronic Devices and Circuits",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ECE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BEC302",
+        "name": "Digital Electronics",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ECE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BEC303",
+        "name": "Network Analysis",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ECE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BEC501",
+        "name": "Microprocessors",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 5,
+        "departments": [
+          "ECE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BEC502",
+        "name": "Communication Systems",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 5,
+        "departments": [
+          "ECE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BME301",
+        "name": "Strength of Materials",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ME"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BME302",
+        "name": "Thermodynamics",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ME"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BME303",
+        "name": "Manufacturing Processes",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "ME"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BME501",
+        "name": "Heat Transfer",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 5,
+        "departments": [
+          "ME"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BME502",
+        "name": "Machine Design",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 5,
+        "departments": [
+          "ME"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCE301",
+        "name": "Fluid Mechanics",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCE302",
+        "name": "Building Materials and Construction",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCE303",
+        "name": "Structural Analysis",
+        "type": "Theory",
+        "credits": 5,
+        "lectures_per_week": 5,
+        "semester": 3,
+        "departments": [
+          "CE"
+        ],
+        "min_classes_per_week": 4,
+        "max_classes_per_day": 2,
+        "specialization": ""
+      },
+      {
+        "subject_id": "PDP",
+        "name": "Professional Development Program",
+        "type": "Theory",
+        "credits": 1,
+        "lectures_per_week": 1,
+        "semester": 3,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 1,
+        "max_classes_per_day": 1,
+        "flexible_timing": true,
+        "specialization": ""
+      },
+      {
+        "subject_id": "PDP_V",
+        "name": "Professional Development Program",
+        "type": "Theory",
+        "credits": 1,
+        "lectures_per_week": 1,
+        "semester": 5,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 1,
+        "max_classes_per_day": 1,
+        "flexible_timing": true,
+        "specialization": ""
+      },
+      {
+        "subject_id": "BCS554",
+        "name": "Mini Project or Internship Assessment",
+        "type": "Project",
+        "credits": 2,
+        "lectures_per_week": 2,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "min_classes_per_week": 2,
+        "max_classes_per_day": 1,
+        "specialization": ""
+      },
+      {
+        "subject_id": "LANG301",
+        "name": "Communication Skills",
+        "type": "Theory",
+        "credits": 2,
+        "lectures_per_week": 2,
+        "semester": 3,
+        "departments": [
+          "CSE",
+          "ECE",
+          "ME",
+          "CE"
+        ],
+        "min_classes_per_week": 2,
+        "max_classes_per_day": 1,
+        "flexible_timing": true,
+        "specialization": ""
+      }
+    ],
+    "labs": [
+      {
+        "lab_id": "BCS351",
+        "name": "Data Structure Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-3",
+          "Lab-4",
+          "Lab-5"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS352",
+        "name": "Computer Organisation Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-1",
+          "Lab-2",
+          "Lab-4",
+          "Lab-5"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS353",
+        "name": "Web Designing Workshop",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-1",
+          "Lab-2",
+          "Lab-5",
+          "Project-Lab"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCC351",
+        "name": "Discrete Structure Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-3",
+          "Lab-4"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS551",
+        "name": "Database Management System Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-3",
+          "Lab-4",
+          "Lab-5"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCAI551",
+        "name": "Artificial Intelligence Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "AIML",
+        "lab_rooms": [
+          "Lab-3",
+          "Lab-4"
+        ],
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCDS551",
+        "name": "DataAnalytics and Visualization Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "specialization": "DS",
+        "lab_rooms": [
+          "Lab-4",
+          "Lab-5",
+          "Project-Lab"
+        ],
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS553",
+        "name": "Design and Analysis of Algorithm Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "Lab-3",
+          "Lab-4",
+          "Lab-5"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BAI751",
+        "name": "Deep Learning Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 7,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "CL-01",
+          "CL-02",
+          "CL-03",
+          "CL-04"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS752",
+        "name": "Internship Assessment",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 7,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "CL-01",
+          "CL-02",
+          "CL-03",
+          "CL-04"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCS753",
+        "name": "Project",
+        "type": "Project",
+        "credits": 2,
+        "sessions_per_week": 4,
+        "duration_hours": 2,
+        "semester": 7,
+        "departments": [
+          "CSE"
+        ],
+        "lab_rooms": [
+          "CL-01",
+          "CL-02",
+          "CL-03",
+          "CL-04"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BEC351",
+        "name": "Electronic Devices Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "ECE"
+        ],
+        "lab_rooms": [
+          "EC-Lab-1",
+          "EC-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BEC352",
+        "name": "Digital Electronics Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "ECE"
+        ],
+        "lab_rooms": [
+          "EC-Lab-1",
+          "EC-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BEC551",
+        "name": "Microprocessor Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "ECE"
+        ],
+        "lab_rooms": [
+          "EC-Lab-1",
+          "EC-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BME351",
+        "name": "Manufacturing Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "ME"
+        ],
+        "lab_rooms": [
+          "ME-Lab-1",
+          "ME-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BME352",
+        "name": "Strength of Materials Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "ME"
+        ],
+        "lab_rooms": [
+          "ME-Lab-1",
+          "ME-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BME551",
+        "name": "Heat Transfer Lab",
+        "type": "Lab",
+        "credits": 4,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 5,
+        "departments": [
+          "ME"
+        ],
+        "lab_rooms": [
+          "ME-Lab-1",
+          "ME-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCE351",
+        "name": "Fluid Mechanics Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CE"
+        ],
+        "lab_rooms": [
+          "CE-Lab-1",
+          "CE-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      },
+      {
+        "lab_id": "BCE352",
+        "name": "Construction Materials Lab",
+        "type": "Lab",
+        "credits": 2,
+        "sessions_per_week": 1,
+        "duration_hours": 2,
+        "semester": 3,
+        "departments": [
+          "CE"
+        ],
+        "lab_rooms": [
+          "CE-Lab-1",
+          "CE-Lab-2"
+        ],
+        "specialization": "",
+        "requires_consecutive_periods": 2
+      }
+    ],
+    "faculty": [
+      {
+        "faculty_id": "F001",
+        "name": "Dr. Yogendra Prajapati",
+        "department": "CSE",
+        "designation": "Professor",
+        "subjects": [
+          "BCS301",
+          "BCS302",
+          "BCS351",
+          "BCS352"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F002",
+        "name": "Mr. Manoj Kumar",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS301",
+          "BCS351"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F003",
+        "name": "Dr. Akhilesh Verma",
+        "department": "CSE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BCS302",
+          "BCS352"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F004",
+        "name": "Dr. Arvind Sharma",
+        "department": "CSE",
+        "designation": "Professor",
+        "subjects": [
+          "BCS303",
+          "BCC351"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F005",
+        "name": "Ms. Vibha Srivastava",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS303",
+          "BCC351"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F006",
+        "name": "Ms. Dhanshri Parihar",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS302",
+          "BCS352"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "faculty_id": "F007",
+        "name": "Ms. Aastha Sharma",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BAS301",
+          "BCS303"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F008",
+        "name": "Dr. Ashish Dixit",
+        "department": "CSE",
+        "designation": "Professor",
+        "subjects": [
+          "BCC301",
+          "BCS503",
+          "BCS353",
+          "BCS553"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "faculty_id": "F009",
+        "name": "Ms. Ritika Dhyani",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS501",
+          "BCS551"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F010",
+        "name": "Ms. Juli Yadav",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCAM051"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F011",
+        "name": "Mr. Sharma Ji",
+        "department": "CSE",
+        "designation": "Professor",
+        "subjects": [
+          "BCS301",
+          "BCS503",
+          "BCS351",
+          "BCS553"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F012",
+        "name": "Mr. Gaurav",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS503",
+          "BCDS501",
+          "BCS553",
+          "BCDS551"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F013",
+        "name": "Dr. Neha",
+        "department": "CSE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BCS052",
+          "BCDS051",
+          "BCS058"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F014",
+        "name": "Dr. Jaishree Jain",
+        "department": "CSE",
+        "designation": "Professor",
+        "subjects": [
+          "BAI701",
+          "BCAI501",
+          "BCAI551",
+          "BAI751"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F015",
+        "name": "Mr. Narendra Kumar",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BAI070",
+          "BCC301",
+          "OE_VII",
+          "BCS752"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F016",
+        "name": "Ms. Karuna Singh",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BAS301",
+          "BOE3X",
+          "PDP",
+          "LANG301"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F017",
+        "name": "Mr. Amit Goel",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCS503",
+          "BCS553"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F018",
+        "name": "Mr. Vivek Agarwal",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCDS501",
+          "BCDS551"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F019",
+        "name": "Mr. Bhupesh Gupta",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BCAM051",
+          "BNC501",
+          "PDP_V",
+          "BCS554"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F020",
+        "name": "Mr. Mradul Jain",
+        "department": "CSE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BAI701",
+          "BCS753"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F021",
+        "name": "Dr. Neha Singh",
+        "department": "CSE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BAI701",
+          "BCS753"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F030",
+        "name": "Dr. Rajesh Sharma",
+        "department": "ECE",
+        "designation": "Professor",
+        "subjects": [
+          "BEC301",
+          "BAS301",
+          "BEC351"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F031",
+        "name": "Dr. Priya Singh",
+        "department": "ECE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BEC302",
+          "BEC303",
+          "BEC352"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F032",
+        "name": "Dr. Amit Kumar",
+        "department": "ECE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BEC301",
+          "BNC501",
+          "BEC501",
+          "BEC551"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F033",
+        "name": "Ms. Kavita Verma",
+        "department": "ECE",
+        "designation": "Assistant Professor",
+        "subjects": [
+          "BEC302",
+          "BAS301",
+          "BEC502",
+          "BEC551"
+        ],
+        "max_hours_per_week": 16,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F034",
+        "name": "Dr. Sanjay Kumar",
+        "department": "ECE",
+        "designation": "Professor",
+        "subjects": [
+          "BOE3X",
+          "PDP",
+          "LANG301",
+          "PDP_V",
+          "OE_VII"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F040",
+        "name": "Dr. Suresh Gupta",
+        "department": "ME",
+        "designation": "Professor",
+        "subjects": [
+          "BME301",
+          "BAS301",
+          "BME351"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F041",
+        "name": "Prof. Rakesh Jain",
+        "department": "ME",
+        "designation": "Professor",
+        "subjects": [
+          "BME302",
+          "BME303",
+          "BME352"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F042",
+        "name": "Dr. Anjali Sharma",
+        "department": "ME",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BME301",
+          "BNC501",
+          "BME501",
+          "BME502",
+          "BME551"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F043",
+        "name": "Dr. Rajesh Verma",
+        "department": "ME",
+        "designation": "Professor",
+        "subjects": [
+          "BOE3X",
+          "PDP",
+          "LANG301",
+          "PDP_V",
+          "OE_VII"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F050",
+        "name": "Dr. Vikash Singh",
+        "department": "CE",
+        "designation": "Professor",
+        "subjects": [
+          "BCE301",
+          "BCE302",
+          "BCE351"
+        ],
+        "max_hours_per_week": 20,
+        "avg_leaves_per_month": 2,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F051",
+        "name": "Prof. Meera Agarwal",
+        "department": "CE",
+        "designation": "Professor",
+        "subjects": [
+          "BCE303",
+          "BAS301",
+          "BCE352"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "faculty_id": "F052",
+        "name": "Dr. Pradeep Kumar",
+        "department": "CE",
+        "designation": "Associate Professor",
+        "subjects": [
+          "BOE3X",
+          "PDP",
+          "LANG301",
+          "PDP_V",
+          "OE_VII",
+          "BNC501"
+        ],
+        "max_hours_per_week": 18,
+        "avg_leaves_per_month": 1,
+        "preferred_time_slots": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "room_id": "CL-1",
+        "name": "CSE Classroom 1",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-01",
+        "name": "CSE Classroom 01",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-02",
+        "name": "CSE Classroom 2",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-03",
+        "name": "CSE Classroom 3",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-04",
+        "name": "CSE Classroom 4",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-5",
+        "name": "CSE Classroom 5",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-06",
+        "name": "CSE Classroom 6",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-07",
+        "name": "CSE Classroom 7",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-8",
+        "name": "CSE Classroom 8",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-09",
+        "name": "CSE Classroom 9",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-10",
+        "name": "CSE Classroom 10",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CL-11",
+        "name": "CSE Classroom 11",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "CSE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "Lab-1",
+        "name": "Computer Lab 1",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "Server"
+        ]
+      },
+      {
+        "room_id": "Lab-2",
+        "name": "Computer Lab 2",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "Server"
+        ]
+      },
+      {
+        "room_id": "Lab-3",
+        "name": "Computer Lab 3",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "Server"
+        ]
+      },
+      {
+        "room_id": "Lab-4",
+        "name": "Computer Lab 4",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "Server"
+        ]
+      },
+      {
+        "room_id": "Lab-5",
+        "name": "Computer Lab 5",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "Server"
+        ]
+      },
+      {
+        "room_id": "Project-Lab",
+        "name": "Project Lab",
+        "type": "Lab",
+        "capacity": 25,
+        "department": "CSE",
+        "equipment": [
+          "Computers",
+          "Projector",
+          "AC",
+          "High-end Workstations"
+        ]
+      },
+      {
+        "room_id": "EC-101",
+        "name": "ECE Classroom 1",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ECE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "EC-102",
+        "name": "ECE Classroom 2",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ECE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "EC-201",
+        "name": "ECE Classroom 3",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ECE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "EC-202",
+        "name": "ECE Classroom 4",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ECE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "EC-Lab-1",
+        "name": "ECE Lab 1",
+        "type": "Lab",
+        "capacity": 25,
+        "department": "ECE",
+        "equipment": [
+          "Oscilloscopes",
+          "Function Generators",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "EC-Lab-2",
+        "name": "ECE Lab 2",
+        "type": "Lab",
+        "capacity": 25,
+        "department": "ECE",
+        "equipment": [
+          "Digital Trainers",
+          "Microprocessor Kits",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "ME-101",
+        "name": "ME Classroom 1",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ME",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "ME-102",
+        "name": "ME Classroom 2",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ME",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "ME-201",
+        "name": "ME Classroom 3",
+        "type": "Classroom",
+        "capacity": 70,
+        "department": "ME",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "ME-Lab-1",
+        "name": "ME Lab 1",
+        "type": "Lab",
+        "capacity": 20,
+        "department": "ME",
+        "equipment": [
+          "Manufacturing Machines",
+          "Testing Equipment"
+        ]
+      },
+      {
+        "room_id": "ME-Lab-2",
+        "name": "ME Lab 2",
+        "type": "Lab",
+        "capacity": 20,
+        "department": "ME",
+        "equipment": [
+          "Heat Transfer Setup",
+          "Fluid Mechanics Equipment"
+        ]
+      },
+      {
+        "room_id": "CE-101",
+        "name": "CE Classroom 1",
+        "type": "Classroom",
+        "capacity": 75,
+        "department": "CE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CE-102",
+        "name": "CE Classroom 2",
+        "type": "Classroom",
+        "capacity": 75,
+        "department": "CE",
+        "equipment": [
+          "Projector",
+          "Smart Board",
+          "AC"
+        ]
+      },
+      {
+        "room_id": "CE-Lab-1",
+        "name": "CE Lab 1",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CE",
+        "equipment": [
+          "Concrete Testing",
+          "Surveying Instruments"
+        ]
+      },
+      {
+        "room_id": "CE-Lab-2",
+        "name": "CE Lab 2",
+        "type": "Lab",
+        "capacity": 30,
+        "department": "CE",
+        "equipment": [
+          "Soil Testing",
+          "Material Testing"
+        ]
+      }
+    ],
+    "constraints": {
+      "hard_constraints": {
+        "no_faculty_clash": true,
+        "no_room_clash": true,
+        "no_section_clash": true,
+        "break_periods_fixed": [
+          3,
+          6
+        ],
+        "lunch_period_fixed": 6,
+        "mentorship_period_fixed": 3,
+        "max_classes_per_day_per_section": 7,
+        "min_classes_per_week_per_subject": true,
+        "lab_duration_consecutive": true,
+        "faculty_availability": true,
+        "section_room_assignment": true
+      },
+      "soft_constraints": {
+        "balanced_daily_load": {
+          "weight": 0.3,
+          "max_deviation": 2
+        },
+        "faculty_preference_slots": {
+          "weight": 0.2
+        },
+        "minimize_faculty_travel": {
+          "weight": 0.15
+        },
+        "morning_heavy_subjects": {
+          "weight": 0.1,
+          "subjects": [
+            "BCS301",
+            "BCS302",
+            "BCS303",
+            "BCS501",
+            "BCS503",
+            "BAI701",
+            "BCAI501",
+            "BCDS501"
+          ]
+        },
+        "avoid_single_period_gaps": {
+          "weight": 0.15
+        },
+        "distribute_subjects_evenly": {
+          "weight": 0.1
+        },
+        "minimize_free_periods": {
+          "weight": 0.25
+        }
+      }
+    },
+    "special_requirements": {
+      "mentorship_break": {
+        "period": 3,
+        "duration": 1,
+        "all_sections": true
+      },
+      "library_periods": {
+        "sections": [
+          "CSE_DS_1_III",
+          "CSE_AIML_2_III"
+        ],
+        "periods_per_week": 1,
+        "flexible": true
+      },
+      "project_work": {
+        "sections": [
+          "CSE_AIML_1_VII",
+          "CSE_AIML_2_VII",
+          "CSE_DS_1_VII",
+          "CSE_DS_2_VII"
+        ],
+        "periods_per_week": 8,
+        "flexible_scheduling": true
+      },
+      "tutorial_classes": {
+        "subjects": [
+          "BCS501",
+          "BCAI501",
+          "BCDS501",
+          "BCS503"
+        ],
+        "marked_as": "T",
+        "duration": 1
+      },
+      "open_electives": {
+        "cross_department": true,
+        "faculty_rotation": true
+      },
+      "minors_honors": {
+        "delivery_mode": "online",
+        "platform": "Google Meet",
+        "sections": [
+          "CSE_AIML_1_VII",
+          "CSE_AIML_2_VII",
+          "CSE_DS_1_VII",
+          "CSE_DS_2_VII"
+        ],
+        "periods": [
+          7,
+          8
+        ]
+      },
+      "lab_batch_division": {
+        "max_students_per_batch": 15,
+        "batch_naming": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rotation_labs": [
+          "BCS351",
+          "BCS352",
+          "BCS353",
+          "BCC351"
+        ]
+      }
+    },
+    "genetic_algorithm_params": {
+      "population_size": 30,
+      "mutation_rate": 0.1,
+      "crossover_rate": 0.8,
+      "selection_method": "tournament",
+      "elite_size": 5,
+      "generations": 30,
+      "tournament_size": 3,
+      "early_stopping_patience": 5,
+      "elitism_rate": 0.16666666666666666
+    }
+  },
+  "result": {
+    "fitness_score": 1276.7892714545533,
+    "constraint_violations": {},
+    "fitness_breakdown": {},
+    "timetable_size": 679,
+    "fitness_history": [],
+    "generations_completed": 0,
+    "solution": {
+      "0": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 5
+      },
+      "1": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 4
+      },
+      "2": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 5
+      },
+      "3": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 7
+      },
+      "4": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 1
+      },
+      "5": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 1
+      },
+      "6": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 9
+      },
+      "7": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 8
+      },
+      "8": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 1
+      },
+      "9": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 2
+      },
+      "10": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 7
+      },
+      "11": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 7
+      },
+      "12": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 7
+      },
+      "13": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 4
+      },
+      "14": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 2
+      },
+      "15": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 8
+      },
+      "16": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 1
+      },
+      "17": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 2
+      },
+      "18": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 8
+      },
+      "19": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 1
+      },
+      "20": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 4
+      },
+      "21": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 5
+      },
+      "22": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 2
+      },
+      "23": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 8
+      },
+      "24": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 5
+      },
+      "25": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 2
+      },
+      "26": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-8",
+        "day": 4,
+        "period": 7
+      },
+      "27": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-8",
+        "day": 2,
+        "period": 9
+      },
+      "28": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 9
+      },
+      "29": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 9
+      },
+      "30": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 4
+      },
+      "31": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 4
+      },
+      "32": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F011",
+        "room_id": "CL-8",
+        "day": 1,
+        "period": 5
+      },
+      "33": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F011",
+        "room_id": "CL-8",
+        "day": 0,
+        "period": 9
+      },
+      "34": {
+        "section_id": "CSE_DS_1_III",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-8",
+        "day": 3,
+        "period": 8
+      },
+      "35": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 5
+      },
+      "36": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 1
+      },
+      "37": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 1
+      },
+      "38": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 8
+      },
+      "39": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 2
+      },
+      "40": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 9
+      },
+      "41": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 9
+      },
+      "42": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 8
+      },
+      "43": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 4
+      },
+      "44": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 4
+      },
+      "45": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 8
+      },
+      "46": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 9
+      },
+      "47": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 7
+      },
+      "48": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 2
+      },
+      "49": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 1
+      },
+      "50": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 8
+      },
+      "51": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 4
+      },
+      "52": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 7
+      },
+      "53": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 7
+      },
+      "54": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 5
+      },
+      "55": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 1
+      },
+      "56": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 2
+      },
+      "57": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 8
+      },
+      "58": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 9
+      },
+      "59": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 5
+      },
+      "60": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 7
+      },
+      "61": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 1
+      },
+      "62": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-09",
+        "day": 3,
+        "period": 9
+      },
+      "63": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 5
+      },
+      "64": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 7
+      },
+      "65": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 5
+      },
+      "66": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-09",
+        "day": 2,
+        "period": 4
+      },
+      "67": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-09",
+        "day": 0,
+        "period": 2
+      },
+      "68": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-09",
+        "day": 1,
+        "period": 2
+      },
+      "69": {
+        "section_id": "CSE_DS_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-09",
+        "day": 4,
+        "period": 4
+      },
+      "70": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 4
+      },
+      "71": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 2
+      },
+      "72": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 4
+      },
+      "73": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 4
+      },
+      "74": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 8
+      },
+      "75": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 4
+      },
+      "76": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 7
+      },
+      "77": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 2
+      },
+      "78": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 9
+      },
+      "79": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 5
+      },
+      "80": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 1
+      },
+      "81": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 8
+      },
+      "82": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 9
+      },
+      "83": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 8
+      },
+      "84": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 9
+      },
+      "85": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 8
+      },
+      "86": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 1
+      },
+      "87": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 2
+      },
+      "88": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 5
+      },
+      "89": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 7
+      },
+      "90": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 8
+      },
+      "91": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 7
+      },
+      "92": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 1
+      },
+      "93": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 5
+      },
+      "94": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 1
+      },
+      "95": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 1
+      },
+      "96": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 5
+      },
+      "97": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 2
+      },
+      "98": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 7
+      },
+      "99": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 2
+      },
+      "100": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-10",
+        "day": 4,
+        "period": 5
+      },
+      "101": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-10",
+        "day": 3,
+        "period": 9
+      },
+      "102": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-10",
+        "day": 2,
+        "period": 9
+      },
+      "103": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-10",
+        "day": 0,
+        "period": 7
+      },
+      "104": {
+        "section_id": "CSE_AIML_1_III",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-10",
+        "day": 1,
+        "period": 4
+      },
+      "105": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 7
+      },
+      "106": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 1
+      },
+      "107": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 9
+      },
+      "108": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 2
+      },
+      "109": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 4
+      },
+      "110": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 8
+      },
+      "111": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 9
+      },
+      "112": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 7
+      },
+      "113": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 2
+      },
+      "114": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 2
+      },
+      "115": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 1
+      },
+      "116": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 7
+      },
+      "117": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 9
+      },
+      "118": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 4
+      },
+      "119": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F007",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 5
+      },
+      "120": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 9
+      },
+      "121": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 5
+      },
+      "122": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 1
+      },
+      "123": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 5
+      },
+      "124": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 8
+      },
+      "125": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 8
+      },
+      "126": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 7
+      },
+      "127": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-11",
+        "day": 4,
+        "period": 7
+      },
+      "128": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 4
+      },
+      "129": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 2
+      },
+      "130": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 4
+      },
+      "131": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 8
+      },
+      "132": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-11",
+        "day": 2,
+        "period": 1
+      },
+      "133": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-11",
+        "day": 3,
+        "period": 5
+      },
+      "134": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 1
+      },
+      "135": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 2
+      },
+      "136": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 5
+      },
+      "137": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 4
+      },
+      "138": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-11",
+        "day": 1,
+        "period": 9
+      },
+      "139": {
+        "section_id": "CSE_AIML_2_III",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-11",
+        "day": 0,
+        "period": 8
+      },
+      "140": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 4
+      },
+      "141": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 8
+      },
+      "142": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 2
+      },
+      "143": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 9
+      },
+      "144": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 4
+      },
+      "145": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 2
+      },
+      "146": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 9
+      },
+      "147": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 1
+      },
+      "148": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 9
+      },
+      "149": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 7
+      },
+      "150": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 2
+      },
+      "151": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 1
+      },
+      "152": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 7
+      },
+      "153": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 9
+      },
+      "154": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 1
+      },
+      "155": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 8
+      },
+      "156": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 8
+      },
+      "157": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 7
+      },
+      "158": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 5
+      },
+      "159": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 7
+      },
+      "160": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-07",
+        "day": 3,
+        "period": 4
+      },
+      "161": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 5
+      },
+      "162": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 2
+      },
+      "163": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 9
+      },
+      "164": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 2
+      },
+      "165": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 4
+      },
+      "166": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 1
+      },
+      "167": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 5
+      },
+      "168": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-07",
+        "day": 1,
+        "period": 8
+      },
+      "169": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 5
+      },
+      "170": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 5
+      },
+      "171": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-07",
+        "day": 2,
+        "period": 1
+      },
+      "172": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 8
+      },
+      "173": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-07",
+        "day": 0,
+        "period": 4
+      },
+      "174": {
+        "section_id": "CSE_AIML_1_V",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-07",
+        "day": 4,
+        "period": 7
+      },
+      "175": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 8
+      },
+      "176": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 8
+      },
+      "177": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 2
+      },
+      "178": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 2
+      },
+      "179": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 1
+      },
+      "180": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 4
+      },
+      "181": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 5
+      },
+      "182": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 8
+      },
+      "183": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 5
+      },
+      "184": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 7
+      },
+      "185": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 7
+      },
+      "186": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 2
+      },
+      "187": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 9
+      },
+      "188": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 8
+      },
+      "189": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 1
+      },
+      "190": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 4
+      },
+      "191": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 2
+      },
+      "192": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 9
+      },
+      "193": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 9
+      },
+      "194": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 7
+      },
+      "195": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 9
+      },
+      "196": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 5
+      },
+      "197": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 7
+      },
+      "198": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 1
+      },
+      "199": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 4
+      },
+      "200": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 9
+      },
+      "201": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-06",
+        "day": 4,
+        "period": 2
+      },
+      "202": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 1
+      },
+      "203": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 5
+      },
+      "204": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 8
+      },
+      "205": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-06",
+        "day": 3,
+        "period": 4
+      },
+      "206": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-06",
+        "day": 0,
+        "period": 5
+      },
+      "207": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 7
+      },
+      "208": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-06",
+        "day": 2,
+        "period": 4
+      },
+      "209": {
+        "section_id": "CSE_AIML_2_V",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-06",
+        "day": 1,
+        "period": 1
+      },
+      "210": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 8
+      },
+      "211": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 5
+      },
+      "212": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 5
+      },
+      "213": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 8
+      },
+      "214": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 2
+      },
+      "215": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 5
+      },
+      "216": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 7
+      },
+      "217": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 7
+      },
+      "218": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 1
+      },
+      "219": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 1
+      },
+      "220": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 9
+      },
+      "221": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 4
+      },
+      "222": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 2
+      },
+      "223": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 2
+      },
+      "224": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 8
+      },
+      "225": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-5",
+        "day": 4,
+        "period": 4
+      },
+      "226": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 1
+      },
+      "227": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 8
+      },
+      "228": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 5
+      },
+      "229": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 4
+      },
+      "230": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 4
+      },
+      "231": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 8
+      },
+      "232": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 9
+      },
+      "233": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 9
+      },
+      "234": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 4
+      },
+      "235": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 5
+      },
+      "236": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 7
+      },
+      "237": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 7
+      },
+      "238": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 9
+      },
+      "239": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 1
+      },
+      "240": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-5",
+        "day": 3,
+        "period": 1
+      },
+      "241": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 7
+      },
+      "242": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-5",
+        "day": 2,
+        "period": 2
+      },
+      "243": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-5",
+        "day": 1,
+        "period": 9
+      },
+      "244": {
+        "section_id": "CSE_DS_1_V",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-5",
+        "day": 0,
+        "period": 2
+      },
+      "245": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 9
+      },
+      "246": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 7
+      },
+      "247": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 7
+      },
+      "248": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 9
+      },
+      "249": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 4
+      },
+      "250": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 8
+      },
+      "251": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 7
+      },
+      "252": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS302",
+        "faculty_id": "F001",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 1
+      },
+      "253": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 8
+      },
+      "254": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 5
+      },
+      "255": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 5
+      },
+      "256": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 7
+      },
+      "257": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 9
+      },
+      "258": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 2
+      },
+      "259": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 4
+      },
+      "260": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 1
+      },
+      "261": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCC301",
+        "faculty_id": "F008",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 4
+      },
+      "262": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 7
+      },
+      "263": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 9
+      },
+      "264": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 4
+      },
+      "265": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 4
+      },
+      "266": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 1
+      },
+      "267": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 1
+      },
+      "268": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 5
+      },
+      "269": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 8
+      },
+      "270": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 5
+      },
+      "271": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-04",
+        "day": 0,
+        "period": 2
+      },
+      "272": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-04",
+        "day": 2,
+        "period": 8
+      },
+      "273": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 2
+      },
+      "274": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 2
+      },
+      "275": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 8
+      },
+      "276": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 2
+      },
+      "277": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-04",
+        "day": 4,
+        "period": 9
+      },
+      "278": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-04",
+        "day": 1,
+        "period": 1
+      },
+      "279": {
+        "section_id": "CSE_DS_2_V",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-04",
+        "day": 3,
+        "period": 5
+      },
+      "280": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 9
+      },
+      "281": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 2
+      },
+      "282": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 4
+      },
+      "283": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 9
+      },
+      "284": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 5
+      },
+      "285": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 4
+      },
+      "286": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 2
+      },
+      "287": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 7
+      },
+      "288": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 5
+      },
+      "289": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 9
+      },
+      "290": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 8
+      },
+      "291": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 5
+      },
+      "292": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 7
+      },
+      "293": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 1
+      },
+      "294": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 4
+      },
+      "295": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 1
+      },
+      "296": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 7
+      },
+      "297": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 8
+      },
+      "298": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 8
+      },
+      "299": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 8
+      },
+      "300": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 2
+      },
+      "301": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 2
+      },
+      "302": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS501",
+        "faculty_id": "F009",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 7
+      },
+      "303": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 9
+      },
+      "304": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 8
+      },
+      "305": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 7
+      },
+      "306": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 1
+      },
+      "307": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-03",
+        "day": 0,
+        "period": 2
+      },
+      "308": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 4
+      },
+      "309": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 5
+      },
+      "310": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-03",
+        "day": 2,
+        "period": 9
+      },
+      "311": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 1
+      },
+      "312": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F019",
+        "room_id": "CL-03",
+        "day": 4,
+        "period": 1
+      },
+      "313": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F019",
+        "room_id": "CL-03",
+        "day": 1,
+        "period": 4
+      },
+      "314": {
+        "section_id": "CSE_AIML_1_VII",
+        "subject_id": "BNC501",
+        "faculty_id": "F032",
+        "room_id": "CL-03",
+        "day": 3,
+        "period": 5
+      },
+      "315": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 8
+      },
+      "316": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 5
+      },
+      "317": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 2
+      },
+      "318": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F011",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 2
+      },
+      "319": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 1
+      },
+      "320": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 4
+      },
+      "321": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 7
+      },
+      "322": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 9
+      },
+      "323": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 2
+      },
+      "324": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 9
+      },
+      "325": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 8
+      },
+      "326": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F005",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 1
+      },
+      "327": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 9
+      },
+      "328": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 9
+      },
+      "329": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 4
+      },
+      "330": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 7
+      },
+      "331": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 1
+      },
+      "332": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 5
+      },
+      "333": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 9
+      },
+      "334": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 8
+      },
+      "335": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 7
+      },
+      "336": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 7
+      },
+      "337": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 4
+      },
+      "338": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 8
+      },
+      "339": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 1
+      },
+      "340": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 8
+      },
+      "341": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 5
+      },
+      "342": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-02",
+        "day": 3,
+        "period": 4
+      },
+      "343": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 1
+      },
+      "344": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-02",
+        "day": 1,
+        "period": 2
+      },
+      "345": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 7
+      },
+      "346": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-02",
+        "day": 0,
+        "period": 5
+      },
+      "347": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCDS051",
+        "faculty_id": "F013",
+        "room_id": "CL-02",
+        "day": 2,
+        "period": 5
+      },
+      "348": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BCS058",
+        "faculty_id": "F013",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 2
+      },
+      "349": {
+        "section_id": "CSE_AIML_2_VII",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "CL-02",
+        "day": 4,
+        "period": 4
+      },
+      "350": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 7
+      },
+      "351": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 5
+      },
+      "352": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 4
+      },
+      "353": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F001",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 9
+      },
+      "354": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 9
+      },
+      "355": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 5
+      },
+      "356": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 5
+      },
+      "357": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F003",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 1
+      },
+      "358": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 1
+      },
+      "359": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 7
+      },
+      "360": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 2
+      },
+      "361": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F007",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 1
+      },
+      "362": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 8
+      },
+      "363": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 8
+      },
+      "364": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 7
+      },
+      "365": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 5
+      },
+      "366": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 2
+      },
+      "367": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 1
+      },
+      "368": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 4
+      },
+      "369": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 7
+      },
+      "370": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 8
+      },
+      "371": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 9
+      },
+      "372": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 2
+      },
+      "373": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 4
+      },
+      "374": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F012",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 2
+      },
+      "375": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 4
+      },
+      "376": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 2
+      },
+      "377": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F008",
+        "room_id": "CL-1",
+        "day": 4,
+        "period": 7
+      },
+      "378": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 9
+      },
+      "379": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 5
+      },
+      "380": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F019",
+        "room_id": "CL-1",
+        "day": 2,
+        "period": 9
+      },
+      "381": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F019",
+        "room_id": "CL-1",
+        "day": 0,
+        "period": 8
+      },
+      "382": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F019",
+        "room_id": "CL-1",
+        "day": 3,
+        "period": 1
+      },
+      "383": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BCDS051",
+        "faculty_id": "F013",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 8
+      },
+      "384": {
+        "section_id": "CSE_DS_1_VII",
+        "subject_id": "BNC501",
+        "faculty_id": "F032",
+        "room_id": "CL-1",
+        "day": 1,
+        "period": 4
+      },
+      "385": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 7
+      },
+      "386": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 7
+      },
+      "387": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 5
+      },
+      "388": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS301",
+        "faculty_id": "F002",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 7
+      },
+      "389": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 8
+      },
+      "390": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 2
+      },
+      "391": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 5
+      },
+      "392": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS302",
+        "faculty_id": "F006",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 4
+      },
+      "393": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 8
+      },
+      "394": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 2
+      },
+      "395": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 5
+      },
+      "396": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS303",
+        "faculty_id": "F004",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 8
+      },
+      "397": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 8
+      },
+      "398": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 1
+      },
+      "399": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 8
+      },
+      "400": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 1
+      },
+      "401": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCC301",
+        "faculty_id": "F015",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 2
+      },
+      "402": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 4
+      },
+      "403": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 1
+      },
+      "404": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 5
+      },
+      "405": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCAI501",
+        "faculty_id": "F014",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 5
+      },
+      "406": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 7
+      },
+      "407": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 9
+      },
+      "408": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 7
+      },
+      "409": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS501",
+        "faculty_id": "F018",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 9
+      },
+      "410": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 9
+      },
+      "411": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS503",
+        "faculty_id": "F017",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 1
+      },
+      "412": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 1
+      },
+      "413": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 4
+      },
+      "414": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCS052",
+        "faculty_id": "F013",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 9
+      },
+      "415": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-01",
+        "day": 2,
+        "period": 2
+      },
+      "416": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-01",
+        "day": 0,
+        "period": 4
+      },
+      "417": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCAM051",
+        "faculty_id": "F010",
+        "room_id": "CL-01",
+        "day": 1,
+        "period": 9
+      },
+      "418": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS051",
+        "faculty_id": "F013",
+        "room_id": "CL-01",
+        "day": 3,
+        "period": 2
+      },
+      "419": {
+        "section_id": "CSE_DS_2_VII",
+        "subject_id": "BCDS051",
+        "faculty_id": "F013",
+        "room_id": "CL-01",
+        "day": 4,
+        "period": 4
+      },
+      "420": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 9
+      },
+      "421": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 9
+      },
+      "422": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 9
+      },
+      "423": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 2
+      },
+      "424": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 5
+      },
+      "425": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 9
+      },
+      "426": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 2
+      },
+      "427": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 5
+      },
+      "428": {
+        "section_id": "ECE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 1
+      },
+      "429": {
+        "section_id": "ECE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 1
+      },
+      "430": {
+        "section_id": "ECE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 5
+      },
+      "431": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 4
+      },
+      "432": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 8
+      },
+      "433": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 4
+      },
+      "434": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 8
+      },
+      "435": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 8
+      },
+      "436": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 7
+      },
+      "437": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 4
+      },
+      "438": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 5
+      },
+      "439": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 9
+      },
+      "440": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 8
+      },
+      "441": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 1
+      },
+      "442": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 1
+      },
+      "443": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 8
+      },
+      "444": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 2
+      },
+      "445": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 4
+      },
+      "446": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 2
+      },
+      "447": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 7
+      },
+      "448": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-101",
+        "day": 4,
+        "period": 7
+      },
+      "449": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 1
+      },
+      "450": {
+        "section_id": "ECE_1_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-101",
+        "day": 1,
+        "period": 7
+      },
+      "451": {
+        "section_id": "ECE_1_III",
+        "subject_id": "PDP",
+        "faculty_id": "F043",
+        "room_id": "EC-101",
+        "day": 3,
+        "period": 4
+      },
+      "452": {
+        "section_id": "ECE_1_III",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 2
+      },
+      "453": {
+        "section_id": "ECE_1_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F052",
+        "room_id": "EC-101",
+        "day": 2,
+        "period": 7
+      },
+      "454": {
+        "section_id": "ECE_1_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F052",
+        "room_id": "EC-101",
+        "day": 0,
+        "period": 5
+      },
+      "455": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 2
+      },
+      "456": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 4
+      },
+      "457": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 1
+      },
+      "458": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 4
+      },
+      "459": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 8
+      },
+      "460": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 4
+      },
+      "461": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 8
+      },
+      "462": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 8
+      },
+      "463": {
+        "section_id": "ECE_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F052",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 5
+      },
+      "464": {
+        "section_id": "ECE_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F052",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 9
+      },
+      "465": {
+        "section_id": "ECE_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F052",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 2
+      },
+      "466": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 4
+      },
+      "467": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 7
+      },
+      "468": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 7
+      },
+      "469": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 7
+      },
+      "470": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 4
+      },
+      "471": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 7
+      },
+      "472": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 9
+      },
+      "473": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 5
+      },
+      "474": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 9
+      },
+      "475": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 2
+      },
+      "476": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 5
+      },
+      "477": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 9
+      },
+      "478": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 5
+      },
+      "479": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 8
+      },
+      "480": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 2
+      },
+      "481": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 1
+      },
+      "482": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-102",
+        "day": 0,
+        "period": 1
+      },
+      "483": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-102",
+        "day": 2,
+        "period": 8
+      },
+      "484": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-102",
+        "day": 3,
+        "period": 2
+      },
+      "485": {
+        "section_id": "ECE_2_III",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 5
+      },
+      "486": {
+        "section_id": "ECE_2_III",
+        "subject_id": "PDP",
+        "faculty_id": "F016",
+        "room_id": "EC-102",
+        "day": 1,
+        "period": 7
+      },
+      "487": {
+        "section_id": "ECE_2_III",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "EC-102",
+        "day": 4,
+        "period": 9
+      },
+      "488": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 1
+      },
+      "489": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 8
+      },
+      "490": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 8
+      },
+      "491": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 4
+      },
+      "492": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 1
+      },
+      "493": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F034",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 4
+      },
+      "494": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 9
+      },
+      "495": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 7
+      },
+      "496": {
+        "section_id": "ECE_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 9
+      },
+      "497": {
+        "section_id": "ECE_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 5
+      },
+      "498": {
+        "section_id": "ECE_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 5
+      },
+      "499": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 1
+      },
+      "500": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 9
+      },
+      "501": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 8
+      },
+      "502": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 1
+      },
+      "503": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 5
+      },
+      "504": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 7
+      },
+      "505": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 2
+      },
+      "506": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 7
+      },
+      "507": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 2
+      },
+      "508": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 2
+      },
+      "509": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 8
+      },
+      "510": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 8
+      },
+      "511": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 9
+      },
+      "512": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 2
+      },
+      "513": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 4
+      },
+      "514": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 4
+      },
+      "515": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-201",
+        "day": 0,
+        "period": 7
+      },
+      "516": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 1
+      },
+      "517": {
+        "section_id": "ECE_1_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-201",
+        "day": 2,
+        "period": 9
+      },
+      "518": {
+        "section_id": "ECE_1_V",
+        "subject_id": "PDP",
+        "faculty_id": "F016",
+        "room_id": "EC-201",
+        "day": 1,
+        "period": 5
+      },
+      "519": {
+        "section_id": "ECE_1_V",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "EC-201",
+        "day": 3,
+        "period": 2
+      },
+      "520": {
+        "section_id": "ECE_1_V",
+        "subject_id": "LANG301",
+        "faculty_id": "F016",
+        "room_id": "EC-201",
+        "day": 4,
+        "period": 7
+      },
+      "521": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 7
+      },
+      "522": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 2
+      },
+      "523": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 2
+      },
+      "524": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 7
+      },
+      "525": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 7
+      },
+      "526": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 4
+      },
+      "527": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 5
+      },
+      "528": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 8
+      },
+      "529": {
+        "section_id": "ECE_2_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 4
+      },
+      "530": {
+        "section_id": "ECE_2_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 9
+      },
+      "531": {
+        "section_id": "ECE_2_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "EC-202",
+        "day": 3,
+        "period": 4
+      },
+      "532": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 1
+      },
+      "533": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-202",
+        "day": 3,
+        "period": 5
+      },
+      "534": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 9
+      },
+      "535": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC301",
+        "faculty_id": "F030",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 2
+      },
+      "536": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 9
+      },
+      "537": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 2
+      },
+      "538": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 4
+      },
+      "539": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC302",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 8
+      },
+      "540": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-202",
+        "day": 4,
+        "period": 5
+      },
+      "541": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 8
+      },
+      "542": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 1
+      },
+      "543": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC303",
+        "faculty_id": "F031",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 4
+      },
+      "544": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 9
+      },
+      "545": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-202",
+        "day": 2,
+        "period": 1
+      },
+      "546": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC501",
+        "faculty_id": "F032",
+        "room_id": "EC-202",
+        "day": 3,
+        "period": 1
+      },
+      "547": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 1,
+        "period": 5
+      },
+      "548": {
+        "section_id": "ECE_2_V",
+        "subject_id": "BEC502",
+        "faculty_id": "F033",
+        "room_id": "EC-202",
+        "day": 0,
+        "period": 5
+      },
+      "549": {
+        "section_id": "ECE_2_V",
+        "subject_id": "PDP",
+        "faculty_id": "F016",
+        "room_id": "EC-202",
+        "day": 3,
+        "period": 2
+      },
+      "550": {
+        "section_id": "ECE_2_V",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "EC-202",
+        "day": 3,
+        "period": 7
+      },
+      "551": {
+        "section_id": "ME_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 2
+      },
+      "552": {
+        "section_id": "ME_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 5
+      },
+      "553": {
+        "section_id": "ME_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 1
+      },
+      "554": {
+        "section_id": "ME_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 9
+      },
+      "555": {
+        "section_id": "ME_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 2
+      },
+      "556": {
+        "section_id": "ME_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F016",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 5
+      },
+      "557": {
+        "section_id": "ME_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 4
+      },
+      "558": {
+        "section_id": "ME_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 9
+      },
+      "559": {
+        "section_id": "ME_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 7
+      },
+      "560": {
+        "section_id": "ME_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 8
+      },
+      "561": {
+        "section_id": "ME_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F043",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 2
+      },
+      "562": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 4
+      },
+      "563": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 4
+      },
+      "564": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 9
+      },
+      "565": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 7
+      },
+      "566": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 5
+      },
+      "567": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 9
+      },
+      "568": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 1
+      },
+      "569": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 5
+      },
+      "570": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 2
+      },
+      "571": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 8
+      },
+      "572": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 7
+      },
+      "573": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 8
+      },
+      "574": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 1
+      },
+      "575": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 7
+      },
+      "576": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 4,
+        "period": 1
+      },
+      "577": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 1,
+        "period": 2
+      },
+      "578": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 7
+      },
+      "579": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 9
+      },
+      "580": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 8
+      },
+      "581": {
+        "section_id": "ME_1_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 4
+      },
+      "582": {
+        "section_id": "ME_1_III",
+        "subject_id": "PDP",
+        "faculty_id": "F052",
+        "room_id": "ME-101",
+        "day": 3,
+        "period": 4
+      },
+      "583": {
+        "section_id": "ME_1_III",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "ME-101",
+        "day": 2,
+        "period": 5
+      },
+      "584": {
+        "section_id": "ME_1_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F034",
+        "room_id": "ME-101",
+        "day": 0,
+        "period": 8
+      },
+      "585": {
+        "section_id": "ME_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 7
+      },
+      "586": {
+        "section_id": "ME_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-102",
+        "day": 2,
+        "period": 7
+      },
+      "587": {
+        "section_id": "ME_2_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 1
+      },
+      "588": {
+        "section_id": "ME_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 8
+      },
+      "589": {
+        "section_id": "ME_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 8
+      },
+      "590": {
+        "section_id": "ME_2_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 2
+      },
+      "591": {
+        "section_id": "ME_2_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F019",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 5
+      },
+      "592": {
+        "section_id": "ME_2_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F019",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 9
+      },
+      "593": {
+        "section_id": "ME_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 9
+      },
+      "594": {
+        "section_id": "ME_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 9
+      },
+      "595": {
+        "section_id": "ME_2_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 4
+      },
+      "596": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-102",
+        "day": 2,
+        "period": 9
+      },
+      "597": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 1
+      },
+      "598": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 4
+      },
+      "599": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME301",
+        "faculty_id": "F040",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 7
+      },
+      "600": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 2
+      },
+      "601": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 2,
+        "period": 8
+      },
+      "602": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 2,
+        "period": 1
+      },
+      "603": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 2
+      },
+      "604": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 8
+      },
+      "605": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 5
+      },
+      "606": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 4
+      },
+      "607": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 2
+      },
+      "608": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 7
+      },
+      "609": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 0,
+        "period": 7
+      },
+      "610": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 9
+      },
+      "611": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 5
+      },
+      "612": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 1
+      },
+      "613": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 2,
+        "period": 2
+      },
+      "614": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME502",
+        "faculty_id": "F042",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 1
+      },
+      "615": {
+        "section_id": "ME_2_III",
+        "subject_id": "PDP",
+        "faculty_id": "F016",
+        "room_id": "ME-102",
+        "day": 4,
+        "period": 4
+      },
+      "616": {
+        "section_id": "ME_2_III",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "ME-102",
+        "day": 1,
+        "period": 8
+      },
+      "617": {
+        "section_id": "ME_2_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F034",
+        "room_id": "ME-102",
+        "day": 3,
+        "period": 5
+      },
+      "618": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME352",
+        "faculty_id": "F041",
+        "room_id": "ME-Lab-1",
+        "day": 2,
+        "period": 4
+      },
+      "619": {
+        "section_id": "ME_2_III",
+        "subject_id": "BME352",
+        "faculty_id": "F041",
+        "room_id": "ME-Lab-1",
+        "day": 2,
+        "period": 5
+      },
+      "620": {
+        "section_id": "ME_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 5
+      },
+      "621": {
+        "section_id": "ME_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 4
+      },
+      "622": {
+        "section_id": "ME_1_V",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 9
+      },
+      "623": {
+        "section_id": "ME_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 7
+      },
+      "624": {
+        "section_id": "ME_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 2
+      },
+      "625": {
+        "section_id": "ME_1_V",
+        "subject_id": "BOE3X",
+        "faculty_id": "F043",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 9
+      },
+      "626": {
+        "section_id": "ME_1_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 7
+      },
+      "627": {
+        "section_id": "ME_1_V",
+        "subject_id": "BNC501",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 3,
+        "period": 9
+      },
+      "628": {
+        "section_id": "ME_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 2
+      },
+      "629": {
+        "section_id": "ME_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 7
+      },
+      "630": {
+        "section_id": "ME_1_V",
+        "subject_id": "OE_VII",
+        "faculty_id": "F034",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 2
+      },
+      "631": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME301",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 5
+      },
+      "632": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME301",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 3,
+        "period": 4
+      },
+      "633": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME301",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 8
+      },
+      "634": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME301",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 3,
+        "period": 2
+      },
+      "635": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 1
+      },
+      "636": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 3,
+        "period": 7
+      },
+      "637": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 4
+      },
+      "638": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME302",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 1
+      },
+      "639": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 9
+      },
+      "640": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 7
+      },
+      "641": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 3,
+        "period": 1
+      },
+      "642": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME303",
+        "faculty_id": "F041",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 8
+      },
+      "643": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 5
+      },
+      "644": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 4
+      },
+      "645": {
+        "section_id": "ME_1_V",
+        "subject_id": "BME501",
+        "faculty_id": "F042",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 1
+      },
+      "646": {
+        "section_id": "ME_1_V",
+        "subject_id": "PDP",
+        "faculty_id": "F016",
+        "room_id": "ME-201",
+        "day": 4,
+        "period": 9
+      },
+      "647": {
+        "section_id": "ME_1_V",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "ME-201",
+        "day": 0,
+        "period": 2
+      },
+      "648": {
+        "section_id": "ME_1_V",
+        "subject_id": "LANG301",
+        "faculty_id": "F016",
+        "room_id": "ME-201",
+        "day": 2,
+        "period": 4
+      },
+      "649": {
+        "section_id": "ME_1_V",
+        "subject_id": "LANG301",
+        "faculty_id": "F016",
+        "room_id": "ME-201",
+        "day": 1,
+        "period": 1
+      },
+      "650": {
+        "section_id": "CE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 1,
+        "period": 4
+      },
+      "651": {
+        "section_id": "CE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 9
+      },
+      "652": {
+        "section_id": "CE_1_III",
+        "subject_id": "BAS301",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 1
+      },
+      "653": {
+        "section_id": "CE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 2
+      },
+      "654": {
+        "section_id": "CE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 2
+      },
+      "655": {
+        "section_id": "CE_1_III",
+        "subject_id": "BOE3X",
+        "faculty_id": "F052",
+        "room_id": "CE-101",
+        "day": 0,
+        "period": 4
+      },
+      "656": {
+        "section_id": "CE_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F019",
+        "room_id": "CE-101",
+        "day": 0,
+        "period": 7
+      },
+      "657": {
+        "section_id": "CE_1_III",
+        "subject_id": "BNC501",
+        "faculty_id": "F019",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 8
+      },
+      "658": {
+        "section_id": "CE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "CE-101",
+        "day": 2,
+        "period": 4
+      },
+      "659": {
+        "section_id": "CE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "CE-101",
+        "day": 1,
+        "period": 9
+      },
+      "660": {
+        "section_id": "CE_1_III",
+        "subject_id": "OE_VII",
+        "faculty_id": "F015",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 7
+      },
+      "661": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE301",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 9
+      },
+      "662": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE301",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 1,
+        "period": 5
+      },
+      "663": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE301",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 1,
+        "period": 2
+      },
+      "664": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE301",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 0,
+        "period": 5
+      },
+      "665": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE302",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 3,
+        "period": 4
+      },
+      "666": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE302",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 0,
+        "period": 8
+      },
+      "667": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE302",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 8
+      },
+      "668": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE302",
+        "faculty_id": "F050",
+        "room_id": "CE-101",
+        "day": 2,
+        "period": 5
+      },
+      "669": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE303",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 4
+      },
+      "670": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE303",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 7
+      },
+      "671": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE303",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 2,
+        "period": 2
+      },
+      "672": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE303",
+        "faculty_id": "F051",
+        "room_id": "CE-101",
+        "day": 1,
+        "period": 1
+      },
+      "673": {
+        "section_id": "CE_1_III",
+        "subject_id": "PDP",
+        "faculty_id": "F043",
+        "room_id": "CE-101",
+        "day": 4,
+        "period": 1
+      },
+      "674": {
+        "section_id": "CE_1_III",
+        "subject_id": "PDP_V",
+        "faculty_id": "F019",
+        "room_id": "CE-101",
+        "day": 2,
+        "period": 1
+      },
+      "675": {
+        "section_id": "CE_1_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F016",
+        "room_id": "CE-101",
+        "day": 2,
+        "period": 9
+      },
+      "676": {
+        "section_id": "CE_1_III",
+        "subject_id": "LANG301",
+        "faculty_id": "F016",
+        "room_id": "CE-101",
+        "day": 0,
+        "period": 2
+      },
+      "677": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE351",
+        "faculty_id": "F050",
+        "room_id": "CE-Lab-1",
+        "day": 2,
+        "period": 7
+      },
+      "678": {
+        "section_id": "CE_1_III",
+        "subject_id": "BCE351",
+        "faculty_id": "F050",
+        "room_id": "CE-Lab-1",
+        "day": 2,
+        "period": 8
+      }
+    }
+  },
+  "status": "success",
+  "runtime": 11.074483156204224
+}
