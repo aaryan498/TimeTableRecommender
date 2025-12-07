@@ -462,7 +462,8 @@ class ExperimentRunner:
         failed_count = 0
         
         with ProcessPoolExecutor(max_workers=self.num_workers) as executor:
-            futures = {executor.submit(self._execute_single_run, config): config 
+            # Use static function directly to avoid pickling issues on Windows
+            futures = {executor.submit(run_single_experiment_static, config, self.git_commit): config 
                       for config in run_configs}
             
             for future in as_completed(futures):
