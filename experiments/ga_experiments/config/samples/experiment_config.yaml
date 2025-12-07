@@ -1,0 +1,127 @@
+# GA Timetable Scheduling Experiment Configuration
+# This config supports both grid search and random sampling
+
+# Experiment metadata
+experiment_name: "ga_timetable_full_grid"
+description: "Comprehensive GA parameter and problem instance variation study"
+version: "1.0"
+
+# Run configuration
+run_settings:
+  max_total_runs: 1000  # Maximum number of runs to execute
+  sampling_mode: "random"  # Options: "grid" or "random"
+  random_sample_seed: 42  # Seed for random sampling (reproducibility)
+  repetitions_per_config: 2  # How many times to repeat each unique configuration
+  
+# Parallelism and resource limits
+resource_limits:
+  parallel_workers: "auto"  # "auto" uses min(4, cpu_count-1), or specify integer
+  per_run_timeout_seconds: 300  # 5 minutes per run
+  memory_limit_mb: null  # null = no limit, or specify integer
+  retry_on_failure: true
+  max_retries: 2
+  retry_backoff_seconds: 2
+
+# Output configuration
+output:
+  base_path: "experiments/ga_experiments/output"
+  dataset_name: "ga_experiments_dataset"
+  formats: ["csv"]  # Options: "csv", "parquet", or both
+  save_raw_json: true  # Save full solution encoding as JSON
+  save_configs: true  # Save copy of config used per run
+
+# GA Parameter Ranges (will be sampled/gridded)
+ga_parameters:
+  population_size:
+    type: "discrete"
+    values: [30, 50, 75, 100, 150]
+  
+  mutation_rate:
+    type: "continuous"
+    min: 0.05
+    max: 0.4
+    step: 0.05  # For grid mode
+  
+  crossover_rate:
+    type: "continuous"
+    min: 0.6
+    max: 0.95
+    step: 0.05
+  
+  selection_method:
+    type: "discrete"
+    values: ["tournament", "roulette"]  # tournament is default in code
+  
+  elite_size:
+    type: "discrete"
+    values: [3, 5, 8, 10]
+  
+  elitism_rate:
+    type: "computed"  # Will be computed as elite_size / population_size
+  
+  generations:
+    type: "discrete"
+    values: [50, 100, 150, 200, 300]
+  
+  tournament_size:
+    type: "discrete"
+    values: [2, 3, 5]
+  
+  early_stopping_patience:
+    type: "discrete"
+    values: [5, 10, 15, 20]
+
+# Problem Instance Variation
+# Base config file to modify
+problem_instance:
+  base_config: "FinalScheduler/corrected_timetable_config.json"
+  
+  # Variation strategies
+  variations:
+    # Option 1: Use base config as-is (no variation)
+    use_base_only: false
+    
+    # Option 2: Scale existing problem
+    scale_problem:
+      enabled: true
+      # Scaling factors to try (1.0 = original size)
+      scale_factors: [0.5, 0.75, 1.0, 1.25]
+      # What to scale: sections, subjects, rooms, faculty
+      scale_components: ["sections", "subjects"]
+    
+    # Option 3: Randomize teacher availability
+    randomize_teacher_availability:
+      enabled: true
+      # Coverage percentage range (what % of slots are available)
+      coverage_range:
+        min: 0.7
+        max: 1.0
+    
+    # Option 4: Vary room capacities
+    vary_room_capacity:
+      enabled: true
+      capacity_range:
+        min: 30
+        max: 100
+    
+    # Option 5: Add conflicting constraints
+    add_conflicts:
+      enabled: false
+      num_conflicts_range:
+        min: 0
+        max: 5
+
+# Validation settings
+validation:
+  schema_validation: true  # Validate against schema.json
+  check_duplicates: true  # Check for duplicate run_ids
+  fitness_bounds:
+    min: 0.0
+    max: 1.0
+  max_failure_rate: 0.2  # Halt if >20% runs fail
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_file: "experiments/ga_experiments/experiment_run.log"
+  console_output: true

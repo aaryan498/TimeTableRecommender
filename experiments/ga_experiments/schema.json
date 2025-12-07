@@ -1,0 +1,189 @@
+{
+  "description": "Comprehensive dataset schema for GA timetable scheduling experiments",
+  "version": "1.0",
+  "fields": [
+    {
+      "name": "run_id",
+      "type": "string",
+      "description": "Unique UUID identifier for this experiment run",
+      "required": true
+    },
+    {
+      "name": "timestamp_utc",
+      "type": "string",
+      "format": "ISO8601",
+      "description": "UTC timestamp when run was executed",
+      "required": true
+    },
+    {
+      "name": "git_commit",
+      "type": "string",
+      "description": "Short hash of repository HEAD commit",
+      "required": true
+    },
+    {
+      "name": "seed",
+      "type": "integer",
+      "description": "RNG seed used for this run",
+      "required": true
+    },
+    {
+      "name": "problem_features",
+      "type": "object",
+      "description": "JSON object containing problem instance characteristics",
+      "required": true,
+      "fields": [
+        {"name": "num_courses", "type": "integer"},
+        {"name": "num_labs", "type": "integer"},
+        {"name": "num_rooms", "type": "integer"},
+        {"name": "num_teachers", "type": "integer"},
+        {"name": "num_sections", "type": "integer"},
+        {"name": "num_departments", "type": "integer"},
+        {"name": "total_periods", "type": "integer"},
+        {"name": "working_days", "type": "integer"},
+        {"name": "room_capacity_min", "type": "integer"},
+        {"name": "room_capacity_mean", "type": "float"},
+        {"name": "room_capacity_max", "type": "integer"},
+        {"name": "room_capacity_std", "type": "float"},
+        {"name": "teacher_availability_coverage", "type": "float"},
+        {"name": "conflicting_course_pairs", "type": "integer"},
+        {"name": "total_required_classes", "type": "integer"},
+        {"name": "avg_classes_per_section", "type": "float"},
+        {"name": "avg_subjects_per_teacher", "type": "float"}
+      ]
+    },
+    {
+      "name": "constraint_settings",
+      "type": "object",
+      "description": "JSON object with all constraint configurations",
+      "required": true
+    },
+    {
+      "name": "ga_params",
+      "type": "object",
+      "description": "JSON object containing GA parameter settings",
+      "required": true,
+      "fields": [
+        {"name": "population_size", "type": "integer"},
+        {"name": "mutation_rate", "type": "float"},
+        {"name": "crossover_rate", "type": "float"},
+        {"name": "selection_method", "type": "string"},
+        {"name": "elitism_rate", "type": "float"},
+        {"name": "elite_size", "type": "integer"},
+        {"name": "generations", "type": "integer"},
+        {"name": "tournament_size", "type": "integer"},
+        {"name": "early_stopping_patience", "type": "integer"}
+      ]
+    },
+    {
+      "name": "fitness_final",
+      "type": "float",
+      "description": "Final fitness score of best solution",
+      "required": true
+    },
+    {
+      "name": "best_solution_violations",
+      "type": "integer",
+      "description": "Total hard constraint violations in best solution",
+      "required": true
+    },
+    {
+      "name": "soft_satisfaction_pct",
+      "type": "float",
+      "description": "Percentage of soft constraints satisfied (0-100)",
+      "required": true
+    },
+    {
+      "name": "convergence_history",
+      "type": "string",
+      "description": "JSON array of best fitness per generation",
+      "required": true
+    },
+    {
+      "name": "runtime_seconds",
+      "type": "float",
+      "description": "Total execution time in seconds",
+      "required": true
+    },
+    {
+      "name": "process_exit_status",
+      "type": "string",
+      "enum": ["success", "timeout", "crashed", "infeasible"],
+      "description": "Exit status of the GA run",
+      "required": true
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text warnings or exception messages",
+      "required": false
+    },
+    {
+      "name": "constraint_violations_breakdown",
+      "type": "object",
+      "description": "Detailed breakdown of each constraint violation",
+      "required": true
+    },
+    {
+      "name": "teacher_workload_stats",
+      "type": "object",
+      "description": "Per-teacher workload statistics",
+      "required": true,
+      "fields": [
+        {"name": "min_hours", "type": "integer"},
+        {"name": "max_hours", "type": "integer"},
+        {"name": "mean_hours", "type": "float"},
+        {"name": "std_hours", "type": "float"},
+        {"name": "teacher_hours_distribution", "type": "object"}
+      ]
+    },
+    {
+      "name": "generations_completed",
+      "type": "integer",
+      "description": "Number of generations completed before termination",
+      "required": true
+    },
+    {
+      "name": "early_stopped",
+      "type": "boolean",
+      "description": "Whether GA stopped early due to convergence",
+      "required": true
+    },
+    {
+      "name": "classes_scheduled",
+      "type": "integer",
+      "description": "Total number of classes successfully scheduled",
+      "required": true
+    },
+    {
+      "name": "classes_required",
+      "type": "integer",
+      "description": "Total number of classes required to be scheduled",
+      "required": true
+    },
+    {
+      "name": "scheduling_coverage_pct",
+      "type": "float",
+      "description": "Percentage of required classes scheduled (0-100)",
+      "required": true
+    },
+    {
+      "name": "hostname",
+      "type": "string",
+      "description": "Machine hostname where run was executed",
+      "required": true
+    },
+    {
+      "name": "python_version",
+      "type": "string",
+      "description": "Python version used",
+      "required": true
+    },
+    {
+      "name": "config_file_used",
+      "type": "string",
+      "description": "Path to configuration file used",
+      "required": true
+    }
+  ]
+}
