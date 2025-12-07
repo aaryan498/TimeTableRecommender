@@ -355,6 +355,9 @@ def run():
         
         # Get best solution
         best = ga.get_best_solution()
+        # Handle case where get_best_solution returns a list
+        if isinstance(best, list) and best:
+            best = best[0]
         
         # Extract results
         result = {{
