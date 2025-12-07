@@ -284,6 +284,10 @@ class ExperimentRunner:
         base_config_path = self.problem_config['base_config']
         variations_config = self.problem_config['variations']
         
+        # Resolve relative paths to absolute paths
+        if not os.path.isabs(base_config_path):
+            base_config_path = os.path.join('/app', base_config_path)
+        
         # Load base configuration
         with open(base_config_path, 'r') as f:
             base_config = json.load(f)
