@@ -408,7 +408,8 @@ class ExperimentRunner:
     
     def _execute_single_run(self, run_config: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Execute a single GA run with given configuration
+        Execute a single GA run with given configuration.
+        This is now a wrapper that calls the static function.
         
         Args:
             run_config: Dictionary containing all run parameters
@@ -416,67 +417,7 @@ class ExperimentRunner:
         Returns:
             Dictionary with run results
         """
-        run_id = run_config['run_id']
-        seed = run_config['seed']
-        ga_params = run_config['ga_params']
-        problem_config = run_config['problem_config']
-        timeout = run_config['timeout']
-        
-        logger.info(f"Starting run {run_id} with seed {seed}")
-        
-        try:
-            # Merge GA params into problem config
-            full_config = copy.deepcopy(problem_config)
-            full_config['genetic_algorithm_params'] = ga_params
-            
-            # Run GA with timeout
-            status, result, runtime = run_ga_with_timeout(full_config, seed, timeout)
-            
-            # Extract problem features
-            from timetable_generator import TimetableData
-            data = TimetableData(config_dict=full_config)
-            problem_features = extract_problem_features(data)
-            
-            # Create output row
-            timestamp = datetime.utcnow().isoformat() + 'Z'
-            
-            row = create_row_from_run_result(
-                run_id=run_id,
-                timestamp=timestamp,
-                git_commit=self.git_commit,
-                seed=seed,
-                problem_features=problem_features,
-                constraint_settings=full_config.get('constraints', {}),
-                ga_params=ga_params,
-                result=result,
-                status=status,
-                runtime=runtime,
-                notes=result.get('error', '') if status != 'success' else ''
-            )
-            
-            # Full solution encoding for raw JSON
-            raw_solution = {
-                'run_id': run_id,
-                'config': full_config,
-                'result': result,
-                'status': status,
-                'runtime': runtime
-            }
-            
-            return {
-                'status': status,
-                'row': row,
-                'raw_solution': raw_solution,
-                'config_used': full_config
-            }
-            
-        except Exception as e:
-            logger.error(f"Run {run_id} failed with exception: {e}")
-            return {
-                'status': 'crashed',
-                'row': None,
-                'error': str(e)
-            }
+        return run_single_experiment_static(run_config, self.git_commit)
     
     def run_experiments(self):
         """Main execution method - run all experiments"""
