@@ -42,6 +42,83 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def run_single_experiment_static(run_config: Dict[str, Any], git_commit: str) -> Dict[str, Any]:
+    """
+    Top-level function to execute a single GA run with given configuration.
+    This function is pickle-safe for multiprocessing on Windows.
+    
+    Args:
+        run_config: Dictionary containing all run parameters
+        git_commit: Git commit hash string
+        
+    Returns:
+        Dictionary with run results
+    """
+    run_id = run_config['run_id']
+    seed = run_config['seed']
+    ga_params = run_config['ga_params']
+    problem_config = run_config['problem_config']
+    timeout = run_config['timeout']
+    
+    # Note: Cannot use class logger here, so we create a local one if needed
+    local_logger = logging.getLogger(__name__)
+    local_logger.info(f"Starting run {run_id} with seed {seed}")
+    
+    try:
+        # Merge GA params into problem config
+        full_config = copy.deepcopy(problem_config)
+        full_config['genetic_algorithm_params'] = ga_params
+        
+        # Run GA with timeout
+        status, result, runtime = run_ga_with_timeout(full_config, seed, timeout)
+        
+        # Extract problem features
+        from timetable_generator import TimetableData
+        data = TimetableData(config_dict=full_config)
+        problem_features = extract_problem_features(data)
+        
+        # Create output row
+        timestamp = datetime.utcnow().isoformat() + 'Z'
+        
+        row = create_row_from_run_result(
+            run_id=run_id,
+            timestamp=timestamp,
+            git_commit=git_commit,
+            seed=seed,
+            problem_features=problem_features,
+            constraint_settings=full_config.get('constraints', {}),
+            ga_params=ga_params,
+            result=result,
+            status=status,
+            runtime=runtime,
+            notes=result.get('error', '') if status != 'success' else ''
+        )
+        
+        # Full solution encoding for raw JSON
+        raw_solution = {
+            'run_id': run_id,
+            'config': full_config,
+            'result': result,
+            'status': status,
+            'runtime': runtime
+        }
+        
+        return {
+            'status': status,
+            'row': row,
+            'raw_solution': raw_solution,
+            'config_used': full_config
+        }
+        
+    except Exception as e:
+        local_logger.error(f"Run {run_id} failed with exception: {e}")
+        return {
+            'status': 'crashed',
+            'row': None,
+            'error': str(e)
+        }
+
+
 class ExperimentRunner:
     """Main experiment runner orchestrating GA executions"""
     
