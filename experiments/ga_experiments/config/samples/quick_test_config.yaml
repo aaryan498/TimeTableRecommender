@@ -1,0 +1,96 @@
+# Quick test configuration for验证 the experiment runner
+# Runs 10-20 quick experiments for validation
+
+experiment_name: "ga_timetable_quick_test"
+description: "Quick validation run with minimal parameters"
+version: "1.0"
+
+run_settings:
+  max_total_runs: 20
+  sampling_mode: "random"
+  random_sample_seed: 42
+  repetitions_per_config: 1
+
+resource_limits:
+  parallel_workers: 2
+  per_run_timeout_seconds: 120  # 2 minutes
+  memory_limit_mb: null
+  retry_on_failure: false
+  max_retries: 0
+  retry_backoff_seconds: 1
+
+output:
+  base_path: "experiments/ga_experiments/output"
+  dataset_name: "ga_quick_test"
+  formats: ["csv"]
+  save_raw_json: true
+  save_configs: true
+
+# Minimal GA parameter ranges for quick testing
+ga_parameters:
+  population_size:
+    type: "discrete"
+    values: [30, 50]
+  
+  mutation_rate:
+    type: "discrete"
+    values: [0.1, 0.2]
+  
+  crossover_rate:
+    type: "discrete"
+    values: [0.7, 0.8]
+  
+  selection_method:
+    type: "discrete"
+    values: ["tournament"]
+  
+  elite_size:
+    type: "discrete"
+    values: [3, 5]
+  
+  elitism_rate:
+    type: "computed"
+  
+  generations:
+    type: "discrete"
+    values: [20, 30]
+  
+  tournament_size:
+    type: "discrete"
+    values: [3]
+  
+  early_stopping_patience:
+    type: "discrete"
+    values: [5]
+
+# Use base config only for quick test
+problem_instance:
+  base_config: "FinalScheduler/corrected_timetable_config.json"
+  
+  variations:
+    use_base_only: true
+    
+    scale_problem:
+      enabled: false
+    
+    randomize_teacher_availability:
+      enabled: false
+    
+    vary_room_capacity:
+      enabled: false
+    
+    add_conflicts:
+      enabled: false
+
+validation:
+  schema_validation: true
+  check_duplicates: true
+  fitness_bounds:
+    min: 0.0
+    max: 1.0
+  max_failure_rate: 0.5
+
+logging:
+  level: "INFO"
+  log_file: "experiments/ga_experiments/quick_test_run.log"
+  console_output: true
